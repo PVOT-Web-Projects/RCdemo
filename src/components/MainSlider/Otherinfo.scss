@@ -1,0 +1,32 @@
+.other-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .animated-text-container {
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .location {
+    color: #d5d5d6; /* Light gray */
+  }
+  
+  .title {
+    margin-top: 0.25rem; /* My-1 */
+    margin-bottom: 0.25rem; /* My-1 */
+    font-size: 2.25rem; /* Text-4xl */
+    font-weight: 600; /* Font-semibold */
+    @media (min-width: 768px) {
+      margin-top: 0.75rem; /* Md:my-3 */
+      margin-bottom: 0.75rem; /* Md:my-3 */
+      font-size: 5rem; /* Md:text-8xl */
+      line-height: 100px; /* Md:leading-[100px] */
+    }
+  }
+  
+  .description {
+    color: #d5d5d6; /* Light gray */
+    font-size: 0.75rem; /* Text-xs */
+  }
+  

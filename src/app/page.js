@@ -24,6 +24,7 @@ import SliderNew from "@/components/SliderNew/SliderNew";
 import TextAnimOne from "@/components/TextAnimOne/page";
 import HomeSlider from "@/components/Homeslider/page";
 import HomeSliderOne from "@/components/HomeSliderOne/page";
+import Mainslider from "@/components/MainSlider/Mainslider"
 
 const HomeBanner = dynamic(() => import("@/components/Home_page_Banner/page"));
 const HomeBanner1 = dynamic(() => import("@/components/Home_page_Banner/page2"));
@@ -65,7 +66,7 @@ export default function Home() {
   return (
     <>
 
-      <AnimatePresence
+      {/* <AnimatePresence
        mode="wait"
        >
         {isLoading &&
@@ -73,7 +74,7 @@ export default function Home() {
             counter={isCounter}
           />
         }
-      </AnimatePresence>
+      </AnimatePresence> */}
       {/* {width && (
         <>
           {width > 575 ? (
@@ -87,7 +88,7 @@ export default function Home() {
       <main className="main">
         {/* <HeroBanner /> */}
         {/* <HomeSlider /> */}
-
+        <Mainslider />
         {/* <TextAnimOne /> */}
         <HeroBanner />
         <HomeSliderOne />

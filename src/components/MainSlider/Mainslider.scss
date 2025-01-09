@@ -1,0 +1,55 @@
+.main-container {
+    position: relative;
+    min-height: 100vh;
+    user-select: none;
+    overflow: hidden;
+    color: white;
+    font-family: 'Righteous', sans-serif;
+    background-color: #000; /* Optional: You can customize background color */
+  }
+  
+  .overlay-container {
+    position: absolute;
+    z-index: 20;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .content-container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    gap: 1.5rem; /* Equivalent to gap-6 */
+    
+    @media (min-width: 768px) {
+      flex-direction: row;
+      gap: 2rem;
+    }
+  }
+  
+  .left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem; /* Equivalent to px-5, py-5 (use flex-end for flexbox centering) */
+    
+    @media (min-width: 768px) {
+      justify-content: center;
+      padding: 2rem; /* Equivalent to md:px-10 */
+    }
+  }
+  
+  .right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem; /* Equivalent to px-4, py-4 */
+    
+    @media (min-width: 768px) {
+      justify-content: center;
+      padding: 2rem; /* Equivalent to md:px-10 */
+    }
+  }
+  

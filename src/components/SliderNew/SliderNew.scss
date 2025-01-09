@@ -13,6 +13,7 @@
   position: relative;
 
   .sliderInner {
+    
     .itemSlider {
       width: 200px;
       height: 300px;
@@ -43,6 +44,7 @@
       .imageWrapper img {
         /* Apply brightness filter to images */
         transition: filter 0.5s ease;
+        filter: brightness(0.5);
       }
       &:nth-child(1),
       &:nth-child(2) {
@@ -51,7 +53,7 @@
         transform: translate(0, -50%);
         border-radius: 0;
         width: 100%;
-        
+        filter: brightness(100%);
         height: 100%;
         
       }

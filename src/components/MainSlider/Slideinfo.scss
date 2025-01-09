@@ -1,0 +1,45 @@
+.indicator {
+    margin-bottom: 0.5rem;
+    height: 1px;
+    width: 1.25rem; /* W-5 */
+    border-radius: 9999px;
+    background-color: white;
+  }
+  
+  .action-buttons {
+    margin-top: 1.25rem; /* Mt-5 */
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .bookmark-button {
+    display: flex;
+    height: 2.5rem; /* 41px */
+    width: 2.5rem; /* 41px */
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #fbbf24; /* Yellow-500 */
+    font-size: 1.25rem; /* Text-xl */
+    transition: opacity 0.3s ease-in-out;
+  
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  
+  .discover-button {
+    padding: 0.75rem 1.5rem; /* Px-6, py-3 */
+    font-size: 0.625rem; /* Text-[10px] */
+    font-weight: 100; /* Font-thin */
+    border: 1px solid rgba(255, 255, 255, 0.56); /* Border-white-8f */
+    border-radius: 9999px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+  }
+  
