@@ -99,9 +99,26 @@ const SwiperCarousel = () => {
   };
 
   // Handle click on an image
-  const handleImageClick = (index) => {
-    setSelectedImage(index); // Update the state with the selected image index
-    setIsCarouselVisible(false); // Hide the carousel when an image is clicked
+  // const handleImageClick = (index) => {
+  //   setSelectedImage(index); // Update the state with the selected image index
+  //   setIsCarouselVisible(false); // Hide the carousel when an image is clicked
+  // };
+  const handleImageClick = (event, index) => {
+    // Get the clicked image directly from the event
+    const clickedImage = event.currentTarget.querySelector(".image");
+    // Remove zoom-effect from all images
+    document.querySelectorAll(".image").forEach((image) => {
+      image.classList.remove("zoom-effect");
+    });
+    // Add zoom-effect to the clicked image
+    if (clickedImage) {
+      clickedImage.classList.add("zoom-effect");
+      // After the animation, update the state
+      setTimeout(() => {
+        setSelectedImage(index); // Update the state with the selected image index
+        setIsCarouselVisible(false); // Hide the carousel
+      }, 500);
+    }
   };
   const imageTexts = [
     "Beautiful Kitchen Design", // Text for Image 1
@@ -161,7 +178,10 @@ const SwiperCarousel = () => {
           >
             {images.map((imageUrl, index) => (
               <SwiperSlide key={index}>
-                <div className="single" onClick={() => handleImageClick(index)}>
+                <div className="single" 
+                // onClick={() => handleImageClick(index)}
+                onClick={(event) => handleImageClick(event, index)} // Pass event and index
+                >
                   <div className="image-container">
                     <img
                       src={imageUrl}

@@ -136,6 +136,14 @@
 .image-container{
   text-align: center;
 }
+.image-container img {
+  transition: transform 0.5s ease-in-out; /* Smooth scaling */
+}
+.image-container img.zoom-effect {
+  transform: scale(1.5); /* Zoom in */
+  opacity: 0; /* Fade out during zoom */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
 .hover-text{
   padding: 10px 0;
   font-size: 22px;
