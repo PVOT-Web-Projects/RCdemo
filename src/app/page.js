@@ -24,7 +24,7 @@ import SliderNew from "@/components/SliderNew/SliderNew";
 import TextAnimOne from "@/components/TextAnimOne/page";
 import HomeSlider from "@/components/Homeslider/page";
 import HomeSliderOne from "@/components/HomeSliderOne/page";
-
+import NewtText from "@/components/newTextAnim/page"
 const HomeBanner = dynamic(() => import("@/components/Home_page_Banner/page"));
 const HomeBanner1 = dynamic(() => import("@/components/Home_page_Banner/page2"));
 export default function Home() {
@@ -65,7 +65,7 @@ export default function Home() {
   return (
     <>
 
-      <AnimatePresence
+      {/* <AnimatePresence
        mode="wait"
        >
         {isLoading &&
@@ -73,7 +73,7 @@ export default function Home() {
             counter={isCounter}
           />
         }
-      </AnimatePresence>
+      </AnimatePresence> */}
       {/* {width && (
         <>
           {width > 575 ? (
@@ -85,11 +85,11 @@ export default function Home() {
       )} */}
       {/* FRAMES ENDED */}
       <main className="main">
-        {/* <HeroBanner /> */}
-        {/* <HomeSlider /> */}
-
-        {/* <TextAnimOne /> */}
         <HeroBanner />
+        {/* <HomeSlider /> */}
+        {/* <NewtText  /> */}
+        {/* <TextAnimOne /> */}
+        {/* <HeroBanner /> */}
         <HomeSliderOne />
         <HomeHeroSection />
         <SliderNew />

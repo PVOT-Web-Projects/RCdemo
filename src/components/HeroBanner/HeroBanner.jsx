@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import banner from "@/images/hero_banner.png"; 
+import Textanim from "@/components/newTextAnim/page"
 import "./heroBanner.scss";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -40,7 +41,8 @@ const HeroBanner = () => {
         <Image src={banner} alt="banner" />
         <div className="banner_text">
           <div className="text_effect">
-            <motion.div
+            <Textanim />
+            {/* <motion.div
               className="card"
               initial={{
                 opacity: 1,
@@ -58,7 +60,7 @@ const HeroBanner = () => {
               <h2>
                 THE <br /> CROWN <br /> EXPERIENCE
               </h2>
-            </motion.div>
+            </motion.div> */}
           </div>
 
           {/* <p>

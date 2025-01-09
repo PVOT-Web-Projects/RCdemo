@@ -1,9 +1,10 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import './TextAnim.scss';  // Assuming styles are in this file
-// import { AnimatePresence, motion } from "framer-motion";
+import './TextAnim.scss';  // Assuming styles are in this
 import { TextEffectOne } from 'react-text-animate'
-
+import TextAnim from "@/components/newTextAnim/page"
+import Image from 'next/image';
+import banner from "@/images/hero_banner.png"; 
 const TextAnimOne = () => {
   const [isVisible, setIsVisible] = useState(true);
   // const text = "Gradual Spacing";
@@ -11,6 +12,7 @@ const TextAnimOne = () => {
   //   hidden: { opacity: 0, x: -20 },
   //   visible: { opacity: 1, x: 0 },
   // };
+ 
   
   const scrollDownByTenPercent = () => {
     const tenPercentOfHeight = window.innerHeight * 1;
@@ -22,6 +24,9 @@ const TextAnimOne = () => {
   };
   return (
     <div className="TextAnimOne">
+      <div className='TextanimeInner'>
+        <Image src={banner} alt="none" />
+      </div>
       {/* <AnimatePresence>
         {text.split("").map((char, i) => (
           <motion.h1
@@ -37,8 +42,9 @@ const TextAnimOne = () => {
           </motion.h1>
         ))}
       </AnimatePresence> */}
-      <TextEffectOne text="ROYAL" style={{fontSize: "200px", textAlign: "center"}}  staggerDuration={0.1 } rotation={-10} fromLast={true} />
-      <TextEffectOne text="CROWN" style={{fontSize: "200px", textAlign: "center"}}  staggerDuration={0.2 } rotation={-10} fromLast={true} />
+  <TextAnim />
+      {/* <TextEffectOne text="ROYAL" style={{fontSize: "200px", textAlign: "center"}}  fromTop={true} animateOnce={true}/>
+      <TextEffectOne text="CROWN" style={{fontSize: "200px", textAlign: "center"}}  fromLast={true} animateOnce={true}/> */}
       <div class="scroll-down-wrap no-border">
         {/* {isVisible && ( */}
           <div className="section-down-arrow" onClick={scrollDownByTenPercent}>
