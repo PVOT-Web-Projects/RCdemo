@@ -1,0 +1,291 @@
+.containerText{
+.carouselOne {
+  overflow-x: clip;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  // padding: 5rem 0;
+}
+// .tilted-text1 {
+//   position: absolute;
+//   // top: 0;
+//   left: 50%;
+//   transform: translateX(-180%) rotate(-10deg);  /* Semi-circular tilt */
+//   font-size: 60px;
+//   font-weight: bold;
+//   text-transform: uppercase;
+//   letter-spacing: 3px;
+//   color: #5b3524;  /* Adjust color as needed */
+//   z-index: 10; /* Ensure it's above the carousel */
+//   white-space: nowrap;
+//   padding: 0 20px;  /* Space around the text */
+  
+// }
+// .tilted-text2 {
+//   position: absolute;
+//   // top: 0;
+//   top: 53pc;
+//   left: 60%;
+//   transform: translateX(-102%) rotate(-6deg);  /* Semi-circular tilt */
+//   font-size: 60px;
+//   font-weight: bold;
+//   text-transform: uppercase;
+//   letter-spacing: 3px;
+//   color: #5b3524;  /* Adjust color as needed */
+//   z-index: 10; /* Ensure it's above the carousel */
+//   white-space: nowrap;
+//   padding: 0 20px;  /* Space around the text */
+// }
+// .tilted-text3 {
+//   position: absolute;
+//   // top: 0;
+//   left: 70%;
+//   top: 51pc;
+//   transform: translateX(-60%) rotate(-3deg);  /* Semi-circular tilt */
+//   font-size: 60px;
+//   font-weight: bold;
+//   text-transform: uppercase;
+//   letter-spacing: 3px;
+//   color: #5b3524;  /* Adjust color as needed */
+//   z-index: 10; /* Ensure it's above the carousel */
+//   white-space: nowrap;
+//    padding: 0 20px;  /* Space around the text */
+// }
+// .tilted-text4 {
+//   position: absolute;
+//   // top: 0;
+//   left: 80%;
+//   transform: translateX(-50%) rotate(-20deg);  /* Semi-circular tilt */
+//   font-size: 60px;
+//   font-weight: bold;
+//   text-transform: uppercase;
+//   letter-spacing: 3px;
+//   color: #5b3524;  /* Adjust color as needed */
+//   z-index: 10; /* Ensure it's above the carousel */
+//   white-space: nowrap;
+//   padding: 0 20px;  /* Space around the text */
+// }
+.swiper {
+  padding: 5rem 0 5rem;
+  overflow: visible;
+  // margin: 0 40px;
+  @media(max-width: 1200px){
+    padding: 5rem 0 3rem;
+  }
+}
+
+.swiper-slide {
+  // flex-shrink: 0;
+  width: 400px;
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth sliding transition */
+}
+
+.single {
+  position: relative;
+  // pointer-events: none;
+  // user-select: none;
+  cursor: pointer;
+  will-change: transform;
+  // transition: transform 0.1s ease-in; /* Smooth transition for any transformation */
+  // box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+  //             rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+  //             rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.single img {
+  width: 400px;
+  height: 500px;
+  vertical-align: top;
+  border-radius: 8px;
+  pointer-events: none;
+  object-fit: cover;
+  // transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+
+  /* Zoom effect */
+  // &.zoomed {
+  //   transform: scale(1.5); /* Adjust scale value for the zoom effect */
+  //   z-index: 10; /* Ensure zoomed image is on top */
+  // }
+  @media (min-width: 1550px) {
+    width: 400px;
+  }
+  @media (max-width: 1440px) {
+    width: 350px;
+  }
+  @media (max-width: 1300px) {
+    width: 300px;
+    height: 400px;
+  }
+  @media (max-width: 1100px) {
+    width: 250px;
+    height: 300px;
+  }
+  @media(max-width: 940px){
+    width: 330px;
+        height: 430px;
+  }
+  @media(max-width: 740px){
+    width: 290px;
+        height: 430px;
+  }
+  @media(max-width: 666px){
+    width: 250px;
+        height: 330px;
+  }
+}
+
+.image-container{
+  text-align: center;
+}
+.hover-text{
+  padding: 10px 0;
+  font-size: 22px;
+}
+// .hover-overlay {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   text-align: center;
+//   font-size: 24px; /* Adjust font size */
+//   color: rgba(255, 255, 255, 0); /* Initially hidden "Explore" text */
+//   font-weight: bold;
+//   transition: color 0.3s ease;
+// }
+
+
+// .single:hover .hover-overlay {
+//   color: #5b3524; /* Show "Explore" text on hover */
+// }
+.swiper-button {
+  position: relative;
+  overflow: hidden;
+  height: 3rem;
+  padding: 0 3rem;
+  background-color: transparent;
+  border: 1px solid #5B3524;
+  border-radius: 5px;
+  text-transform: uppercase;
+  background-size: 400%;
+  color: #5B3524;
+  font-size: 18px;
+  line-height: 16px; 
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  width: fit-content;
+  .button-content-explore {
+    font-size: 25px;
+    font-weight: 550;
+    position: relative;
+    z-index: 1;
+    transition: color 0.475s;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    width: 100%;
+    height: inherit;
+    border-radius: inherit;
+    background: #5b3524;
+    transition: all 0.475s;
+  }
+  &:hover {
+    .button-content-explore {
+      color: white;
+    }
+    &::before {
+      transform: scaleX(1);
+      border-radius: inherit;
+      
+    }
+  }
+}
+.swiper-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  // @media (max-width: 575px) {
+  //   flex-direction: column;
+  // }
+}
+.Img1Ref{
+  width: 100vw;
+  height: auto;
+}
+/* Optionally add transition for smoother switching */
+.carouselOne,
+.homePageBanner {
+  /* Set an initial transition for smooth fade in/out */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  visibility: visible;
+  opacity: 1;
+}
+
+.carouselOne.hidden,
+.homePageBanner.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.explore-button-container {
+  text-align: center;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  .explore-button {
+    position: relative;
+    overflow: hidden;
+    height: 3rem;
+    padding: 0 3rem;
+    background-color: transparent;
+    border: 1px solid #5B3524;
+    border-radius: 5px;
+    text-transform: uppercase;
+    background-size: 400%;
+    color: #5B3524;
+    font-size: 18px;
+    line-height: 16px; 
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    width: fit-content;
+    .button-content-explore {
+      font-size: 25px;
+      font-weight: 550;
+      position: relative;
+      z-index: 1;
+      transition: color 0.475s;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: 0 50%;
+      width: 100%;
+      height: inherit;
+      border-radius: inherit;
+      background: #5b3524;
+      transition: all 0.475s;
+    }
+    &:hover {
+      .button-content-explore {
+        color: white;
+      }
+      &::before {
+        transform: scaleX(1);
+        border-radius: inherit;
+        
+      }
+    }
+  }
+}
+}
+

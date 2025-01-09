@@ -1,0 +1,367 @@
+// HEADER
+.productCategoryHeader {
+  padding: 0px 0;
+  .productCategoryHeaderInner {
+    background: url("../../../images/dwg_room1.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 90vh;
+    display: flex;
+    align-items: flex-end;
+    background-size: cover;
+    color: white;
+
+    .productCategoryHeaderText {
+      display: flex;
+      margin-right: auto;
+      margin-left: auto;
+      position: relative;
+      text-transform: uppercase;  
+      letter-spacing: 2px;
+      margin: 0px 0px 50px 0px;
+      padding: 20px 0px 20px 60px;
+
+      @media (max-width: 375px) {
+        padding: 20px 0 20px 40px;
+      }
+
+      .productCategoryHeaderTextInnner {
+        font-family: "made_mirage_bold";
+        font-size: 30px;
+      }
+    }
+  }
+}
+// eLECTORSTATIC TO THCIKNESS
+.laminatesHero {
+  display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // flex-direction: column;
+  padding: 40px 70px;
+  overflow: hidden;
+
+  @media (max-width: 575px) {
+    padding: 40px 30px;
+  }
+
+  @media (max-width: 375px) {
+    padding: 80px 20px;
+  }
+
+  .laminatesWrapper {
+    .laminatesHeader {
+      text-transform: uppercase;
+      font-size: 35px;
+      // font-family: "made_mirage_bold";
+    }
+
+    .laminatesBody {
+      .laminateBodyDescription {
+        margin: 30px 0;
+        font-size: 21px;
+        display: flex;
+        // width: 50%;
+        @media(max-width: 991px){
+          gap: 1rem;
+          flex-direction: column;
+        }
+      }
+      .laminateBodyDescriptionOuter{
+        width: 70%;
+        p{
+          width: 85%;
+          @media(max-width: 991px){
+            width: 100%;
+          }
+        }
+        @media(max-width: 991px){
+          width: 100%;
+        }
+        .laminateBodyDescriptionOne{
+          padding-top: 15px;
+        }
+      }
+     
+
+      .laminatesBoxOuter {
+        .laminatesBoxInner {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+
+          @media (max-width: 991px) {
+            flex-direction: column;
+            gap: 0rem;
+          }
+
+          .laminatesBox1 {
+            background-color: #edd7c2;
+            padding: 25px 80px 25px 80px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 1rem;
+            flex-direction: column;
+            margin-bottom: 15px;
+            @media(max-width: 768px){
+              padding: 25px 50px 25px 50px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.laminateIconImage {
+  height: 50px;
+  width: 50px;
+}
+
+.laminatesBoxHeader {
+  font-size: 21px;
+}
+// Construct Images
+.product_construct_wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0 70px;
+
+  @media (max-width: 575px) {
+    padding: 0 30px;
+  }
+
+  @media (max-width: 375px) {
+    padding: 80px 20px;
+  }
+
+  .product_construct_header {
+    font-size: 35px;
+    margin: 30px 0;
+  }
+
+  .product_construct_image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+// specs
+.product_construct_wrapper1 {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 70px 0;
+
+  @media (max-width: 575px) {
+    padding: 0 30px;
+  }
+
+  @media (max-width: 375px) {
+    padding: 80px 20px;
+  }
+
+  .product_construct_header1 {
+    font-size: 35px;
+    margin: 30px 0;
+  }
+  .corporateRecognitionCardImageInner{
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    color: #5B3524;
+    font-size: 20px;
+    gap: 5px;
+    .corporateRecognitionCardImg{
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    p{
+      color: #5B3524;
+    }
+  }
+
+  .product_construct_image1 {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+// features
+.productFeaturesWrapper {
+  padding: 100px 70px;
+
+  @media (max-width: 575px) {
+    padding: 80px 30px;
+  }
+
+  @media (max-width: 375px) {
+    padding: 80px 20px;
+  }
+
+  .productFeaturesInner {
+    .productFeaturesHeader {
+      text-align: center;
+      font-size: 35px;
+      padding: 40px 0;
+    }
+
+    .productFeaturesContainer {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      justify-content: space-between;
+      align-items: center;
+      row-gap: 40px;
+
+      @media (max-width: 991px) {
+        flex-direction: column;
+        align-items: center; // Center items when in column layout
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+
+      @media (max-width: 575px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      // @media (max-width: 475px) {
+      //   grid-template-columns: repeat(1, 1fr);
+      // }
+
+      .productFeaturesContainerInner {
+       
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center; // Center items horizontally
+        text-align: center;
+        gap: 1rem;
+        height: -webkit-fill-available;
+        width: 100%; // Ensure the container uses full width for better centering
+
+        .productImage {
+          display: flex;
+          justify-content: center; // Center image horizontally
+          align-items: center; // Center image vertically if needed
+          width: 100%; // Ensure it takes full width of the container
+        }
+
+        .productFeatureImage {
+          // max-width: 100%;
+          width: 100px;
+          height: 100px;
+          height: auto;
+          mix-blend-mode: multiply;
+          transition: all 0.5s ease;
+          &:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+          }
+        }
+
+        .productDescription {
+          display: flex;
+          justify-content: center; // Center description horizontally
+        }
+      }
+    }
+  }
+}
+//   application
+.productApplicationContainer {
+  background-color: #d5ad86;
+  padding: 80px 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @media (max-width: 575px) {
+    padding: 50px 30px;
+  }
+
+  @media (max-width: 375px) {
+    padding: 80px 20px;
+  }
+
+  .productApplicationHeader {
+    font-size: 35px;
+    div{
+      font-family: "made_mirage_regular";
+    }
+  }
+
+  .productApplicationSection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10rem;
+    @media(max-width: 1400px){
+      gap: 10rem;
+    }
+
+    @media (max-width: 1024px) {
+      gap: 0;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .productApplicationSection1Inner_Main {
+      display: flex;
+      gap: 3rem;
+      margin: 20px 0;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 1rem;
+        margin: 15px 0;
+      }
+    }
+
+    .productApplicationSection2Inner_Main {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin: 20px 0;
+
+      @media (max-width: 375px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  }
+}
+
+.applicationSection1Inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.applicationSection1InnerPdf{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 5px 0;
+}
+.applicationSection1InnerPdfInner{
+  // font-weight: 800;
+  font-size: 18px;
+  color: #5B3524;
+}
+.TechnicalSpecsHeader{
+  // margin-top: -70px;
+  background-color: #edd7c2;
+  text-align: center;
+  // margin: 0 auto;
+  font-size: 35px;
+  @media(max-width: 800px){
+    margin: 0;
+  }
+}
+.productApplicationSection1Header {
+  font-family: "made_mirage_regular";
+  font-size: 21px;
+}

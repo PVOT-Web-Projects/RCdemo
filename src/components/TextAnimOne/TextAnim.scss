@@ -1,0 +1,124 @@
+.content {
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	position: relative;
+	padding: var(--page-padding);
+}
+.TextAnimOne{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+.content:last-child {
+	padding-bottom: 40vh;
+}
+
+.content--full {
+	padding: 0;
+}
+
+.content p {
+	max-width: 660px;
+	margin: 1.5rem auto;
+	font-size: 1.25rem;
+	line-height: 1.5;
+	font-weight: 600;
+}
+
+.content--highlight p {
+	font-size: clamp(1rem,3vw,2rem);
+}
+
+.content__title {
+	font-size: 12vw;
+	line-height: 0.8;
+	counter-increment: section;
+	text-align: center;
+	display: grid;
+	gap: 2rem;
+}
+
+.content__title--left {
+	text-align: left;
+}
+
+.content__title--right {
+	text-align: right;
+}
+
+.content__title::before {
+	content: '.'counter(section);
+	font-weight: 400;
+	font-family: area-normal, sans-serif;
+	display: block;
+	font-size: 1rem;
+	margin-bottom: 10vh;
+	text-align: center;
+}
+
+.content__title--sides {
+	display: grid;
+	grid-template-rows: auto auto;
+	grid-template-columns: 100%;
+	text-align: left;
+	gap: 2rem;
+}
+
+.content__title--sides span:last-child {
+	justify-self: end;
+}
+
+
+.font-19 {
+	font-weight: initial;
+	font-family: "nagel-variable", sans-serif;
+	font-variation-settings: "slnt" 0, "wght" 610;
+}
+
+
+
+.font-23 {
+	font-family: "arsenica-variable", sans-serif;
+	font-variation-settings: "opsz" 1000, "wght" 300;
+}
+
+.font-height {
+	line-height: 1.4;
+}
+
+.font-height-medium {
+	line-height: 0.9;
+}
+
+.font-medium {
+	font-size: 6vw;
+	margin-top: 3rem;
+}
+
+.font-larger {
+	font-size: 27vw;
+}
+
+.font-upper {
+	text-transform: uppercase;
+}
+
+.font-sub {
+	font-size: 5vw;
+	margin-top: 2rem;
+    display: block;
+}
+
+.splitting .font-sub .word {
+	display: grid;
+	grid-auto-flow: column;
+}
+
+.char-wrap {
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+}
