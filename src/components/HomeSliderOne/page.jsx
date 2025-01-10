@@ -213,12 +213,12 @@ const SwiperCarousel = () => {
 
       {!isCarouselVisible && (
         <div className="explore-button-container">
-          <button onClick={handleExploreClick} className="explore-button">
+          <div onClick={handleExploreClick} scroll={false} className="explore-button">
             <span className="button-content-explore">Explore More</span>
-          </button>
+          </div>
         </div>
       )}
-
+ 
       {/* Manual navigation buttons only when carousel is visible */}
       {/* {selectedImage === null && ( */}
       {isCarouselVisible && (
