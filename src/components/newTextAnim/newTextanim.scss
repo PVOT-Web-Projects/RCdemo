@@ -1,11 +1,20 @@
-.TextAnimFirst{
-    font-size: 100px;
-    .TextAnimSec{
-
-    }
+.TextAnimFirst {
+  font-size: 50px;
+  @media (max-width: 768px) {
+    font-size: 10px;
+  }
+  .TextAnimSec {
+  }
 }
-.word-wrapper{
-    font-size: 200px;
+.word-wrapper {
+  font-size: 200px;
   line-height: 160px;
   font-family: "made_mirage_thin";
+  @media (max-width: 1024px) {
+    font-size: 180px;
+  }
+  @media (max-width: 768px) {
+    font-size: 150px;
+    line-height: 140px;
+  }
 }

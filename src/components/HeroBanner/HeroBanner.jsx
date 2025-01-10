@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const HeroBanner = () => {
-  const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState(0); 
   console.log("width", width);
 
   useEffect(() => {
@@ -67,10 +67,32 @@ const HeroBanner = () => {
             Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum
             dolor Lorem ipsum dolor Lorem ipsum dolor
           </p> */}
-          <div className="link">
+          {/* <div className="link">
             <div className="linkInner" onClick={scrollDownByTenPercent} >Let's Start</div>
-          </div>
+          </div> */}
+          
         </div>
+        <div class="scroll-down-wrap no-border">
+        {/* {isVisible && ( */}
+          <div className="section-down-arrow" onClick={scrollDownByTenPercent}>
+            <svg
+              class="nectar-scroll-icon"
+              viewBox="0 0 30 45"
+              enableBackground="new 0 0 30 45"
+            >
+              <path
+                class="nectar-scroll-icon-path"
+                fill="none"
+                stroke="#ffffff"
+                strokeWidth="2"
+                strokeMiterlimit="10"
+                d="M15,1.118c12.352,0,13.967,12.88,13.967,12.88v18.76  c0,0-1.514,11.204-13.967,11.204S0.931,32.966,0.931,32.966V14.05C0.931,14.05,2.648,1.118,15,1.118z"
+              ></path>
+            </svg>
+            <div className="scroll">Scroll to explore</div>
+          </div>
+        {/* )} */}
+      </div>
       </div>
     </div>
   );
