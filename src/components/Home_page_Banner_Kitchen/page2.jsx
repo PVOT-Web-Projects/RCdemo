@@ -6,7 +6,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { motion, useAnimation } from "framer-motion";
 // import HeadingTextAnimation from "@/components/AnimatedText/HeadingTextAnimation";
 import { useInView } from "react-intersection-observer";
-import "@/components/Home_page_Banner/Banner.module.scss";
+import "@/components/Home_page_Banner_Kitchen/BannerKitchen.module.scss";
 import "./scroll.css";
 gsap.registerPlugin(ScrollTrigger);
 

@@ -6,7 +6,7 @@ import Lenis from "@studio-freight/lenis"; // Import Lenis
 import { motion, useAnimation } from "framer-motion";
 import HeadingTextAnimation from "@/components/AnimatedText/HeadingTextAnimation";
 import { useInView } from "react-intersection-observer";
-import styles from "@/components/Home_page_Banner/Banner.module.scss";
+import styles from "@/components/Home_page_Banner_Kitchen/BannerKitchen.module.scss";
 import "./scroll.css";
 gsap.registerPlugin(ScrollTrigger);
 
@@ -227,7 +227,7 @@ const Animation = ({ loadImage, counter }) => {
         canvas.width,
         canvas.height
       );
-    }
+       }
 
     return () => {
       window.removeEventListener("resize", setCanvasSize);
@@ -256,6 +256,7 @@ const Animation = ({ loadImage, counter }) => {
       const totalScroll = documentHeight - windowHeight;
       const currentScrollPercentage = (scrollPosition / totalScroll) * 100;
       setScrollPercentage(currentScrollPercentage);
+      
     };
 
     window.addEventListener("scroll", updateScrollPercentage);
@@ -326,7 +327,6 @@ const Animation = ({ loadImage, counter }) => {
           ref={canvasRef}
           style={{
             width: "100%",
-            height: "100vh",
             willChange: "transform", // Hint the browser for optimization
           }}
         ></canvas>
@@ -346,14 +346,14 @@ const Animation = ({ loadImage, counter }) => {
           heading={"Our Innovation."}
           justifyContent={"center"}
         />
-      </motion.div> */}
+      </motion.div>
 
-      {/* <motion.div
+      <motion.div
         ref={ref}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         transition={{ duration: 0.9 }}
-        className={styles.interiormaata}
+        // className={styles.interiormaata}
       >
         <HeadingTextAnimation
           heading={"interior माता"}
@@ -395,7 +395,7 @@ const Animation = ({ loadImage, counter }) => {
       </video> */}
 
       {/* <MusicPlayer /> */}
-      {/* {scrollPercentage >= 45 && (
+      {scrollPercentage >= 1 && (
         <div className={styles.buttonOuter} ref={buttonRef}>
           <motion.button
             className={styles.buttonX}
@@ -428,12 +428,13 @@ const Animation = ({ loadImage, counter }) => {
             }
             variants={buttonVariants}
           >
-            <a href="tel:+917404040286" className={styles.textX}>
-              Contact Us | +917404040286
-            </a>
+            <div className={styles.textX}>
+              <p>YOUR IMAGINATION</p>
+              <p>OUR INNOVATIONS</p>
+            </div>
           </motion.button>
         </div>
-      )} */}
+      )}
     </section>
   );
 };

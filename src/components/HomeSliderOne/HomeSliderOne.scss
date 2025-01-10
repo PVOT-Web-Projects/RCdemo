@@ -1,4 +1,5 @@
 .containerText{
+  text-align: center;
 .carouselOne {
   overflow-x: clip;
   margin-top: 50px;
@@ -98,6 +99,8 @@
   border-radius: 8px;
   pointer-events: none;
   object-fit: cover;
+  transition: transform 0.3s ease-in-out; /* Smooth transition for scaling */
+  will-change: transform;
   // transition: transform 0.3s ease; /* Smooth transition for zoom effect */
 
   /* Zoom effect */
@@ -135,19 +138,100 @@
 
 .image-container{
   text-align: center;
+  position: relative;
+
 }
 .image-container img {
-  transition: transform 0.5s ease-in-out; /* Smooth scaling */
+  transition: all 0.5s ease-in-out; /* Smooth scaling */
+}
+.hover-text1{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 0;
+  font-size: 22px;
+  text-align: center;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 10px 1rem;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Add transition for smooth fade-in/out */
+  visibility: hidden; /* Ensure it's not visible when opacity is 0 */
+
+}
+.single:hover .hover-text1 {
+  opacity: 1; /* Make "Explore" visible */
+  visibility: visible;
+}
+.single:hover img {
+  transform: scale(1.05); /* Zoom in */
+  filter: brightness(0.5);
+}
+/* Add the click (active) burst effect */
+.single:active img {
+  animation: burstAnimation 0.5s ease-out; /* Trigger animation on click */
+  transform: scale(1.1); /* Initial expansion */
+}
+
+/* Define the animation for expanding and contracting */
+@keyframes burstAnimation {
+  0% {
+    transform: scale(1); /* Start at normal size */
+  }
+  50% {
+    transform: scale(1.2); /* Expand to 1.2x size */
+  }
+  100% {
+    transform: scale(1); /* Return to normal size */
+  }
 }
 .image-container img.zoom-effect {
   transform: scale(1.5); /* Zoom in */
   opacity: 0; /* Fade out during zoom */
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
-.hover-text{
+// .hover-text{
+//   padding: 10px 0;
+//   font-size: 22px;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   text-align: center;
+//   color: #fff;
+//   font-weight: bold;
+//   transition: color 0.3s ease;
+
+
+// }
+.hover-text {
+  position: absolute;
+  bottom: 0; /* Position text at the bottom of the image */
+  left: 20%;
+  transform: translateX(-50%); /* Center text horizontally */
   padding: 10px 0;
   font-size: 22px;
+  text-align: center;
+  color: #fff;
+  border-radius: 10px;
+  background-color: #5B3524;
+  width: 60%;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  transform: translateY(100%); /* Start with text below the image */
 }
+
+.single:hover .hover-text {
+  opacity: 1; /* Make text visible */
+  transform: translateY(0); /* Move text into view */
+}
+
+// .image-container img.zoom-effect {
+//   transform: scale(1.1); /* Zoom in the image slightly */
+//   transition: transform 0.3s ease-in-out; /* Zoom effect */
+// }
 // .hover-overlay {
 //   position: absolute;
 //   top: 50%;

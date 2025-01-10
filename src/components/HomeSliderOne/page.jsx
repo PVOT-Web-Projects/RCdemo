@@ -193,9 +193,11 @@ const SwiperCarousel = () => {
                         {imageTexts[index]}
                       </span>{" "}
                     </div>
-                    {/* <div className="hover-overlay">
-                      <span className="hover-overlay-text">Explore</span>
-                    </div> */}
+                    <div className="hover-text1">
+                      <span className="hovertextInner">
+                       Explore More
+                      </span>{" "}
+                    </div>
                   </div>
                 </div>
               </SwiperSlide>
