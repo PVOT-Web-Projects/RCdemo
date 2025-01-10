@@ -55,7 +55,7 @@ const Category = () => {
     const startTimer = () => {
       timerRef.current = setInterval(() => {
         handleNext(); // Same animation logic for automatic transitions
-      }, 5000);
+      }, 10000);
     };
 
     startTimer();

@@ -43,6 +43,7 @@
       .imageWrapper img {
         /* Apply brightness filter to images */
         transition: filter 0.5s ease;
+        filter: brightness(0.5);
       }
       &:nth-child(1),
       &:nth-child(2) {
@@ -198,16 +199,19 @@
     width: 100%;
     text-align: center;
     position: absolute;
-    bottom: 50px;
+    // bottom: 50px;
+    left: 5%;
+    bottom: 200px;
 
     button {
-      width: 40px;
-      height: 40px;
+      width: 45px;
+      height: 45px;
       border-radius: 60px;
       border: none;
       cursor: pointer;
       margin: 0 5px;
       border: 1px solid #5b3524;
+      background-color: transparent;
       transition: 0.3s;
 
       &:hover {
