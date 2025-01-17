@@ -26,6 +26,7 @@ import HomeSlider from "@/components/Homeslider/page";
 import HomeSliderOne from "@/components/HomeSliderOne/page";
 import NewtText from "@/components/newTextAnim/page"
 import Text from "@/components/TextCircular/textcircular"
+import CenteredCard from "@/components/centeredCards/page";
 const HomeBanner = dynamic(() => import("@/components/Home_page_Banner/page"));
 const HomeBanner1 = dynamic(() => import("@/components/Home_page_Banner/page2"));
 export default function Home() {
@@ -87,7 +88,8 @@ export default function Home() {
       {/* FRAMES ENDED */}
       <main className="main">
         <HeroBanner />
-        <Text />
+        {/* <Text /> */}
+        {/* <CenteredCard /> */}
         {/* <HomeSlider /> */}
         {/* <NewtText  /> */}
         {/* <TextAnimOne /> */}

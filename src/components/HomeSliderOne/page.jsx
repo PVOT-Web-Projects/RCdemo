@@ -24,7 +24,10 @@ const SwiperCarousel = () => {
   const swiperRef = useRef(null); // Use useRef to reference Swiper
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null); // Track the clicked image
-  const [isCarouselVisible, setIsCarouselVisible] = useState(true); // Controls carousel visibility
+  // const [isCarouselVisible, setIsCarouselVisible] = useState(true); // Controls carousel visibility
+  const [isCarouselVisible, setIsCarouselVisible] = useState(false); // Initially hide the carousel
+  const [isCardVisible, setIsCardVisible] = useState(true); // Initially show the card
+  const [isContainerTextVisible, setIsContainerTextVisible] = useState(true);
 
   // Array of custom image URLs
   const images = [
@@ -64,7 +67,22 @@ const SwiperCarousel = () => {
   useEffect(() => {
     raf();
   }, [isTransitioning]);
+const svgRef = useRef(null);
 
+  useEffect(() => {
+
+    const updateTextPath = () => {
+      if (svgRef.current) {
+        const width = Math.min(window.innerWidth, 800);
+        const height = width * 0.5;
+        svgRef.current.setAttribute('viewBox', `0 0 ${width} ${height}`);
+      }
+    };
+
+    updateTextPath();
+    window.addEventListener('resize', updateTextPath);
+    return () => window.removeEventListener('resize', updateTextPath);
+  }, []);
   // Auto-slide functionality: Move to the next slide every 3 seconds
   // useEffect(() => {
   //   const intervalId = setInterval(() => {
@@ -117,6 +135,7 @@ const SwiperCarousel = () => {
       setTimeout(() => {
         setSelectedImage(index); // Update the state with the selected image index
         setIsCarouselVisible(false); // Hide the carousel
+        setIsContainerTextVisible(false); // Hide the containerText
       }, 500);
     }
   };
@@ -138,26 +157,66 @@ const SwiperCarousel = () => {
         return <Page4 />;
       // case 4: return <Page5 />;
       default:
-        return <p>Select an image to view more details.</p>;
+        return <p></p>;
     }
   };
   // Handle Explore button click to show the carousel again
   const handleExploreClick = () => {
     setSelectedImage(null); // Reset selected image
     setIsCarouselVisible(true); // Show the carousel
+    setIsCardVisible(false); // Hide the card
+    setIsContainerTextVisible(true); // Show the containerText
     // window.scrollTo(0, 0); // Prevent page scroll down
     // Scroll to a position 120vh (or any other value) down the page
     window.scrollTo({
-      top: window.innerHeight + 20, // Scroll to 120vh (can adjust by adding offset if needed)
+      top: window.innerHeight + 25, // Scroll to 120vh (can adjust by adding offset if needed)
       // behavior: "smooth",
     });
   };
 
   return (
     <div className="containerText">
-      {/* <div>
-      <Image src={Img1} alt="none" className="Img1Ref"/>
-      </div> */}
+      <div className={`curved-text-container ${isContainerTextVisible ? "" : "hidden"}`}>
+      <svg
+        ref={svgRef}
+        width="100%"
+        height="100%"
+        viewBox="0 0 800 400"
+      >
+        <defs>
+          <path
+            id="curve"
+            d="M 50 350 Q 400 50 750 350"
+            fill="transparent"
+          />
+        </defs>
+        <text>
+          <textPath
+            href="#curve"
+            startOffset="50%"
+            textAnchor="middle"
+          >
+            WHERE ELEGANCE MEETS DESIRE
+          </textPath>
+        </text>
+      </svg>
+    </div>
+      {isCardVisible && (
+        <div className={`card-containerOne ${isCardVisible ? "visible" : ""}`}
+        >
+          <div className="cardOOne"  onClick={handleExploreClick}>
+            <div className="imgBx">
+              <img
+                src="https://images.unsplash.com/photo-1556911220-bff31c812dba?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbnxlbnwwfHwwfHx8MA%3D%3D"
+                alt="Person"
+              />
+            </div>
+            <div className="details">
+              <p>OPEN NOW</p>
+            </div>
+          </div>
+        </div>
+      )}
       {isCarouselVisible ? (
         <div className={`carouselOne ${isCarouselVisible ? "" : "hidden"}`}>
           <Swiper
@@ -178,25 +237,24 @@ const SwiperCarousel = () => {
           >
             {images.map((imageUrl, index) => (
               <SwiperSlide key={index}>
-                <div className="single" 
-                // onClick={() => handleImageClick(index)}
-                onClick={(event) => handleImageClick(event, index)} // Pass event and index
+                <div
+                  className="single"
+                  // onClick={() => handleImageClick(index)}
+                  onClick={(event) => handleImageClick(event, index)} // Pass event and index
                 >
                   <div className="image-container">
                     <img
                       src={imageUrl}
                       alt={`Random Image ${index + 1}`}
                       className="image"
-                     />
+                    />
                     <div className="hover-text">
                       <span className="hovertextInner">
                         {imageTexts[index]}
                       </span>{" "}
                     </div>
                     <div className="hover-text1">
-                      <span className="hovertextInner">
-                       Explore More
-                      </span>{" "}
+                      <span className="hovertextInner">Explore More</span>{" "}
                     </div>
                   </div>
                 </div>
@@ -211,24 +269,29 @@ const SwiperCarousel = () => {
         </div>
       )}
 
-      {!isCarouselVisible && (
+      {/* {!isCarouselVisible && ( */}
+      {!isCardVisible && !isCarouselVisible && (
         <div className="explore-button-container">
-          <div onClick={handleExploreClick} scroll={false} className="explore-button">
+          <div
+            onClick={handleExploreClick}
+            scroll={false}
+            className="explore-button"
+          >
             <span className="button-content-explore">Explore More</span>
           </div>
         </div>
       )}
- 
+
       {/* Manual navigation buttons only when carousel is visible */}
       {/* {selectedImage === null && ( */}
       {isCarouselVisible && (
         <div className="swiper-buttons">
           <button onClick={goToPrevSlide} className="swiper-button">
-          <span className="button-content-explore">Prev</span>
+            <span className="button-content-explore">Prev</span>
             {/* Prev */}
           </button>
           <button onClick={goToNextSlide} className="swiper-button">
-          <span className="button-content-explore">Next</span>
+            <span className="button-content-explore">Next</span>
             {/* Next */}
           </button>
         </div>
