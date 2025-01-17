@@ -25,6 +25,7 @@ import TextAnimOne from "@/components/TextAnimOne/page";
 import HomeSlider from "@/components/Homeslider/page";
 import HomeSliderOne from "@/components/HomeSliderOne/page";
 import NewtText from "@/components/newTextAnim/page"
+import Text from "@/components/TextCircular/textcircular"
 const HomeBanner = dynamic(() => import("@/components/Home_page_Banner/page"));
 const HomeBanner1 = dynamic(() => import("@/components/Home_page_Banner/page2"));
 export default function Home() {
@@ -86,6 +87,7 @@ export default function Home() {
       {/* FRAMES ENDED */}
       <main className="main">
         <HeroBanner />
+        <Text />
         {/* <HomeSlider /> */}
         {/* <NewtText  /> */}
         {/* <TextAnimOne /> */}
