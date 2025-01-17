@@ -1,11 +1,13 @@
-.containerText{
+.containerText {
   text-align: center;
   .card-containerOne {
+    background-color: #5b3524;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-bottom: 100px;
     margin-top: -200px;
-    @media(max-width: 1199px){
+    @media (max-width: 1199px) {
       margin-top: -150px;
     }
     // margin-bottom: 300px;
@@ -18,105 +20,116 @@
       visibility: visible;
       // transform: scale(1); // Zoom-in effect
     }
-    
+
     .cardOOne {
-        position: relative;
-        width: 400px;
-        height: 500px;
+      position: relative;
+      width: 400px;
+      height: 500px;
+      background: #fff;
+      border-radius: 28px;
+      cursor: pointer;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 75%;
+        height: 75%;
+        border-radius: 28px;
         background: #fff;
-        border-radius: 4px;
-        cursor: pointer;
-      
-        &:before{
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          border-radius: 4px;
-          background: #fff;
-          transition: 0.5s;
-          z-index: -1;
+        background-image: url(https://images.unsplash.com/photo-1556911220-bff31c812dba?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbnxlbnwwfHwwfHx8MA%3D%3D);
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: 0.5s;
+        // z-index: -1;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 80%;
+        height: 80%;
+        border-radius: 28px;
+        background: #fff;
+        background-image: url(https://images.unsplash.com/photo-1556911220-bff31c812dba?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbnxlbnwwfHwwfHx8MA%3D%3D);
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: 0.5s;
+        // z-index: -1;
+      }
+
+      &:hover {
+        &:before {
+          transform: rotate(20deg);
+          left: 200px;
+          top: 38px;
         }
+
         &:after {
-          content: "";
+          transform: rotate(-30deg);
+          left: -150px;
+          top: 60px;
+        }
+
+        // .imgBx {
+        //   bottom: 80px;
+        // }
+      }
+
+      .imgBx {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+        transition: 0.5s;
+        z-index: 1;
+
+        img {
           position: absolute;
           top: 0;
           left: 0;
           width: 100%;
+          border-radius: 28px;
           height: 100%;
-          border-radius: 4px;
-          background: #fff;
-          transition: 0.5s;
-          z-index: -1;
-        }
-      
-        &:hover {
-          &:before {
-            transform: rotate(20deg);
-            left: 60px;
-          }
-      
-          &:after {
-            transform: rotate(-10deg);
-            left: -50px;
-          }
-      
-          .imgBx {
-            bottom: 80px;
-          }
-        }
-      
-        .imgBx {
-          position: absolute;
-          top: 10px;
-          left: 10px;
-          bottom: 10px;
-          right: 10px;
-          transition: 0.5s;
-          z-index: 1;
-      
-          img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-        }
-      
-        .details {
-          position: absolute;
-          left: 10px;
-          right: 10px;
-          bottom: 10px;
-          height: 60px;
-          cursor: pointer;
-          text-align: center;
-      
-          p {
-            margin: 0;
-            padding: 0;
-            font-weight: 600;
-            font-size: 20px;
-            color: #5b3524;
-            text-transform: uppercase;
-      
-            // span {
-            //   font-weight: 500;
-            //   font-size: 16px;
-            //   color: #f38695;
-            //   display: block;
-            //   margin-top: 5px;
-            // }
-          }
+          object-fit: cover;
         }
       }
+
+      .details {
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        height: 60px;
+        cursor: pointer;
+        text-align: center;
+
+        p {
+          margin: 0;
+          padding: 0;
+          font-weight: 600;
+          font-size: 20px;
+          color: #5b3524;
+          text-transform: uppercase;
+
+          // span {
+          //   font-weight: 500;
+          //   font-size: 16px;
+          //   color: #f38695;
+          //   display: block;
+          //   margin-top: 5px;
+          // }
+        }
+      }
+    }
   }
   .curved-text-container {
     width: 100%;
+    background-color: #5b3524;
     // max-width: 1000px;
     max-width: 100%;
     margin: 0 auto;
@@ -129,294 +142,219 @@
       width: 100%;
       height: 100%;
       margin-top: -275px;
-      @media(max-width: 1250px){
+      @media (max-width: 1250px) {
         margin-top: -150px;
       }
       text {
-        fill: #5b3524;
+        fill: #FAEADE;
         font-size: 2.5rem;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-  
+
         @media (max-width: 768px) {
           font-size: 2.2rem;
         }
-  
+
         @media (max-width: 480px) {
           font-size: 1.5rem;
         }
       }
     }
   }
-  
-.carouselOne {
-  overflow-x: clip;
-  margin-top: -150px;
-  margin-bottom: 50px;
-  // padding: 5rem 0;
-  @media(max-width: 1250px){
-    margin-top: -80px;
+
+  .carouselOne {
+    overflow-x: clip;
+    margin-top: 150px;
+    margin-bottom: 50px;
+    // padding: 5rem 0;
+    @media (max-width: 1250px) {
+      // margin-top: -80px;
+    }
+    @media (max-width: 900px) {
+      // margin-top: -45px;
+      margin-bottom: 80px;
+    }
   }
-  @media(max-width: 900px){
-    margin-top: -45px;
-    margin-bottom: 80px;
-  }
-}
- .hidden {
+  .hidden {
     display: none;
   }
 
-.swiper {
-  // padding: 5rem 0 5rem;
-  overflow: visible;
-  // margin: 0 40px;
-  // @media(max-width: 1200px){
-  //   padding: 5rem 0 3rem;
-  // }
-}
+  .swiper {
+    // padding: 5rem 0 5rem;
+    overflow: visible;
+    // margin: 0 40px;
+    // @media(max-width: 1200px){
+    //   padding: 5rem 0 3rem;
+    // }
+  }
 
-.swiper-slide {
-  // flex-shrink: 0;
-  width: 400px;
-  transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth sliding transition */
-}
-
-.single {
-  position: relative;
-  // pointer-events: none;
-  // user-select: none;
-  cursor: pointer;
-  will-change: transform;
-  // transition: transform 0.1s ease-in; /* Smooth transition for any transformation */
-  // box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
-  //             rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-  //             rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-}
-
-.single img {
-  width: 400px;
-  height: 500px;
-  vertical-align: top;
-  border-radius: 8px;
-  pointer-events: none;
-  object-fit: cover;
-  transition: transform 0.3s ease-in-out; /* Smooth transition for scaling */
-  will-change: transform;
- 
-  @media (min-width: 1550px) {
-    width: 400px;
+  .swiper-slide {
+    // flex-shrink: 0;
+    width: auto;
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth sliding transition */
   }
-  @media (max-width: 1440px) {
-    width: 350px;
-  }
-  @media (max-width: 1300px) {
-    width: 300px;
-    height: 400px;
-  }
-  @media (max-width: 1100px) {
-    width: 250px;
-    height: 300px;
-  }
-  @media(max-width: 940px){
-    width: 330px;
-        height: 430px;
-  }
-  @media(max-width: 740px){
-    width: 290px;
-        height: 430px;
-  }
-  @media(max-width: 666px){
-    width: 250px;
-        height: 330px;
-  }
-}
-
-.image-container{
-  text-align: center;
-  position: relative;
-
-}
-.image-container img {
-  transition: all 0.5s ease-in-out; /* Smooth scaling */
-}
-.hover-text1{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 10px 0;
-  font-size: 22px;
-  text-align: center;
-  color: #fff;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  padding: 10px 1rem;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Add transition for smooth fade-in/out */
-  visibility: hidden; /* Ensure it's not visible when opacity is 0 */
-
-}
-.single:hover .hover-text1 {
-  opacity: 1; /* Make "Explore" visible */
-  visibility: visible;
-}
-.single:hover img {
-  transform: scale(1.05); /* Zoom in */
-  filter: brightness(0.5);
-}
-/* Add the click (active) burst effect */
-.single:active img {
-  animation: burstAnimation 0.5s ease-out; /* Trigger animation on click */
-  transform: scale(1.1); /* Initial expansion */
-}
-
-/* Define the animation for expanding and contracting */
-@keyframes burstAnimation {
-  0% {
-    transform: scale(1); /* Start at normal size */
-  }
-  50% {
-    transform: scale(1.2); /* Expand to 1.2x size */
-  }
-  100% {
-    transform: scale(1); /* Return to normal size */
-  }
-}
-.image-container img.zoom-effect {
-  transform: scale(1.5); /* Zoom in */
-  opacity: 0; /* Fade out during zoom */
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-}
-// .hover-text{
-//   padding: 10px 0;
-//   font-size: 22px;
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   text-align: center;
-//   color: #fff;
-//   font-weight: bold;
-//   transition: color 0.3s ease;
-
-
-// }
-.hover-text {
-  position: absolute;
-  bottom: 0; /* Position text at the bottom of the image */
-  left: 20%;
-  transform: translateX(-50%); /* Center text horizontally */
-  padding: 10px 0;
-  font-size: 22px;
-  text-align: center;
-  color: #fff;
-  border-radius: 10px;
-  background-color: #5B3524;
-  width: 60%;
-  opacity: 0; /* Initially hidden */
-  transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
-  transform: translateY(100%); /* Start with text below the image */
-}
-
-.single:hover .hover-text {
-  opacity: 1; /* Make text visible */
-  transform: translateY(0); /* Move text into view */
-}
-.swiper-button {
-  position: relative;
-  overflow: hidden;
-  height: 3rem;
-  padding: 0 3rem;
-  background-color: transparent;
-  border: 1px solid #5B3524;
-  border-radius: 5px;
-  text-transform: uppercase;
-  background-size: 400%;
-  color: #5B3524;
-  font-size: 18px;
-  line-height: 16px; 
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  width: fit-content;
-  .button-content-explore {
-    font-size: 25px;
-    font-weight: 550;
-    position: relative;
-    z-index: 1;
-    transition: color 0.475s;
-  }
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: scaleX(0);
-    transform-origin: 0 50%;
+  .swiper-slide img {
     width: 100%;
-    height: inherit;
-    border-radius: inherit;
-    background: #5b3524;
-    transition: all 0.475s;
+    object-fit: cover;  // Ensure images fit inside their containers properly
   }
-  &:hover {
-    .button-content-explore {
-      color: white;
+  .swiper-slide-next, .swiper-slide-prev {
+    opacity: 0.9;  // Slightly fade the adjacent slides
+  }
+
+  .single {
+    position: relative;
+    // pointer-events: none;
+    // user-select: none;
+    // cursor: pointer;
+    cursor: grab;
+    will-change: transform;
+    // transition: transform 0.1s ease-in; /* Smooth transition for any transformation */
+    // box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    //             rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    //             rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  }
+
+  .single img {
+    width: 400px;
+    height: 500px;
+    vertical-align: top;
+    border-radius: 8px;
+    pointer-events: none;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for scaling */
+    will-change: transform;
+
+    @media (min-width: 1550px) {
+      width: 400px;
     }
-    &::before {
-      transform: scaleX(1);
-      border-radius: inherit;
-      
+    @media (max-width: 1440px) {
+      width: 350px;
+      height: 450px;
+    }
+    @media (max-width: 1300px) {
+      width: 300px;
+      height: 400px;
+    }
+    @media (max-width: 1100px) {
+      width: 250px;
+      height: 300px;
+    }
+    @media (max-width: 940px) {
+      width: 330px;
+      height: 430px;
+    }
+    @media (max-width: 740px) {
+      width: 290px;
+      height: 430px;
+    }
+    @media (max-width: 666px) {
+      width: 250px;
+      height: 330px;
     }
   }
-}
-.swiper-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  // @media (max-width: 575px) {
-  //   flex-direction: column;
+
+  .image-container {
+    text-align: center;
+    position: relative;
+  }
+  .image-container img {
+    transition: all 0.5s ease-in-out; /* Smooth scaling */
+  }
+  .hover-text1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 0;
+    font-size: 22px;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 10px 1rem;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; /* Add transition for smooth fade-in/out */
+    visibility: hidden; /* Ensure it's not visible when opacity is 0 */
+  }
+  .single:hover .hover-text1 {
+    opacity: 1; /* Make "Explore" visible */
+    visibility: visible;
+  }
+  .single:hover img {
+    // transform: scale(1.05); /* Zoom in */
+    // filter: brightness(0.5);
+  }
+  /* Add the click (active) burst effect */
+  .single:active img {
+    animation: burstAnimation 0.5s ease-out; /* Trigger animation on click */
+    transform: scale(1.1); /* Initial expansion */
+  }
+
+  /* Define the animation for expanding and contracting */
+  @keyframes burstAnimation {
+    0% {
+      transform: scale(1); /* Start at normal size */
+    }
+    50% {
+      transform: scale(1.2); /* Expand to 1.2x size */
+    }
+    100% {
+      transform: scale(1); /* Return to normal size */
+    }
+  }
+  .image-container img.zoom-effect {
+    transform: scale(1.5); /* Zoom in */
+    opacity: 0; /* Fade out during zoom */
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  }
+  // .hover-text{
+  //   padding: 10px 0;
+  //   font-size: 22px;
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+  //   text-align: center;
+  //   color: #fff;
+  //   font-weight: bold;
+  //   transition: color 0.3s ease;
+
   // }
-}
-.Img1Ref{
-  width: 100vw;
-  height: auto;
-}
-/* Optionally add transition for smoother switching */
-.carouselOne,
-.homePageBanner {
-  /* Set an initial transition for smooth fade in/out */
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  visibility: visible;
-  opacity: 1;
-}
+  .hover-text {
+    position: absolute;
+    bottom: -70px; /* Position text at the bottom of the image */
+    left: 20%;
+    transform: translateX(-50%); /* Center text horizontally */
+    padding: 10px 0;
+    font-size: 24px;
+    text-align: center;
+    color: #5b3524;
+    font-weight: 300;
+    // border-radius: 10px;
+    // background-color: #5b3524;
+    width: 60%;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    transform: translateY(100%); /* Start with text below the image */
+  }
 
-.carouselOne.hidden,
-.homePageBanner.hidden {
-  visibility: hidden;
-  opacity: 0;
-}
-
-.explore-button-container {
-  text-align: center;
-  // margin-top: 20px;
-  margin-top: -80px;
-  display: flex;
-  justify-content: center;
-  .explore-button {
+  .single:hover .hover-text {
+    opacity: 1; /* Make text visible */
+    transform: translateY(0); /* Move text into view */
+  }
+  .swiper-button {
     position: relative;
     overflow: hidden;
     height: 3rem;
     padding: 0 3rem;
     background-color: transparent;
-    border: 1px solid #fff;
+    border: 1px solid #5b3524;
     border-radius: 5px;
     text-transform: uppercase;
     background-size: 400%;
-    color: #fff;
+    color: #5b3524;
     font-size: 18px;
-    line-height: 16px; 
+    line-height: 16px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -449,10 +387,92 @@
       &::before {
         transform: scaleX(1);
         border-radius: inherit;
-        
+      }
+    }
+  }
+  .swiper-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    // @media (max-width: 575px) {
+    //   flex-direction: column;
+    // }
+  }
+  .Img1Ref {
+    width: 100vw;
+    height: auto;
+  }
+  /* Optionally add transition for smoother switching */
+  .carouselOne,
+  .homePageBanner {
+    /* Set an initial transition for smooth fade in/out */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .carouselOne.hidden,
+  .homePageBanner.hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+  .swiper-slide-active {
+    transform: scale(1.1);  // Slightly scale the active slide for a better focus
+  }
+  .explore-button-container {
+    text-align: left;
+    // margin-top: 20px;
+    margin-top: -80px;
+    padding-left: 40px;
+    display: flex;
+    justify-content: left;
+    .explore-button {
+      position: relative;
+      overflow: hidden;
+      height: 3rem;
+      padding: 0 3rem;
+      background-color: transparent;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      text-transform: uppercase;
+      background-size: 400%;
+      color: #fff;
+      font-size: 18px;
+      line-height: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      width: fit-content;
+      .button-content-explore {
+        font-size: 25px;
+        font-weight: 550;
+        position: relative;
+        z-index: 1;
+        transition: color 0.475s;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        width: 100%;
+        height: inherit;
+        border-radius: inherit;
+        background: #5b3524;
+        transition: all 0.475s;
+      }
+      &:hover {
+        .button-content-explore {
+          color: white;
+        }
+        &::before {
+          transform: scaleX(1);
+          border-radius: inherit;
+        }
       }
     }
   }
 }
-}
-

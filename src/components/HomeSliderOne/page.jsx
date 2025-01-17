@@ -33,7 +33,8 @@ const SwiperCarousel = () => {
   const images = [
     "https://images.unsplash.com/photo-1556911220-bff31c812dba?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbnxlbnwwfHwwfHx8MA%3D%3D", // Image 1 URL
     "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?cs=srgb&dl=pexels-pixabay-262048.jpg&fm=jpg", // Image 2 URL
-    "https://media.istockphoto.com/id/1182454305/photo/bohemian-living-room-interior-3d-render.jpg?s=612x612&w=0&k=20&c=0-ocZf1KjzxD1riEB_c6z8coPPHDc4KnZzjYwj85EBQ=", // Image 3 URL
+    "https://media.istockphoto.com/id/1182454305/photo/bohemian-living-room-interior-3d-render.jpg?s=612x612&w=0&k=20&c=0-ocZf1KjzxD1riEB_c6z8coPPHDc4KnZzjYwj85EBQ=",
+    "https://images.unsplash.com/photo-1556911220-bff31c812dba?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbnxlbnwwfHwwfHx8MA%3D%3D",  // Image 3 URL
     "https://plus.unsplash.com/premium_photo-1661902468735-eabf780f8ff6?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmF0aHJvb218ZW58MHx8MHx8fDA%3D", // Image 4 URL
   ];
   // Calculate wheel effect on each slide
@@ -144,6 +145,7 @@ const svgRef = useRef(null);
     "Cozy Bedroom Inspiration", // Text for Image 2
     "Spacious Living Room Ideas", // Text for Image 3
     "Modern Washroom Design", // Text for Image 4
+    "Minimalist Bedroom Design" // Text for Image 5
   ];
   const renderPage = () => {
     switch (selectedImage) {
@@ -155,7 +157,7 @@ const svgRef = useRef(null);
         return <Page3 />;
       case 3:
         return <Page4 />;
-      // case 4: return <Page5 />;
+      case 4: return <Page2 />;
       default:
         return <p></p>;
     }
@@ -176,6 +178,7 @@ const svgRef = useRef(null);
 
   return (
     <div className="containerText">
+      {isCardVisible && (
       <div className={`curved-text-container ${isContainerTextVisible ? "" : "hidden"}`}>
       <svg
         ref={svgRef}
@@ -201,6 +204,7 @@ const svgRef = useRef(null);
         </text>
       </svg>
     </div>
+      )}
       {isCardVisible && (
         <div className={`card-containerOne ${isCardVisible ? "visible" : ""}`}
         >
@@ -221,13 +225,14 @@ const svgRef = useRef(null);
         <div className={`carouselOne ${isCarouselVisible ? "" : "hidden"}`}>
           <Swiper
             ref={swiperRef}
-            spaceBetween={30}
+            spaceBetween={20}
             centeredSlides={true}
             loop={true}
             onSlideChange={onSlideChange}
             onSlideTransitionEnd={onSlideTransitionEnd}
             speed={1500}
-            simulateTouch={false}
+            simulateTouch={true}
+            draggable={true}  // Enable mouse dragging
             touchMoveStopPropagation={true}
             breakpoints={{
               575: { slidesPerView: 2 },
@@ -253,9 +258,9 @@ const svgRef = useRef(null);
                         {imageTexts[index]}
                       </span>{" "}
                     </div>
-                    <div className="hover-text1">
+                    {/* <div className="hover-text1">
                       <span className="hovertextInner">Explore More</span>{" "}
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </SwiperSlide>
@@ -277,25 +282,23 @@ const svgRef = useRef(null);
             scroll={false}
             className="explore-button"
           >
-            <span className="button-content-explore">Explore More</span>
+            <span className="button-content-explore">Close</span>
           </div>
         </div>
       )}
 
       {/* Manual navigation buttons only when carousel is visible */}
       {/* {selectedImage === null && ( */}
-      {isCarouselVisible && (
+      {/* {isCarouselVisible && (
         <div className="swiper-buttons">
           <button onClick={goToPrevSlide} className="swiper-button">
             <span className="button-content-explore">Prev</span>
-            {/* Prev */}
           </button>
           <button onClick={goToNextSlide} className="swiper-button">
             <span className="button-content-explore">Next</span>
-            {/* Next */}
           </button>
         </div>
-      )}
+      )}  */}
     </div>
   );
 };

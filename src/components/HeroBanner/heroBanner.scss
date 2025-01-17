@@ -1,6 +1,7 @@
 @import "../../app/variables.scss";
 
 .hero_banner {
+  font-family: "made_mirage_thin" !important;
   .banner_image {
     height: 100vh;
     position: relative;
@@ -45,7 +46,7 @@
           h2 {
             font-family: "made_mirage_thin";
             font-size: 80px;
-            font-weight: 250;
+            // font-weight: 250;
             margin: 0 0 16px;
             // line-height: 70px;
             
@@ -64,7 +65,7 @@
       }
       p {
         font-size: 24px;
-        font-weight: $weightRegular;
+        // font-weight: $weightRegular;
         line-height: 31px;
         margin: 0 0 40px;
         @media(max-width:1600px){

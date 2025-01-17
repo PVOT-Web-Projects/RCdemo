@@ -21,10 +21,8 @@ import CategoryLeftRightInsights from "@/components/categoryLeftRightInsights/Ca
 import { AnimatePresence } from "framer-motion";
 import Preloader from "@/components/preloader";
 import SliderNew from "@/components/SliderNew/SliderNew";
-import TextAnimOne from "@/components/TextAnimOne/page";
 import HomeSlider from "@/components/Homeslider/page";
 import HomeSliderOne from "@/components/HomeSliderOne/page";
-import NewtText from "@/components/newTextAnim/page"
 import Text from "@/components/TextCircular/textcircular"
 import CenteredCard from "@/components/centeredCards/page";
 const HomeBanner = dynamic(() => import("@/components/Home_page_Banner/page"));
