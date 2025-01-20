@@ -229,6 +229,15 @@ const Animation = ({ loadImage, counter }) => {
       );
        }
 
+    // function render() {
+    //   if (imagesRef.current[airpodsRef.current.frame]) {
+    //     context.clearRect(0, 0, canvas.width, canvas.height);
+    //     context.drawImage(
+    //       imagesRef.current[airpodsRef.current.frame], 
+    //       0, 0, canvas.width, canvas.height
+    //     );
+    //   }
+    // }
     return () => {
       window.removeEventListener("resize", setCanvasSize);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());

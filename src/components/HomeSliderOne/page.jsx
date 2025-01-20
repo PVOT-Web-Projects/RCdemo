@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import "./HomeSliderOne.scss";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Img1 from "@/images/bgrem.png";
 import Page1 from "@/components/Home_page_Banner_Kitchen/page";
@@ -34,7 +35,7 @@ const SwiperCarousel = () => {
     "https://images.unsplash.com/photo-1556911220-bff31c812dba?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbnxlbnwwfHwwfHx8MA%3D%3D", // Image 1 URL
     "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?cs=srgb&dl=pexels-pixabay-262048.jpg&fm=jpg", // Image 2 URL
     "https://media.istockphoto.com/id/1182454305/photo/bohemian-living-room-interior-3d-render.jpg?s=612x612&w=0&k=20&c=0-ocZf1KjzxD1riEB_c6z8coPPHDc4KnZzjYwj85EBQ=",
-    "https://images.unsplash.com/photo-1556911220-bff31c812dba?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbnxlbnwwfHwwfHx8MA%3D%3D",  // Image 3 URL
+    "https://images.unsplash.com/photo-1556911220-bff31c812dba?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbnxlbnwwfHwwfHx8MA%3D%3D", // Image 3 URL
     "https://plus.unsplash.com/premium_photo-1661902468735-eabf780f8ff6?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmF0aHJvb218ZW58MHx8MHx8fDA%3D", // Image 4 URL
   ];
   // Calculate wheel effect on each slide
@@ -68,21 +69,20 @@ const SwiperCarousel = () => {
   useEffect(() => {
     raf();
   }, [isTransitioning]);
-const svgRef = useRef(null);
+  const svgRef = useRef(null);
 
   useEffect(() => {
-
     const updateTextPath = () => {
       if (svgRef.current) {
         const width = Math.min(window.innerWidth, 800);
         const height = width * 0.5;
-        svgRef.current.setAttribute('viewBox', `0 0 ${width} ${height}`);
+        svgRef.current.setAttribute("viewBox", `0 0 ${width} ${height}`);
       }
     };
 
     updateTextPath();
-    window.addEventListener('resize', updateTextPath);
-    return () => window.removeEventListener('resize', updateTextPath);
+    window.addEventListener("resize", updateTextPath);
+    return () => window.removeEventListener("resize", updateTextPath);
   }, []);
   // Auto-slide functionality: Move to the next slide every 3 seconds
   // useEffect(() => {
@@ -145,7 +145,7 @@ const svgRef = useRef(null);
     "Cozy Bedroom Inspiration", // Text for Image 2
     "Spacious Living Room Ideas", // Text for Image 3
     "Modern Washroom Design", // Text for Image 4
-    "Minimalist Bedroom Design" // Text for Image 5
+    "Minimalist Bedroom Design", // Text for Image 5
   ];
   const renderPage = () => {
     switch (selectedImage) {
@@ -157,7 +157,8 @@ const svgRef = useRef(null);
         return <Page3 />;
       case 3:
         return <Page4 />;
-      case 4: return <Page2 />;
+      case 4:
+        return <Page2 />;
       default:
         return <p></p>;
     }
@@ -171,7 +172,7 @@ const svgRef = useRef(null);
     // window.scrollTo(0, 0); // Prevent page scroll down
     // Scroll to a position 120vh (or any other value) down the page
     window.scrollTo({
-      top: window.innerHeight + 25, // Scroll to 120vh (can adjust by adding offset if needed)
+      top: window.innerHeight + 20, // Scroll to 120vh (can adjust by adding offset if needed)
       // behavior: "smooth",
     });
   };
@@ -179,36 +180,38 @@ const svgRef = useRef(null);
   return (
     <div className="containerText">
       {isCardVisible && (
-      <div className={`curved-text-container ${isContainerTextVisible ? "" : "hidden"}`}>
-      <svg
-        ref={svgRef}
-        width="100%"
-        height="100%"
-        viewBox="0 0 800 400"
-      >
-        <defs>
-          <path
-            id="curve"
-            d="M 50 350 Q 400 50 750 350"
-            fill="transparent"
-          />
-        </defs>
-        <text>
-          <textPath
-            href="#curve"
-            startOffset="50%"
-            textAnchor="middle"
-          >
-            WHERE ELEGANCE MEETS DESIRE
-          </textPath>
-        </text>
-      </svg>
-    </div>
+        <div
+          className={`curved-text-container ${
+            isContainerTextVisible ? "" : "hidden"
+          }`}
+        >
+          <svg ref={svgRef} width="100%" height="100%" viewBox="0 0 800 400">
+            <defs>
+              <path
+                id="curve"
+                d="M 50 350 Q 400 50 750 350"
+                fill="transparent"
+              />
+            </defs>
+            <motion.text>
+              <motion.textPath
+                initial={{ x: -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1 }}
+                viewport={{ once: true }}
+                href="#curve"
+                startOffset="50%"
+                textAnchor="middle"
+              >
+                WHERE ELEGANCE MEETS DESIRE
+              </motion.textPath>
+            </motion.text>
+          </svg>
+        </div>
       )}
       {isCardVisible && (
-        <div className={`card-containerOne ${isCardVisible ? "visible" : ""}`}
-        >
-          <div className="cardOOne"  onClick={handleExploreClick}>
+        <div className={`card-containerOne ${isCardVisible ? "visible" : ""}`}>
+          <div className="cardOOne" onClick={handleExploreClick}>
             <div className="imgBx">
               <img
                 src="https://images.unsplash.com/photo-1556911220-bff31c812dba?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbnxlbnwwfHwwfHx8MA%3D%3D"
@@ -232,7 +235,7 @@ const svgRef = useRef(null);
             onSlideTransitionEnd={onSlideTransitionEnd}
             speed={1500}
             simulateTouch={true}
-            draggable={true}  // Enable mouse dragging
+            draggable={true} // Enable mouse dragging
             touchMoveStopPropagation={true}
             breakpoints={{
               575: { slidesPerView: 2 },
@@ -242,9 +245,12 @@ const svgRef = useRef(null);
           >
             {images.map((imageUrl, index) => (
               <SwiperSlide key={index}>
-                <div
+                <motion.div
                   className="single"
-                  // onClick={() => handleImageClick(index)}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 2, delay: 0.1 }}
                   onClick={(event) => handleImageClick(event, index)} // Pass event and index
                 >
                   <div className="image-container">
@@ -262,16 +268,39 @@ const svgRef = useRef(null);
                       <span className="hovertextInner">Explore More</span>{" "}
                     </div> */}
                   </div>
-                </div>
+                </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
       ) : (
         // Show the selected page
-        <div className={`homePageBanner ${isCarouselVisible ? "hidden" : ""}`}>
-          {renderPage()}
-        </div>
+        <motion.div
+          className={`homePageBanner ${isCarouselVisible ? "hidden" : ""}`}
+          // initial={{ opacity: 0, scaleX: 0 }}
+          //   animate={{ opacity: 1, scaleX: 1 }}
+          //   exit={{
+          //     opacity: 0,
+          //     scaleX: 0,
+          //     transition: { duration: 1, ease: "easeInOut" },
+          //   }}
+          //   transition={{ duration: 1 }}
+          //   style={{ originX: 0.5 }} // Ensure it opens from the center
+        >
+          <motion.div
+            // initial={{ opacity: 0, scaleX: 0 }}
+            // animate={{ opacity: 1, scaleX: 1 }}
+            // exit={{
+            //   opacity: 0,
+            //   scaleX: 0,
+            //   transition: { duration: 1, ease: "easeInOut" },
+            // }}
+            // transition={{ duration: 1 }}
+            // style={{ originX: 0.5 }}
+          >
+            {renderPage()}
+          </motion.div>
+        </motion.div>
       )}
 
       {/* {!isCarouselVisible && ( */}

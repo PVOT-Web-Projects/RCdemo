@@ -138,7 +138,7 @@ const Animation = ({ loadImage, counter }) => {
       for (let i = 0; i < frameCount; i += 10) {
         await loadBatch(i);
       }
-    
+      setIsLoaded(true); // Once all frames are loaded, stop showing the preloader
       setLoading(false);
     };
     
@@ -218,16 +218,25 @@ const Animation = ({ loadImage, counter }) => {
 
     // imagesRef.current[0].onload = render;
 
-    function render() {
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      context.drawImage(
-        imagesRef.current[airpodsRef.current.frame],
-        0,
-        0,
-        canvas.width,
-        canvas.height
-      );
-    }
+    // function render() {
+    //   context.clearRect(0, 0, canvas.width, canvas.height);
+    //   context.drawImage(
+    //     imagesRef.current[airpodsRef.current.frame],
+    //     0,
+    //     0,
+    //     canvas.width,
+    //     canvas.height
+    //   );
+    // }
+function render() {
+  if (imagesRef.current[airpodsRef.current.frame]) {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.drawImage(
+      imagesRef.current[airpodsRef.current.frame], 
+      0, 0, canvas.width, canvas.height
+    );
+  }
+}
 
     return () => {
       window.removeEventListener("resize", setCanvasSize);
