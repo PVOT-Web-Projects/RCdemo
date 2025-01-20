@@ -288,15 +288,15 @@ const SwiperCarousel = () => {
           //   style={{ originX: 0.5 }} // Ensure it opens from the center
         >
           <motion.div
-            // initial={{ opacity: 0, scaleX: 0 }}
-            // animate={{ opacity: 1, scaleX: 1 }}
-            // exit={{
-            //   opacity: 0,
-            //   scaleX: 0,
-            //   transition: { duration: 1, ease: "easeInOut" },
-            // }}
-            // transition={{ duration: 1 }}
-            // style={{ originX: 0.5 }}
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            exit={{
+              opacity: 0,
+              scaleX: 0,
+              transition: { duration: 1, ease: "easeInOut" },
+            }}
+            transition={{ duration: 1 }}
+            style={{ originX: 0.5 }}
           >
             {renderPage()}
           </motion.div>
