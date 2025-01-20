@@ -405,6 +405,84 @@ const Animation = ({ loadImage, counter }) => {
 
       {/* <MusicPlayer /> */}
       {scrollPercentage >= 1 && (
+        <div className={styles.buttonOuterHeader} ref={buttonRef}>
+          <motion.div
+            className={styles.buttonXHeader}
+            role="button"
+            initial="hidden"
+            animate={
+              window.innerWidth < 768
+                ? scrollPercentage >= 55
+                  ? "upsideDown"
+                  : "visible"
+                : window.innerWidth < 1024
+                ? scrollPercentage >= 62
+                  ? "upsideDown"
+                  : "visible"
+                : window.innerWidth < 1400
+                ? scrollPercentage >= 65
+                  ? "upsideDown"
+                  : "visible"
+                : window.innerWidth < 500
+                ? scrollPercentage >= 58
+                  ? "upsideDown"
+                  : "visible"
+                : window.innerWidth < 1600
+                ? scrollPercentage >= 60
+                  ? "upsideDown"
+                  : "visible"
+                : scrollPercentage >= 63
+                ? "upsideDown"
+                : "visible"
+            }
+            variants={buttonVariants}
+          >
+            <div className={styles.textX}>
+              <img src="https://interiormaataassets.humbeestudio.xyz/FinalHeaderLogo.png" alt="none" width={200} height={45}/>
+            </div>
+          </motion.div>
+        </div>
+      )}
+       {/* {scrollPercentage >= 1 && (
+        <div className={styles.buttonOuterHeaderone} ref={buttonRef}>
+          <motion.div
+            className={styles.buttonXHeader}
+            role="button"
+            initial="hidden"
+            animate={
+              window.innerWidth < 768
+                ? scrollPercentage >= 55
+                  ? "upsideDown"
+                  : "visible"
+                : window.innerWidth < 1024
+                ? scrollPercentage >= 62
+                  ? "upsideDown"
+                  : "visible"
+                : window.innerWidth < 1400
+                ? scrollPercentage >= 65
+                  ? "upsideDown"
+                  : "visible"
+                : window.innerWidth < 500
+                ? scrollPercentage >= 58
+                  ? "upsideDown"
+                  : "visible"
+                : window.innerWidth < 1600
+                ? scrollPercentage >= 60
+                  ? "upsideDown"
+                  : "visible"
+                : scrollPercentage >= 63
+                ? "upsideDown"
+                : "visible"
+            }
+            variants={buttonVariants}
+          >
+            <div className={styles.textX}>
+              <p>Text</p>
+            </div>
+          </motion.div>
+        </div>
+      )} */}
+      {scrollPercentage >= 1 && (
         <div className={styles.buttonOuter} ref={buttonRef}>
           <motion.button
             className={styles.buttonX}
