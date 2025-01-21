@@ -28,6 +28,9 @@
   height: 100%;
   object-fit: cover;
 }
+.textX{
+  color: #5b3524;
+}
 .textX:not(:last-child) {
   border-right: 1px solid #5b3524;
   padding-right: 15px;
@@ -38,7 +41,25 @@
   position: sticky;
   bottom: 8rem;
   display: flex;
-  justify-content: end;
+  justify-content: center;
+  padding: 0 50px;
+  /* z-index: 1000 !important; */
+}
+.buttonOuterHeader {
+  /* position: fixed; */
+  position: sticky;
+  bottom: 98%;
+  display: flex;
+  justify-content: center;
+  padding: 0 50px;
+  /* z-index: 1000 !important; */
+}
+.buttonOuterHeaderone {
+  /* position: fixed; */
+  position: sticky;
+  bottom: 90%;
+  display: flex;
+  justify-content: center;
   padding: 0 50px;
   /* z-index: 1000 !important; */
 }
@@ -55,29 +76,30 @@
 
 .buttonX {
   appearance: none;
-  background: rgba(255, 255, 255, 0.15);
+  background-color: transparent;
+  // background: rgba(255, 255, 255, 0.15);
   /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  // border: 1px solid #fff !important;
   box-sizing: border-box;
-  color: #5b3524;
+  color: #5b3524 !important;
   border: none;
-  cursor: pointer;
+  // cursor: pointer;
   display: flex;
   gap: 1rem;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 500;
   letter-spacing: 0;
-  line-height: 1em;
+  // line-height: 1em;
   margin: 0;
   opacity: 1;
   outline: 0;
   padding: 10px 20px;
   position: absolute;
-  text-align: center;
-  right: 2rem;
+  text-align: center !important;
+  // right: 2rem;
   text-decoration: none;
   text-rendering: geometricprecision;
   transition: opacity 300ms cubic-bezier(0.694, 0, 0.335, 1),
@@ -91,6 +113,59 @@
 }
 
 .buttonX:before {
+  animation: opacityFallbackOut 0.5s step-end forwards;
+  backface-visibility: hidden;
+  background-color: #ffffff;
+  clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateZ(0);
+  transition: clip-path 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+    -webkit-clip-path 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  width: 100%;
+}
+.buttonXHeader {
+  appearance: none;
+  background-color: transparent;
+  // background: rgba(255, 255, 255, 0.15);
+  /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-radius: 10px;
+  // border: 1px solid #fff !important;
+  box-sizing: border-box;
+  color: #5b3524 !important;
+  border: none;
+  // cursor: pointer;
+  display: flex;
+  gap: 1rem;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 0;
+  // line-height: 1em;
+  margin: 0;
+  opacity: 1;
+  outline: 0;
+  padding: 10px 20px;
+  position: absolute;
+  text-align: center !important;
+  // right: 2rem;
+  text-decoration: none;
+  text-rendering: geometricprecision;
+  transition: opacity 300ms cubic-bezier(0.694, 0, 0.335, 1),
+    background-color 100ms cubic-bezier(0.694, 0, 0.335, 1),
+    color 100ms cubic-bezier(0.694, 0, 0.335, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.buttonXHeader:before {
   animation: opacityFallbackOut 0.5s step-end forwards;
   backface-visibility: hidden;
   background-color: #ffffff;
@@ -130,7 +205,7 @@
   /* padding: 10px 20px; */
   position: absolute;
   text-align: center;
-  right: 0rem;
+  // right: 0rem;
   bottom: 43rem;
   text-decoration: none;
   text-rendering: geometricprecision;
@@ -450,6 +525,10 @@
   }
 
   .buttonOuter {
+    position: sticky;
+    bottom: 10rem;
+  }
+  .buttonOuterHeader {
     position: sticky;
     bottom: 10rem;
   }
