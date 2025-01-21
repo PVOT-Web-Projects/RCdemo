@@ -507,8 +507,9 @@ const Animation = ({ loadImage, counter }) => {
             variants={buttonVariants}
           >
             <div className={styles.textX}>
-              <p>YOUR IMAGINATION</p>
-              <p>OUR INNOVATIONS</p>
+            
+              <p>WHERE COMFORT</p>
+              <p>MEETS DESIGN</p>
             </div>
           </motion.button>
         </div>
