@@ -32,10 +32,10 @@ const SwiperCarousel = () => {
 
   // Array of custom image URLs
   const images = [
-    "https://images.unsplash.com/photo-1556911220-bff31c812dba?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbnxlbnwwfHwwfHx8MA%3D%3D", // Image 1 URL
-    "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?cs=srgb&dl=pexels-pixabay-262048.jpg&fm=jpg", // Image 2 URL
-    "https://media.istockphoto.com/id/1182454305/photo/bohemian-living-room-interior-3d-render.jpg?s=612x612&w=0&k=20&c=0-ocZf1KjzxD1riEB_c6z8coPPHDc4KnZzjYwj85EBQ=",
-    "https://images.unsplash.com/photo-1556911220-bff31c812dba?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbnxlbnwwfHwwfHx8MA%3D%3D", // Image 3 URL
+    "https://interiormaataassets.humbeestudio.xyz/mainsiteassets/KitchenNew/0060.webp", // Image 1 URL
+    "https://interiormaataassets.humbeestudio.xyz/mainsiteassets/BedRoom/0110.webp", // Image 2 URL
+    "https://interiormaataassets.humbeestudio.xyz/mainsiteassets/Livingroom/0099.webp",
+    "https://interiormaataassets.humbeestudio.xyz/mainsiteassets/Washroom/0098.webp", // Image 3 URL
     "https://plus.unsplash.com/premium_photo-1661902468735-eabf780f8ff6?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmF0aHJvb218ZW58MHx8MHx8fDA%3D", // Image 4 URL
   ];
   // Calculate wheel effect on each slide
