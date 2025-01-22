@@ -152,10 +152,55 @@ const SwiperCarousel = () => {
       case 0:
         return (
           <motion.div
-            initial={{ scale: 0.5, rotateY: 90 }}
-            animate={{ scale: 1, rotateY: 0 }}
-            exit={{ scale: 0.5, rotateY: -90, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
+            // initial={{ scale: 0.5, rotateY: 90 }}
+            // animate={{ scale: 1, rotateY: 0 }}
+            // exit={{ scale: 0.5, rotateY: -90, opacity: 1 }}
+            // transition={{ duration: 1.8,  ease: "easeInOut" }}
+            // initial={{
+            //   opacity: 1,
+            //   scaleX: 0.7, // Start with a compressed scale (smaller)
+            //   scaleY: 0.7, // Also compress vertically
+            //   borderRadius: "100%", // Large border radius for the initial circular effect
+            //   translateY: "10%", // Optional translation for some extra initial offset
+            //   transformOrigin: "center", // Ensure the expansion is from the center
+            // }}
+            // animate={{
+            //   opacity: 1, // Fade in during the animation
+            //   scaleX: 1,  // Expanding horizontally
+            //   scaleY: 1,  // Expanding vertically
+            //   borderRadius: "160%", // Border radius decreases to create the square effect
+            //   translateY: "0%", // Reset translate Y after the initial offset
+            // }}
+            // transition={{
+            //   opacity: { duration: 1 }, // Fade in duration
+            //   scaleX: { duration: 1, ease: "easeOut" }, // Smooth horizontal expansion
+            //   scaleY: { duration: 1, ease: "easeOut" }, // Smooth vertical expansion
+            //   translateY: { duration: 1, ease: "easeOut" }, // Smooth vertical transition
+            //   borderRadius: {
+            //     duration: 1, // Transition for border-radius happens at the same time as scale
+            //     delay: 0.2,  // Delay border-radius change for a smoother effect
+            //     ease: "easeOut",
+            //   },
+            // }}
+            initial={{
+              opacity: 0,            // Start hidden
+              scale: 0.5,            // Start smaller than normal size
+              borderRadius: "50%",   // Start as a rounded shape (circle or pill)
+              transformOrigin: "center",  // Ensure the scaling happens from the center
+            }}
+            animate={{
+              opacity: 1,            // Fade in during animation
+              scale: 1,              // Expanding to full size
+              borderRadius: "0%",    // Transition to square (no rounded corners)
+            }}
+            transition={{
+              opacity: { duration: 0.8 },      // Fade duration
+              scale: { duration: 0.5, ease: "easeOut" }, // Smooth scaling outwards
+              borderRadius: { duration: 0.5, delay: 0.1, ease: "easeOut" }, // Transition border radius smoothly after scaling
+            }}
+            style={{
+              transform: "translate(-50%, -50%)"
+            }}
           >
             <Page1 />
           </motion.div>
@@ -325,10 +370,14 @@ const SwiperCarousel = () => {
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                   >
                     <motion.img
-                      initial={{ scale: 0.5, rotateY: 90 }}
-                      animate={{ scale: 1, rotateY: 0 }}
-                      exit={{ scale: 0.5, rotateY: -90, opacity: 1 }}
-                      transition={{ duration: 0.2, ease: "easeInOut" }}
+                     initial={{ scale: 0.5 }}  // Start smaller
+                     animate={{ scale: 1 }}    // Animate to full size
+                     transition={{ duration: 0.2, ease: "easeInOut" }}  // Quick smooth scaling transition
+                 
+                      // initial={{ scale: 0.5, rotateY: 90 }}
+                      // animate={{ scale: 1, rotateY: 0 }}
+                      // exit={{ scale: 0.5, rotateY: -90, opacity: 1 }}
+                      // transition={{ duration: 0.2, ease: "easeInOut" }}
                       src={imageUrl}
                       alt={`Random Image ${index + 1}`}
                       className="image"
@@ -395,6 +444,9 @@ const SwiperCarousel = () => {
             onClick={handleExploreClick}
             scroll={false}
             className="explore-button"
+            // initial={{ opacity: 0 }}
+            // animate={{ opacity: 1 }}
+            // exit={{ opacity: 0 }}
           >
             <span className="button-content-explore">Close</span>
           </div>
