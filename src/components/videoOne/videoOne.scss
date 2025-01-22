@@ -1,0 +1,11 @@
+.VideoOneContainer {
+  .videoOneVid {
+    height: auto;
+    width: 100%;
+    @media (min-width: 1600px) {
+      height: 100vh;
+      object-fit: cover;
+      width: 100vw;
+    }
+  }
+}

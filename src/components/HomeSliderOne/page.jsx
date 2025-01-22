@@ -4,10 +4,10 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import "./HomeSliderOne.scss";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Img1 from "@/images/bgrem.png";
-import Page1 from "@/components/Home_page_Banner_Kitchen/page";
+import Page1 from "@/components/videoOne/page";
 import Page2 from "@/components/Home_page_Banner_Bedroom/page";
 import Page3 from "@/components/Home_page_Banner_Living/page";
 import Page4 from "@/components/Home_page_Banner_Washroom/page";
@@ -32,7 +32,7 @@ const SwiperCarousel = () => {
 
   // Array of custom image URLs
   const images = [
-    "https://interiormaataassets.humbeestudio.xyz/mainsiteassets/KitchenNew/0060.webp", // Image 1 URL
+    "https://interiormaataassets.humbeestudio.xyz/VideoThumbNailOne.png", // Image 1 URL
     "https://interiormaataassets.humbeestudio.xyz/mainsiteassets/BedRoom/0110.webp", // Image 2 URL
     "https://interiormaataassets.humbeestudio.xyz/mainsiteassets/Livingroom/0099.webp",
     "https://interiormaataassets.humbeestudio.xyz/mainsiteassets/Washroom/0098.webp", // Image 3 URL
@@ -124,21 +124,21 @@ const SwiperCarousel = () => {
   // };
   const handleImageClick = (event, index) => {
     // Get the clicked image directly from the event
-    const clickedImage = event.currentTarget.querySelector(".image");
+    // const clickedImage = event.currentTarget.querySelector(".image");
     // Remove zoom-effect from all images
-    document.querySelectorAll(".image").forEach((image) => {
-      image.classList.remove("zoom-effect");
-    });
+    // document.querySelectorAll(".image").forEach((image) => {
+    //   image.classList.remove("zoom-effect");
+    // });
     // Add zoom-effect to the clicked image
-    if (clickedImage) {
-      clickedImage.classList.add("zoom-effect");
-      // After the animation, update the state
-      setTimeout(() => {
-        setSelectedImage(index); // Update the state with the selected image index
-        setIsCarouselVisible(false); // Hide the carousel
-        setIsContainerTextVisible(false); // Hide the containerText
-      }, 500);
-    }
+    // if (clickedImage) {
+    // clickedImage.classList.add("zoom-effect");
+    // After the animation, update the state
+    // setTimeout(() => {
+    setSelectedImage(index); // Update the state with the selected image index
+    setIsCarouselVisible(false); // Hide the carousel
+    setIsContainerTextVisible(false); // Hide the containerText
+    // }, 500);
+    // }
   };
   const imageTexts = [
     "Beautiful Kitchen Design", // Text for Image 1
@@ -150,33 +150,96 @@ const SwiperCarousel = () => {
   const renderPage = () => {
     switch (selectedImage) {
       case 0:
-        return <Page1 />;
+        return (
+          <motion.div
+            initial={{ scale: 0.5, rotateY: 90 }}
+            animate={{ scale: 1, rotateY: 0 }}
+            exit={{ scale: 0.5, rotateY: -90, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+          >
+            <Page1 />
+          </motion.div>
+        );
       case 1:
-        return <Page2 />;
+        return (
+          <motion.div
+            initial={{ scale: 0.5, rotateY: 90 }}
+            animate={{ scale: 1, rotateY: 0 }}
+            exit={{ scale: 0.5, rotateY: -90, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+          >
+            <Page2 />
+          </motion.div>
+        );
       case 2:
-        return <Page3 />;
+        return (
+          <motion.div
+            initial={{ scale: 0.5, rotateY: 90 }}
+            animate={{ scale: 1, rotateY: 0 }}
+            exit={{ scale: 0.5, rotateY: -90, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+          >
+            <Page3 />
+          </motion.div>
+        );
       case 3:
-        return <Page4 />;
+        return (
+          <motion.div
+            initial={{ scale: 0.5, rotateY: 90 }}
+            animate={{ scale: 1, rotateY: 0 }}
+            exit={{ scale: 0.5, rotateY: -90, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+          >
+            <Page4 />
+          </motion.div>
+        );
       case 4:
-        return <Page2 />;
+        return (
+          <motion.div
+            initial={{ scale: 0.5, rotateY: 90 }}
+            animate={{ scale: 1, rotateY: 0 }}
+            exit={{ scale: 0.5, rotateY: -90, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+          >
+            <Page2 />
+          </motion.div>
+        );
       default:
         return <p></p>;
     }
   };
+
   // Handle Explore button click to show the carousel again
-  const handleExploreClick = () => {
+  // const handleExploreClick = () => {
+  //   setSelectedImage(null); // Reset selected image
+  //   setIsCarouselVisible(true); // Show the carousel
+  //   setIsCardVisible(false); // Hide the card
+  //   setIsContainerTextVisible(true); // Show the containerText
+  //   // window.scrollTo(0, 0); // Prevent page scroll down
+  //   // Scroll to a position 120vh (or any other value) down the page
+  //   window.scrollTo({
+  //     top: window.innerHeight + 20, // Scroll to 120vh (can adjust by adding offset if needed)
+  //     // behavior: "smooth",
+  //   });
+  // };
+  const imageRef = useRef(null);
+  // Handle Explore button click to show the carousel again
+  const handleExploreClick = (containerRef) => {
     setSelectedImage(null); // Reset selected image
     setIsCarouselVisible(true); // Show the carousel
     setIsCardVisible(false); // Hide the card
     setIsContainerTextVisible(true); // Show the containerText
-    // window.scrollTo(0, 0); // Prevent page scroll down
-    // Scroll to a position 120vh (or any other value) down the page
-    window.scrollTo({
-      top: window.innerHeight + 20, // Scroll to 120vh (can adjust by adding offset if needed)
-      // behavior: "smooth",
-    });
+    if (containerRef && containerRef.current) {
+      const element = containerRef.current;
+      const elementRect = element.getBoundingClientRect();
+      const offset = (window.innerHeight - elementRect.height) / 2; // Centering offset
+      const scrollToY = window.scrollY + elementRect.top - offset;
+      window.scrollTo({
+        top: scrollToY,
+        behavior: "smooth",
+      });
+    }
   };
-
   return (
     <div className="containerText">
       {isCardVisible && (
@@ -216,6 +279,8 @@ const SwiperCarousel = () => {
               <img
                 src="https://images.unsplash.com/photo-1556911220-bff31c812dba?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbnxlbnwwfHwwfHx8MA%3D%3D"
                 alt="Person"
+                ref={imageRef}
+                onClick={() => handleExploreClick(imageRef)}
               />
             </div>
             <div className="details">
@@ -250,11 +315,20 @@ const SwiperCarousel = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ duration: 2, delay: 0.1 }}
                   onClick={(event) => handleImageClick(event, index)} // Pass event and index
                 >
-                  <div className="image-container">
-                    <img
+                  <motion.div
+                    className="image-container"
+                    initial={{ scale: 0.5, rotateY: 90 }}
+                    animate={{ scale: 1, rotateY: 0 }}
+                    exit={{ scale: 0.5, rotateY: -90, opacity: 1 }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                  >
+                    <motion.img
+                      initial={{ scale: 0.5, rotateY: 90 }}
+                      animate={{ scale: 1, rotateY: 0 }}
+                      exit={{ scale: 0.5, rotateY: -90, opacity: 1 }}
+                      transition={{ duration: 0.2, ease: "easeInOut" }}
                       src={imageUrl}
                       alt={`Random Image ${index + 1}`}
                       className="image"
@@ -267,7 +341,7 @@ const SwiperCarousel = () => {
                     {/* <div className="hover-text1">
                       <span className="hovertextInner">Explore More</span>{" "}
                     </div> */}
-                  </div>
+                  </motion.div>
                 </motion.div>
               </SwiperSlide>
             ))}
@@ -275,32 +349,43 @@ const SwiperCarousel = () => {
         </div>
       ) : (
         // Show the selected page
-        <motion.div
-          className={`homePageBanner ${isCarouselVisible ? "hidden" : ""}`}
-          // initial={{ opacity: 0, scaleX: 0 }}
-          //   animate={{ opacity: 1, scaleX: 1 }}
-          //   exit={{
-          //     opacity: 0,
-          //     scaleX: 0,
-          //     transition: { duration: 1, ease: "easeInOut" },
-          //   }}
-          //   transition={{ duration: 1 }}
-          //   style={{ originX: 0.5 }} // Ensure it opens from the center
-        >
+        <AnimatePresence>
           <motion.div
+            //  initial={{ opacity: 0 }}
+            //  animate={{ opacity: 1 }}
+            //  exit={{ opacity: 0 }}
+            className={`homePageBanner ${isCarouselVisible ? "hidden" : ""}`}
             // initial={{ opacity: 0, scaleX: 0 }}
-            // animate={{ opacity: 1, scaleX: 1 }}
-            // exit={{
-            //   opacity: 0,
-            //   scaleX: 0,
-            //   transition: { duration: 1, ease: "easeInOut" },
-            // }}
-            // transition={{ duration: 1 }}
-            // style={{ originX: 1}}
+            //   animate={{ opacity: 1, scaleX: 1 }}
+            //   exit={{
+            //     opacity: 0,
+            //     scaleX: 0,
+            //     transition: { duration: 1, ease: "easeInOut" },
+            //   }}
+            //   transition={{ duration: 1 }}
+            //   style={{ originX: 0.5 }} // Ensure it opens from the center
           >
-            {renderPage()}
+            <AnimatePresence>
+              <motion.div
+              // initial={{ scale: 0.5, rotateY: 90 }}
+              // animate={{ scale: 1, rotateY: 0 }}
+              // exit={{ scale: 0.5, rotateY: -90, opacity: 1 }}
+              // transition={{ duration: 0.8, ease: "easeInOut" }}
+              // initial={{ opacity: 0, scaleX: 0 }}
+              // animate={{ opacity: 1, scaleX: 1 }}
+              // exit={{
+              //   opacity: 0,
+              //   scaleX: 0,
+              //   transition: { duration: 1, ease: "easeInOut" },
+              // }}
+              // transition={{ duration: 1 }}
+              // style={{ originX: 1}}
+              >
+                {renderPage()}
+              </motion.div>
+            </AnimatePresence>
           </motion.div>
-        </motion.div>
+        </AnimatePresence>
       )}
 
       {/* {!isCarouselVisible && ( */}

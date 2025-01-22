@@ -1,5 +1,6 @@
 .containerText {
   text-align: center;
+  height: 100vh;
   .card-containerOne {
     background-color: #5b3524;
     display: flex;
@@ -164,15 +165,15 @@
 
   .carouselOne {
     overflow-x: clip;
-    margin-top: 150px;
-    margin-bottom: 50px;
+    // margin-top: 150px;
+    // margin-bottom: 50px;
     // padding: 5rem 0;
     @media (max-width: 1250px) {
       // margin-top: -80px;
     }
     @media (max-width: 900px) {
       // margin-top: -45px;
-      margin-bottom: 80px;
+      // margin-bottom: 80px;
     }
   }
   .hidden {
@@ -256,6 +257,11 @@
   .image-container {
     text-align: center;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0 auto;
   }
   .image-container img {
     transition: all 0.5s ease-in-out; /* Smooth scaling */
@@ -322,7 +328,7 @@
   // }
   .hover-text {
     position: absolute;
-    bottom: -70px; /* Position text at the bottom of the image */
+    bottom: 150px; /* Position text at the bottom of the image */
     left: 20%;
     transform: translateX(-50%); /* Center text horizontally */
     padding: 10px 0;
