@@ -208,46 +208,106 @@ const SwiperCarousel = () => {
       case 1:
         return (
           <motion.div
-            initial={{ scale: 0.5, rotateY: 90 }}
-            animate={{ scale: 1, rotateY: 0 }}
-            exit={{ scale: 0.5, rotateY: -90, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-          >
-            <Page2 />
+          initial={{
+            opacity: 0,            // Start hidden
+            scale: 0.5,            // Start smaller than normal size
+            borderRadius: "50%",   // Start as a rounded shape (circle or pill)
+            transformOrigin: "center",  // Ensure the scaling happens from the center
+          }}
+          animate={{
+            opacity: 1,            // Fade in during animation
+            scale: 1,              // Expanding to full size
+            borderRadius: "0%",    // Transition to square (no rounded corners)
+          }}
+          transition={{
+            opacity: { duration: 0.8 },      // Fade duration
+            scale: { duration: 0.5, ease: "easeOut" }, // Smooth scaling outwards
+            borderRadius: { duration: 0.5, delay: 0.1, ease: "easeOut" }, // Transition border radius smoothly after scaling
+          }}
+          style={{
+            transform: "translate(-50%, -50%)"
+          }}
+        >
+          <Page1 />
           </motion.div>
         );
       case 2:
         return (
           <motion.div
-            initial={{ scale: 0.5, rotateY: 90 }}
-            animate={{ scale: 1, rotateY: 0 }}
-            exit={{ scale: 0.5, rotateY: -90, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-          >
-            <Page3 />
+          initial={{
+            opacity: 0,            // Start hidden
+            scale: 0.5,            // Start smaller than normal size
+            borderRadius: "50%",   // Start as a rounded shape (circle or pill)
+            transformOrigin: "center",  // Ensure the scaling happens from the center
+          }}
+          animate={{
+            opacity: 1,            // Fade in during animation
+            scale: 1,              // Expanding to full size
+            borderRadius: "0%",    // Transition to square (no rounded corners)
+          }}
+          transition={{
+            opacity: { duration: 0.8 },      // Fade duration
+            scale: { duration: 0.5, ease: "easeOut" }, // Smooth scaling outwards
+            borderRadius: { duration: 0.5, delay: 0.1, ease: "easeOut" }, // Transition border radius smoothly after scaling
+          }}
+          style={{
+            transform: "translate(-50%, -50%)"
+          }}
+        >
+          <Page1 />
           </motion.div>
         );
-        
+
       case 3:
         return (
           <motion.div
-            initial={{ scale: 0.5, rotateY: 90 }}
-            animate={{ scale: 1, rotateY: 0 }}
-            exit={{ scale: 0.5, rotateY: -90, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-          >
-            <Page4 />
+          initial={{
+            opacity: 0,            // Start hidden
+            scale: 0.5,            // Start smaller than normal size
+            borderRadius: "50%",   // Start as a rounded shape (circle or pill)
+            transformOrigin: "center",  // Ensure the scaling happens from the center
+          }}
+          animate={{
+            opacity: 1,            // Fade in during animation
+            scale: 1,              // Expanding to full size
+            borderRadius: "0%",    // Transition to square (no rounded corners)
+          }}
+          transition={{
+            opacity: { duration: 0.8 },      // Fade duration
+            scale: { duration: 0.5, ease: "easeOut" }, // Smooth scaling outwards
+            borderRadius: { duration: 0.5, delay: 0.1, ease: "easeOut" }, // Transition border radius smoothly after scaling
+          }}
+          style={{
+            transform: "translate(-50%, -50%)"
+          }}
+        >
+          <Page1 />
           </motion.div>
         );
       case 4:
         return (
           <motion.div
-            initial={{ scale: 0.5, rotateY: 90 }}
-            animate={{ scale: 1, rotateY: 0 }}
-            exit={{ scale: 0.5, rotateY: -90, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-          >
-            <Page2 />
+          initial={{
+            opacity: 0,            // Start hidden
+            scale: 0.5,            // Start smaller than normal size
+            borderRadius: "50%",   // Start as a rounded shape (circle or pill)
+            transformOrigin: "center",  // Ensure the scaling happens from the center
+          }}
+          animate={{
+            opacity: 1,            // Fade in during animation
+            scale: 1,              // Expanding to full size
+            borderRadius: "0%",    // Transition to square (no rounded corners)
+          }}
+          transition={{
+            opacity: { duration: 0.8 },      // Fade duration
+            scale: { duration: 0.5, ease: "easeOut" }, // Smooth scaling outwards
+            borderRadius: { duration: 0.5, delay: 0.1, ease: "easeOut" }, // Transition border radius smoothly after scaling
+          }}
+          style={{
+            transform: "translate(-50%, -50%)"
+          }}
+        >
+          <Page1 />
           </motion.div>
         );
       default:
