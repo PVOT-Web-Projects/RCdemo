@@ -268,23 +268,31 @@ const SwiperCarousel = () => {
   //   });
   // };
   const imageRef = useRef(null);
-  // Handle Explore button click to show the carousel again
-  const handleExploreClick = (containerRef) => {
-    setSelectedImage(null); // Reset selected image
-    setIsCarouselVisible(true); // Show the carousel
-    setIsCardVisible(false); // Hide the card
-    setIsContainerTextVisible(true); // Show the containerText
-    if (containerRef && containerRef.current) {
-      const element = containerRef.current;
-      const elementRect = element.getBoundingClientRect();
-      const offset = (window.innerHeight - elementRect.height) / 2; // Centering offset
-      const scrollToY = window.scrollY + elementRect.top - offset;
-      window.scrollTo({
-        top: scrollToY,
-        behavior: "smooth",
-      });
-    }
-  };
+
+// Handle Explore button click to show the carousel again
+const handleExploreClick = () => {
+  setSelectedImage(null); // Reset selected image
+  setIsCarouselVisible(true); // Show the carousel
+  setIsCardVisible(false); // Hide the card
+  setIsContainerTextVisible(true); // Show the containerText
+
+  // Check if imageRef is available
+  if (imageRef && imageRef.current) {
+    const element = imageRef.current;
+    const elementRect = element.getBoundingClientRect();
+
+    // Calculate the scroll position needed to center the element
+    const offset = (window.innerHeight - elementRect.height) / 2;
+    const scrollToY = window.scrollY + elementRect.top - offset;
+
+    // Ensure the scroll position stays within document bounds
+    window.scrollTo({
+      top: scrollToY,
+      behavior: "smooth",
+    });
+  }
+};
+
   return (
     <div className="containerText">
       {isCardVisible && (
@@ -325,7 +333,7 @@ const SwiperCarousel = () => {
                 src="https://images.unsplash.com/photo-1556911220-bff31c812dba?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbnxlbnwwfHwwfHx8MA%3D%3D"
                 alt="Person"
                 ref={imageRef}
-                onClick={() => handleExploreClick(imageRef)}
+                // onClick={() => handleExploreClick(imageRef)}
               />
             </div>
             <div className="details">
