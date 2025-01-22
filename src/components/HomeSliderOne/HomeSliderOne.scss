@@ -7,9 +7,9 @@
     justify-content: center;
     align-items: center;
     padding-bottom: 100px;
-    margin-top: -200px;
+    margin-top: -335px;
     @media (max-width: 1199px) {
-      margin-top: -150px;
+      margin-top: -208px;
     }
     // margin-bottom: 300px;
     // opacity: 0;
@@ -21,6 +21,15 @@
       visibility: visible;
       // transform: scale(1); // Zoom-in effect
     }
+    .parent-container {
+      position: relative; /* Ensures the child can use absolute positioning */
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
 
     .cardOOne {
       position: relative;
@@ -255,6 +264,8 @@
   }
 
   .image-container {
+  flex-direction: column;
+  max-width: 400px; /* Adjust based on your design */
     text-align: center;
     position: relative;
     display: flex;
@@ -328,7 +339,7 @@
   // }
   .hover-text {
     position: absolute;
-    bottom: 150px; /* Position text at the bottom of the image */
+    bottom: 80px; /* Position text at the bottom of the image */
     left: 20%;
     transform: translateX(-50%); /* Center text horizontally */
     padding: 10px 0;
@@ -422,6 +433,13 @@
     visibility: hidden;
     opacity: 0;
   }
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Ensure it fills the slide's height */
+  }
+  
   .swiper-slide-active {
     transform: scale(1.1);  // Slightly scale the active slide for a better focus
   }
