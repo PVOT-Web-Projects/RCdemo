@@ -339,7 +339,7 @@
   // }
   .hover-text {
     position: absolute;
-    bottom: 120px; /* Position text at the bottom of the image */
+    bottom: 80px; /* Position text at the bottom of the image */
     left: 20%;
     transform: translateX(-50%); /* Center text horizontally */
     padding: 10px 0;
@@ -353,6 +353,7 @@
     opacity: 0; /* Initially hidden */
     transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
     transform: translateY(100%); /* Start with text below the image */
+  
   }
 
   .single:hover .hover-text {
