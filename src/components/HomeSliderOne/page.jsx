@@ -227,6 +227,7 @@ const SwiperCarousel = () => {
             <Page3 />
           </motion.div>
         );
+        
       case 3:
         return (
           <motion.div
