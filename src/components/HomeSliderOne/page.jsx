@@ -366,7 +366,7 @@ const handleExploreClick = () => {
             <defs>
               <path
                 id="curve"
-                d="M 50 350 Q 400 50 750 350"
+                d="M 50 350 Q 400 -150 750 350"
                 fill="transparent"
               />
             </defs>
