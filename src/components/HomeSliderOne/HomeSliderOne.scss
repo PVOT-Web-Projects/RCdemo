@@ -1,6 +1,11 @@
 .containerText {
   text-align: center;
   // height: 100vh;
+  .page-container {
+    &.hidden {
+      display: none;
+    }
+  }
   .card-containerOne {
     background-color: #5b3524;
     display: flex;
