@@ -78,34 +78,71 @@ const SwiperCarousel = () => {
   }, []); // Only run once on mount
 
   // Trigger animation whenever selectedImage changes
+  // useEffect(() => {
+  //   if (selectedImage !== null && pageRef.current) {
+  //     const tl = gsap.timeline();
+  //     gsap.set(pageRef.current, {
+  //       opacity: 0,
+  //       scale: 0.8,
+  //       borderRadius: "50%",
+  //       overflow: "hidden",
+  //       transformOrigin: "center",
+  //     });
+
+  //     tl.to(pageRef.current, {
+  //       opacity: 1,
+  //       scale: 1,
+  //       duration: 1,
+  //       ease: "power4.out",
+  //     }).to(
+  //       pageRef.current,
+  //       {
+  //         borderRadius: "0%",
+  //         duration: 0.8,
+  //         ease: "power2.out",
+  //       },
+  //       "-=0.9"
+  //     );
+  //   }
+  // }, [selectedImage]); // Trigger animation when selectedImage changes
   useEffect(() => {
-    if (selectedImage !== null && pageRef.current) {
-      const tl = gsap.timeline();
-      gsap.set(pageRef.current, {
-        opacity: 0,
-        scale: 0.8,
-        borderRadius: "50%",
-        overflow: "hidden",
-        transformOrigin: "center",
-      });
-
-      tl.to(pageRef.current, {
-        opacity: 1,
-        scale: 1,
-        duration: 1,
-        ease: "power4.out",
-      }).to(
-        pageRef.current,
-        {
-          borderRadius: "0%",
-          duration: 0.8,
-          ease: "power2.out",
-        },
-        "-=0.9"
-      );
-    }
-  }, [selectedImage]); // Trigger animation when selectedImage changes
-
+    console.log("useEffect firing");
+    const handleWindowLoad = () => {
+      if (selectedImage !== null && pageRef.current) {
+        // Run GSAP animation after everything is loaded
+        const tl = gsap.timeline();
+        gsap.set(pageRef.current, {
+          opacity: 0,
+          scale: 0.8,
+          borderRadius: "50%",
+          overflow: "hidden",
+          transformOrigin: "center",
+        });
+  
+        tl.to(pageRef.current, {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "power4.out",
+        }).to(
+          pageRef.current,
+          {
+            borderRadius: "0%",
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          "-=0.9"
+        );
+      }
+    };
+  
+    window.addEventListener("load", handleWindowLoad);
+  
+    return () => {
+      window.removeEventListener("load", handleWindowLoad);
+    };
+  }, [selectedImage]);
+  
   // Calculate wheel effect on each slide
   const calculateWheel = () => {
     const slides = document.querySelectorAll(".single")
