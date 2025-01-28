@@ -162,7 +162,7 @@ const SwiperCarousel = () => {
     // });
     // Add zoom-effect to the clicked image
     // if (clickedImage) {
-    // clickedImage.classList.add("zoom-effect");
+    // clickedImage.classList.add("zoom   -effect");
     // After the animation, update the state
     // setTimeout(() => {
     setSelectedImage(index) // Update the state with the selected image index
