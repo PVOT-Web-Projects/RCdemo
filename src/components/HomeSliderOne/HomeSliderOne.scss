@@ -374,6 +374,13 @@
   @media(min-width: 1550px){
     transform: translateY(-150%); /* Move text into view */
   }
+  @media(max-width: 1440px){
+    transform: translateY(-40%); /* Move text into view */
+  }
+  @media(max-width: 1030px){
+    width: 100%;
+    transform: translateY(-110%); /* Move text into view */
+  }
   }
   .swiper-button {
     position: relative;
