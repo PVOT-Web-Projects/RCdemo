@@ -200,6 +200,12 @@ const SwiperCarousel = () => {
             <Page1 />
           </div>
         );
+        case 4:
+          return (
+            <div ref={pageRef}>
+              <Page1 />
+            </div>
+          );
       default:
         return <p></p>;
     }
