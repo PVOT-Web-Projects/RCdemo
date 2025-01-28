@@ -24,7 +24,8 @@ const multiplier = {
 }
 const SwiperCarousel = () => {
   const pageRef = useRef(null)
-
+ // Use a ref to track whether the page is mounted for the first time
+ const isFirstRender = useRef(true);
   const swiperRef = useRef(null) // Use useRef to reference Swiper
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [selectedImage, setSelectedImage] = useState(null) // Track the clicked image
@@ -42,7 +43,42 @@ const SwiperCarousel = () => {
     "https://plus.unsplash.com/premium_photo-1661902468735-eabf780f8ff6?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmF0aHJvb218ZW58MHx8MHx8fDA%3D", // Image 4 URL
   ]
    // GSAP animation runs on selectedImage change, including first render
-   useLayoutEffect(() => {
+   useEffect(() => {
+    if (isFirstRender.current) {
+      // Trigger animation immediately on initial render
+      if (pageRef.current) {
+        const tl = gsap.timeline();
+        gsap.set(pageRef.current, {
+          opacity: 0,
+          scale: 0.8,
+          borderRadius: "50%",
+          overflow: "hidden",
+          transformOrigin: "center",
+        });
+
+        tl.to(pageRef.current, {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "power4.out",
+        }).to(
+          pageRef.current,
+          {
+            borderRadius: "0%",
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          "-=0.9"
+        );
+      }
+
+      // After the initial render, set `isFirstRender` to false
+      isFirstRender.current = false;
+    }
+  }, []); // Only run once on mount
+
+  // Trigger animation whenever selectedImage changes
+  useEffect(() => {
     if (selectedImage !== null && pageRef.current) {
       const tl = gsap.timeline();
       gsap.set(pageRef.current, {
@@ -69,6 +105,7 @@ const SwiperCarousel = () => {
       );
     }
   }, [selectedImage]); // Trigger animation when selectedImage changes
+
   // Calculate wheel effect on each slide
   const calculateWheel = () => {
     const slides = document.querySelectorAll(".single")
