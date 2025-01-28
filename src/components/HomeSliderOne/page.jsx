@@ -202,7 +202,7 @@ const SwiperCarousel = () => {
     setIsCarouselVisible(false) // Hide the carousel
     setIsContainerTextVisible(false) // Hide the containerText
       // Trigger GSAP animation immediately after clicking
-  if (pageRef.current && isFirstRender.current) {
+  if (pageRef.current) {
     const tl = gsap.timeline();
     gsap.set(pageRef.current, {
       opacity: 0,
@@ -227,9 +227,6 @@ const SwiperCarousel = () => {
       "-=0.9"
     );
   }
-
-  // After the initial render, set `isFirstRender` to false
-  isFirstRender.current = false;
     // }, 500);
     // }
   }
