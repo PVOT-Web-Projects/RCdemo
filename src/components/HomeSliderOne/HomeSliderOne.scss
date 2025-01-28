@@ -371,7 +371,7 @@
   .single:hover .hover-text {
     opacity: 1; /* Make text visible */
     transform: translateY(-90%); /* Move text into view */
-  @media(min-width: 1500px){
+  @media(min-width: 1550px){
     transform: translateY(-150%); /* Move text into view */
   }
   }
