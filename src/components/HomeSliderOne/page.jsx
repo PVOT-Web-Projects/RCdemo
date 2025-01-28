@@ -201,6 +201,35 @@ const SwiperCarousel = () => {
     setSelectedImage(index) // Update the state with the selected image index
     setIsCarouselVisible(false) // Hide the carousel
     setIsContainerTextVisible(false) // Hide the containerText
+      // Trigger GSAP animation immediately after clicking
+  if (pageRef.current && isFirstRender.current) {
+    const tl = gsap.timeline();
+    gsap.set(pageRef.current, {
+      opacity: 0,
+      scale: 0.8,
+      borderRadius: "50%",
+      overflow: "hidden",
+      transformOrigin: "center",
+    });
+
+    tl.to(pageRef.current, {
+      opacity: 1,
+      scale: 1,
+      duration: 1,
+      ease: "power4.out",
+    }).to(
+      pageRef.current,
+      {
+        borderRadius: "0%",
+        duration: 0.8,
+        ease: "power2.out",
+      },
+      "-=0.9"
+    );
+  }
+
+  // After the initial render, set `isFirstRender` to false
+  isFirstRender.current = false;
     // }, 500);
     // }
   }
