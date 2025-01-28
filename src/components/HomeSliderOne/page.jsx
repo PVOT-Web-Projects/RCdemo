@@ -42,7 +42,7 @@ const SwiperCarousel = () => {
     "https://plus.unsplash.com/premium_photo-1661902468735-eabf780f8ff6?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmF0aHJvb218ZW58MHx8MHx8fDA%3D", // Image 4 URL
   ]
    // GSAP animation runs on selectedImage change, including first render
-   useEffect(() => {
+   useLayoutEffect(() => {
     if (selectedImage !== null && pageRef.current) {
       const tl = gsap.timeline();
       gsap.set(pageRef.current, {
