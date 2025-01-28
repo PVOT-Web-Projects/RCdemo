@@ -153,6 +153,50 @@ const SwiperCarousel = () => {
   //   setSelectedImage(index); // Update the state with the selected image index
   //   setIsCarouselVisible(false); // Hide the carousel when an image is clicked
   // };
+  // const handleImageClick = (event, index) => {
+  //   // Get the clicked image directly from the event
+  //   // const clickedImage = event.currentTarget.querySelector(".image");
+  //   // Remove zoom-effect from all images
+  //   // document.querySelectorAll(".image").forEach((image) => {
+  //   //   image.classList.remove("zoom-effect");
+  //   // });
+  //   // Add zoom-effect to the clicked image
+  //   // if (clickedImage) {
+  //   // clickedImage.classList.add("zoom   -effect");
+  //   // After the animation, update the state
+  //   // setTimeout(() => {
+  //   setSelectedImage(index) // Update the state with the selected image index
+  //   setIsCarouselVisible(false) // Hide the carousel
+  //   setIsContainerTextVisible(false) // Hide the containerText
+  //     // Trigger GSAP animation immediately after clicking
+  // if (pageRef.current) {
+  //   const tl = gsap.timeline();
+  //   gsap.set(pageRef.current, {
+  //     opacity: 0,
+  //     scale: 0.8,
+  //     borderRadius: "50%",
+  //     overflow: "hidden",
+  //     transformOrigin: "center",
+  //   });
+
+  //   tl.to(pageRef.current, {
+  //     opacity: 1,
+  //     scale: 1,
+  //     duration: 1,
+  //     ease: "power4.out",
+  //   }).to(
+  //     pageRef.current,
+  //     {
+  //       borderRadius: "0%",
+  //       duration: 0.8,
+  //       ease: "power2.out",
+  //     },
+  //     "-=0.9"
+  //   );
+  // }
+  //   // }, 500);
+  //   // }
+  // }
   const handleImageClick = (event, index) => {
     // Get the clicked image directly from the event
     // const clickedImage = event.currentTarget.querySelector(".image");
@@ -162,41 +206,58 @@ const SwiperCarousel = () => {
     // });
     // Add zoom-effect to the clicked image
     // if (clickedImage) {
-    // clickedImage.classList.add("zoom   -effect");
+    // clickedImage.classList.add("zoom-effect");
     // After the animation, update the state
     // setTimeout(() => {
-    setSelectedImage(index) // Update the state with the selected image index
-    setIsCarouselVisible(false) // Hide the carousel
-    setIsContainerTextVisible(false) // Hide the containerText
-      // Trigger GSAP animation immediately after clicking
-  if (pageRef.current) {
-    const tl = gsap.timeline();
-    gsap.set(pageRef.current, {
-      opacity: 0,
-      scale: 0.8,
-      borderRadius: "50%",
-      overflow: "hidden",
-      transformOrigin: "center",
-    });
-
-    tl.to(pageRef.current, {
-      opacity: 1,
-      scale: 1,
-      duration: 1,
-      ease: "power4.out",
-    }).to(
-      pageRef.current,
-      {
-        borderRadius: "0%",
-        duration: 0.8,
-        ease: "power2.out",
-      },
-      "-=0.9"
-    );
-  }
+    setSelectedImage(index); // Update the state with the selected image index
+    setIsCarouselVisible(false); // Hide the carousel
+    setIsContainerTextVisible(false); // Hide the containerText
     // }, 500);
     // }
+    if (pageRef.current) {
+        const tl = gsap.timeline();
+        gsap.set(pageRef.current, {
+          opacity: 0,
+          scale: 0.8,
+          borderRadius: "50%",
+          overflow: "hidden",
+          transformOrigin: "center",
+        });
+    
+        tl.to(pageRef.current, {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "power4.out",
+        }).to(
+          pageRef.current,
+          {
+            borderRadius: "0%",
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          "-=0.9"
+        );
+      }
+    // Center the image inside the inner Swiper (like the outer one)
+  if (swiperRef.current) {
+    // Get the Swiper instance
+    const swiperInstance = swiperRef.current.swiper;
+    // Ensure the slide is centered
+    swiperInstance.slideTo(index, 0, false); // Go to the clicked image
+    // Optionally scroll to the image (if required)
+    const selectedImage = event.target; // Get the clicked image
+    const elementRect = selectedImage.getBoundingClientRect();
+    // Calculate scroll position to center the selected image
+    const offset = (window.innerHeight - elementRect.height) / 2;
+    const scrollToY = window.scrollY + elementRect.top - offset;
+    // Ensure the scroll position stays within bounds
+    window.scrollTo({
+      top: scrollToY,
+      behavior: "smooth",
+    });
   }
+  };
   const imageTexts = [
     "Beautiful Kitchen Design", // Text for Image 1
     "Cozy Bedroom Inspiration", // Text for Image 2
