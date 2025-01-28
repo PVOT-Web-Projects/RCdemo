@@ -7,10 +7,11 @@ import "./HomeSliderOne.scss"
 import { AnimatePresence, motion } from "framer-motion"
 import Image from "next/image"
 import Img1 from "@/images/bgrem.png"
-import Page1 from "@/components/videoOne/page"
-import Page2 from "@/components/Home_page_Banner_Bedroom/page"
-import Page3 from "@/components/Home_page_Banner_Living/page"
-import Page4 from "@/components/Home_page_Banner_Washroom/page"
+import Page1 from "@/components/videoOne/page2"
+import Page2 from "@/components/videoOne/page3"
+import Page3 from "@/components/videoOne/page4"
+import Page4 from "@/components/videoOne/page5"
+import Page5 from "@/components/videoOne/page4"
 import { gsap } from "gsap"
 
 // Constants for the multiplier in the custom wheel effect
@@ -36,11 +37,11 @@ const SwiperCarousel = () => {
 
   // Array of custom image URLs
   const images = [
-    "https://interiormaataassets.humbeestudio.xyz/VideoThumbNailOne.png", // Image 1 URL
-    "https://interiormaataassets.humbeestudio.xyz/mainsiteassets/BedRoom/0110.webp", // Image 2 URL
-    "https://interiormaataassets.humbeestudio.xyz/mainsiteassets/Livingroom/0099.webp",
-    "https://interiormaataassets.humbeestudio.xyz/mainsiteassets/Washroom/0098.webp", // Image 3 URL
-    "https://plus.unsplash.com/premium_photo-1661902468735-eabf780f8ff6?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmF0aHJvb218ZW58MHx8MHx8fDA%3D", // Image 4 URL
+    "https://interiormaataassets.humbeestudio.xyz/KitchenImgThumb.png", // Image 1 URL
+    "https://interiormaataassets.humbeestudio.xyz/livingroomthumb.png", // Image 2 URL
+    "https://interiormaataassets.humbeestudio.xyz/interior-outdoor.png",
+    "https://interiormaataassets.humbeestudio.xyz/livingroomthumb.png", // Image 3 URL
+    "https://interiormaataassets.humbeestudio.xyz/interior-outdoor.png", // Image 4 URL
   ]
    // GSAP animation runs on selectedImage change, including first render
 
@@ -276,25 +277,25 @@ const SwiperCarousel = () => {
       case 1:
         return (
           <div ref={pageRef}>
-            <Page1 />
+            <Page2 />
           </div>
         );
       case 2:
         return (
           <div ref={pageRef}>
-            <Page1 />
+            <Page3 />
           </div>
         );
       case 3:
         return (
           <div ref={pageRef}>
-            <Page1 />
+            <Page4 />
           </div>
         );
         case 4:
           return (
             <div ref={pageRef}>
-              <Page1 />
+              <Page5 />
             </div>
           );
       default:
@@ -355,7 +356,7 @@ const SwiperCarousel = () => {
           <div className="cardOOne" onClick={handleExploreClick}>
             <div className="imgBx">
               <img
-                src="https://images.unsplash.com/photo-1556911220-bff31c812dba?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8a2l0Y2hlbnxlbnwwfHwwfHx8MA%3D%3D"
+                src="https://interiormaataassets.humbeestudio.xyz/KitchenImgThumb.png"
                 alt="Person"
                 ref={imageRef}
                 // onClick={() => handleExploreClick(imageRef)}

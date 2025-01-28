@@ -1,0 +1,56 @@
+.VideoOneContainer {
+  .VideoInnerContainer{
+    position: relative;
+    width: 100%;
+    // padding-bottom: 56.25%;
+    // @media (min-width: 1600px) {
+    //   padding-bottom: 56.25%;
+    // }
+  }
+  .videoOneVid {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    // position: relative;
+    @media (min-width: 1600px) {
+      height: 100vh;
+      object-fit: cover;
+      width: 100vw;
+    }
+    @media(max-width: 1370px){
+      height: 100%;
+    }
+  }
+  .VideoInnerContainerText{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-size: 2em;
+    width: 100%;
+    @media(max-width: 1550px){
+      left: 50%;
+      @media(max-width: 1090px){
+        left: 50%;
+      }
+    }
+    .VideoInnerContainerTextOne{
+      position: absolute;
+      top: 50%;
+      left: 85%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      font-size: 2em;
+      width: 100%;
+      @media(max-width: 1550px){
+        left: 83%;
+        @media(max-width: 1090px){
+          left: 80%;
+        }
+      }
+    }
+  }
+}
