@@ -23,6 +23,8 @@ const multiplier = {
   rotate: 0.02,
 }
 const SwiperCarousel = () => {
+  const pageRef = useRef(null)
+
   const swiperRef = useRef(null) // Use useRef to reference Swiper
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [selectedImage, setSelectedImage] = useState(null) // Track the clicked image
@@ -39,6 +41,34 @@ const SwiperCarousel = () => {
     "https://interiormaataassets.humbeestudio.xyz/mainsiteassets/Washroom/0098.webp", // Image 3 URL
     "https://plus.unsplash.com/premium_photo-1661902468735-eabf780f8ff6?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmF0aHJvb218ZW58MHx8MHx8fDA%3D", // Image 4 URL
   ]
+   // GSAP animation runs on selectedImage change, including first render
+   useEffect(() => {
+    if (selectedImage !== null && pageRef.current) {
+      const tl = gsap.timeline();
+      gsap.set(pageRef.current, {
+        opacity: 0,
+        scale: 0.8,
+        borderRadius: "50%",
+        overflow: "hidden",
+        transformOrigin: "center",
+      });
+
+      tl.to(pageRef.current, {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: "power4.out",
+      }).to(
+        pageRef.current,
+        {
+          borderRadius: "0%",
+          duration: 0.8,
+          ease: "power2.out",
+        },
+        "-=0.9"
+      );
+    }
+  }, [selectedImage]); // Trigger animation when selectedImage changes
   // Calculate wheel effect on each slide
   const calculateWheel = () => {
     const slides = document.querySelectorAll(".single")
@@ -100,7 +130,6 @@ const SwiperCarousel = () => {
       swiperRef.current.swiper.slidePrev()
     }
   }
-
   const goToNextSlide = () => {
     if (swiperRef.current) {
       swiperRef.current.swiper.slideNext()
@@ -149,184 +178,32 @@ const SwiperCarousel = () => {
     switch (selectedImage) {
       case 0:
         return (
-          <div
-            ref={(el) => {
-              if (el) {
-                const tl = gsap.timeline()
-                gsap.set(el, {
-                  opacity: 0,
-                  scale: 0.8,
-                  borderRadius: "50%",
-                  overflow: "hidden",
-                  transformOrigin: "center",
-                })
-                tl.to(el, {
-                  opacity: 1,
-                  scale: 1,
-                  duration: 1,
-                  ease: "power4.out",
-                }).to(
-                  el,
-                  {
-                    borderRadius: "0%",
-                    duration: 0.8,
-                    ease: "power2.out",
-                  },
-                  "-=0.9",
-                ) // Slightly overlap with the previous animation
-                
-              }
-            }}
-            // style={{ transform: "translate(-50%, -50%)" }}
-          >
+          <div ref={pageRef}>
             <Page1 />
           </div>
-        )
+        );
       case 1:
         return (
-          <div
-          ref={(el) => {
-            if (el) {
-              const tl = gsap.timeline()
-              gsap.set(el, {
-                opacity: 0,
-                scale: 0.8,
-                borderRadius: "50%",
-                overflow: "hidden",
-                transformOrigin: "center",
-              })
-              tl.to(el, {
-                opacity: 1,
-                scale: 1,
-                duration: 1.0,
-                ease: "power3.out",
-              }).to(
-                el,
-                {
-                  borderRadius: "0%",
-                  duration: 0.8,
-                  ease: "power2.out",
-                },
-                "-=0.9",
-              ) // Slightly overlap with the previous animation
-              
-            }
-          }}
-          // style={{ transform: "translate(-50%, -50%)" }}
-        >
-          <Page1 />
-        </div>
-        )
-      case 2:
-        return (
-          <div
-          ref={(el) => {
-            if (el) {
-              const tl = gsap.timeline()
-              gsap.set(el, {
-                opacity: 0,
-                scale: 0.8,
-                borderRadius: "50%",
-                overflow: "hidden",
-                transformOrigin: "center",
-              })
-              tl.to(el, {
-                opacity: 1,
-                scale: 1,
-                duration: 1.0,
-                ease: "power3.out",
-              }).to(
-                el,
-                {
-                  borderRadius: "0%",
-                  duration: 0.8,
-                  ease: "power2.out",
-                },
-                "-=0.9",
-              ) // Slightly overlap with the previous animation
-              
-            }
-          }}
-          // style={{ transform: "translate(-50%, -50%)" }}
-        >
-          <Page1 />
-        </div>
-        )
-
-      case 3:
-        return (
-          <div
-          ref={(el) => {
-            if (el) {
-              const tl = gsap.timeline()
-              gsap.set(el, {
-                opacity: 0,
-                scale: 0.8,
-                borderRadius: "50%",
-                overflow: "hidden",
-                transformOrigin: "center",
-              })
-              tl.to(el, {
-                opacity: 1,
-                scale: 1,
-                duration: 1.0,
-                ease: "power3.out",
-              }).to(
-                el,
-                {
-                  borderRadius: "0%",
-                  duration: 0.8,
-                  ease: "power2.out",
-                },
-                "-=0.9",
-              ) // Slightly overlap with the previous animation
-              
-            }
-          }}
-          // style={{ transform: "translate(-50%, -50%)" }}
-        >
-          <Page1 />
-        </div>
-        )
-      case 4:
-        return (
-          <div
-            ref={(el) => {
-              if (el) {
-                const tl = gsap.timeline()
-                gsap.set(el, {
-                  opacity: 0,
-                  scale: 0.8,
-                  borderRadius: "50%",
-                  overflow: "hidden",
-                  transformOrigin: "center",
-                })
-                tl.to(el, {
-                  opacity: 1,
-                  scale: 1,
-                  duration: 1.0,
-                  ease: "power3.out",
-                }).to(
-                  el,
-                  {
-                    borderRadius: "0%",
-                    duration: 0.8,
-                    ease: "power2.out",
-                  },
-                  "-=0.9",
-                ) // Slightly overlap with the previous animation
-                
-              }
-            }}
-            // style={{ transform: "translate(-50%, -50%)" }}
-          >
+          <div ref={pageRef}>
             <Page1 />
           </div>
-        )
+        );
+      case 2:
+        return (
+          <div ref={pageRef}>
+            <Page1 />
+          </div>
+        );
+      case 3:
+        return (
+          <div ref={pageRef}>
+            <Page1 />
+          </div>
+        );
       default:
-        return <p></p>
+        return <p></p>;
     }
-  }
+  };
 
   const imageRef = useRef(null)
   const handleExploreClick = () => {
@@ -449,14 +326,7 @@ const SwiperCarousel = () => {
           </Swiper>
         </div>
       ) : (
-        // Show the selected page
-        <AnimatePresence>
-          <motion.div>
-            <AnimatePresence>
-              <motion.div>{renderPage()}</motion.div>
-            </AnimatePresence>
-          </motion.div>
-        </AnimatePresence>
+              <div>{renderPage()}</div>
       )}
 
       {!isCardVisible && !isCarouselVisible && (
