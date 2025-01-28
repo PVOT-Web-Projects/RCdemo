@@ -16,6 +16,11 @@
     @media (max-width: 1480px) {
       margin-top: -485px;
     }
+    @media (max-width: 1370px) {
+          margin-top: -397px;
+          padding-bottom: 60px;
+      }
+  
     @media (max-width: 1199px) {
       margin-top: -208px;
     }
@@ -285,6 +290,10 @@
     align-items: center;
     height: 100vh;
     margin: 0 auto;
+    @media(max-width: 1370px){
+      max-width: 150px; /* Adjust based on your design */
+    height: 75vh;
+    }
   }
   .image-container img {
     transition: all 0.5s ease-in-out; /* Smooth scaling */
@@ -376,6 +385,9 @@
   }
   @media(max-width: 1440px){
     transform: translateY(-40%); /* Move text into view */
+  }
+  @media(max-width: 1440px){
+    transform: translateY(-265%); /* Move text into view */
   }
   @media(max-width: 1030px){
     width: 100%;

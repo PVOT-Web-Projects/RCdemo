@@ -17,6 +17,9 @@
       object-fit: cover;
       width: 100vw;
     }
+    @media(max-width: 1370px){
+      height: 100%;
+    }
   }
   .VideoInnerContainerText{
     position: absolute;
