@@ -42,7 +42,40 @@ const SwiperCarousel = () => {
     "https://interiormaataassets.humbeestudio.xyz/mainsiteassets/Washroom/0098.webp", // Image 3 URL
     "https://plus.unsplash.com/premium_photo-1661902468735-eabf780f8ff6?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmF0aHJvb218ZW58MHx8MHx8fDA%3D", // Image 4 URL
   ]
+   // GSAP animation runs on selectedImage change, including first render
+   useEffect(() => {
+    // if () {
+      // Trigger animation immediately on initial render
+      if (pageRef.current) {
+        const tl = gsap.timeline();
+        gsap.set(pageRef.current, {
+          opacity: 0,
+          scale: 0.8,
+          borderRadius: "50%",
+          overflow: "hidden",
+          transformOrigin: "center",
+        });
 
+        tl.to(pageRef.current, {
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          ease: "power4.out",
+        }).to(
+          pageRef.current,
+          {
+            borderRadius: "0%",
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          "-=0.9"
+        );
+      }
+
+      // After the initial render, set `isFirstRender` to false
+      // isFirstRender.current = false;
+    // }
+  }, []); // Only run once on mount
 
   // Trigger animation whenever selectedImage changes
   // useEffect(() => {
