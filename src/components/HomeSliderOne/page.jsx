@@ -350,7 +350,7 @@ const SwiperCarousel = () => {
           </svg>
         </div>
       )}
-      {isCardVisible && (
+      {isCardVisible && ( 
         <div className={`card-containerOne ${isCardVisible ? "visible" : ""}`}>
           <div className="cardOOne" onClick={handleExploreClick}>
             <div className="imgBx">
