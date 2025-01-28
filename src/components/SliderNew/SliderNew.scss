@@ -202,6 +202,10 @@
     // bottom: 50px;
     left: 5%;
     bottom: 200px;
+    @media(max-width: 1199px){
+      bottom: 130px;
+      left: 7%;
+    }
 
     button {
       width: 45px;
