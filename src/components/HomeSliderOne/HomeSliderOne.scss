@@ -381,12 +381,12 @@
     opacity: 1; /* Make text visible */
     transform: translateY(-90%); /* Move text into view */
   @media(min-width: 1550px){
-    transform: translateY(-150%); /* Move text into view */
+    transform: translateY(-130%); /* Move text into view */
   }
   @media(max-width: 1440px){
-    transform: translateY(-40%); /* Move text into view */
+    transform: translateY(-35%); /* Move text into view */
   }
-  @media(max-width: 1440px){
+  @media(max-width: 1370px){
     transform: translateY(-265%); /* Move text into view */
   }
   @media(max-width: 1030px){
