@@ -333,7 +333,7 @@ const SwiperCarousel = () => {
         <div className={`curved-text-container ${isContainerTextVisible ? "" : "hidden"}`}>
           <svg ref={svgRef} width="100%" height="100%" viewBox="0 0 800 400">
             <defs>
-              <path id="curve" d="M 40 460 Q 400 -250 750 460" fill="transparent" />
+              <path id="curve" d="M 40 460 Q 400 -350 750 460" fill="transparent" />
             </defs>
             <motion.text>
               <motion.textPath
