@@ -6,7 +6,7 @@ const VideoOne = () => {
     <div className="VideoOneContainer">
      <div className="VideoInnerContainer">
      <video
-        src="./video/Royal Crown Interior - Outdoor.mp4"
+        src="https://interiormaataassets.humbeestudio.xyz/videos/Royal%20Crown%20Interior%20-%20Outdoor.mp4"
         type="video/mp4"
         autoPlay
         playsInline
