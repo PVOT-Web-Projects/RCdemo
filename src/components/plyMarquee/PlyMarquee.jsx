@@ -58,7 +58,7 @@ const PlyMarquee = () => {
         </p>
       </div>
       <div className="MarqueMainSection">
-        <Marquee class="r3f_marquee" speed={50} pauseOnHover={true}>
+        <Marquee class="r3f_marquee" speed={60} pauseOnHover={true}>
           <div className="ply_list">
             <div className="ply_item top1">
               <div className="ply_info">
