@@ -1,18 +1,18 @@
-import React, { useState, useEffect, useRef, useLayoutEffect  } from "react"
-import { Swiper, SwiperSlide } from "swiper/react"
-import "swiper/css"
-import "swiper/css/free-mode"
-import "swiper/css/pagination"
-import "./HomeSliderOne.scss"
-import { AnimatePresence, motion } from "framer-motion"
-import Image from "next/image"
-import Img1 from "@/images/bgrem.png"
-import Page1 from "@/components/videoOne/page2"
-import Page2 from "@/components/videoOne/page3"
-import Page3 from "@/components/videoOne/page4"
-import Page4 from "@/components/videoOne/page5"
-import Page5 from "@/components/videoOne/page4"
-import { gsap } from "gsap"
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
+import "./HomeSliderOne.scss";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
+import Img1 from "@/images/bgrem.png";
+import Page1 from "@/components/videoOne/page2";
+import Page2 from "@/components/videoOne/page3";
+import Page3 from "@/components/videoOne/page4";
+import Page4 from "@/components/videoOne/page5";
+import Page5 from "@/components/videoOne/page4";
+import { gsap } from "gsap";
 
 // Constants for the multiplier in the custom wheel effect
 // const multiplier = {
@@ -22,18 +22,22 @@ import { gsap } from "gsap"
 const multiplier = {
   translate: 0.3,
   rotate: 0.02,
-}
+};
 const SwiperCarousel = () => {
-  const pageRef = useRef(null)
- // Use a ref to track whether the page is mounted for the first time
- const isFirstRender = useRef(true);
-  const swiperRef = useRef(null) // Use useRef to reference Swiper
-  const [isTransitioning, setIsTransitioning] = useState(false)
-  const [selectedImage, setSelectedImage] = useState(null) // Track the clicked image
+  const pageRef = useRef(null);
+  // Use a ref to track whether the page is mounted for the first time
+  const isFirstRender = useRef(true);
+  const swiperRef = useRef(null); // Use useRef to reference Swiper
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null); // Track the clicked image
   // const [isCarouselVisible, setIsCarouselVisible] = useState(true); // Controls carousel visibility
-  const [isCarouselVisible, setIsCarouselVisible] = useState(false) // Initially hide the carousel
-  const [isCardVisible, setIsCardVisible] = useState(true) // Initially show the card
-  const [isContainerTextVisible, setIsContainerTextVisible] = useState(true)
+  const [isCarouselVisible, setIsCarouselVisible] = useState(false); // Initially hide the carousel
+  const [isCardVisible, setIsCardVisible] = useState(true); // Initially show the card
+  const [isContainerTextVisible, setIsContainerTextVisible] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
+  // const svgRef = useRef(null);
+  const pathRef = useRef(null); // Ref for the path element
+  const textPathRef = useRef(null); // Ref for the textPath element
 
   // Array of custom image URLs
   const images = [
@@ -42,8 +46,62 @@ const SwiperCarousel = () => {
     "https://interiormaataassets.humbeestudio.xyz/interior-outdoor.png",
     "https://interiormaataassets.humbeestudio.xyz/livingroomthumb.png", // Image 3 URL
     "https://interiormaataassets.humbeestudio.xyz/interior-outdoor.png", // Image 4 URL
-  ]
-   // GSAP animation runs on selectedImage change, including first render
+  ];
+  useEffect(() => {
+    if (svgRef.current && pathRef.current && textPathRef.current) {
+      // Initial GSAP setup for the path animation
+      gsap.set(pathRef.current, {
+        strokeDasharray: pathRef.current.getTotalLength(),
+        strokeDashoffset: pathRef.current.getTotalLength(),
+      });
+
+      // Animate the path and text to move downwards
+      if (isHovered) {
+        // Animate the path stroke
+        gsap.from(pathRef.current, {
+          strokeDashoffset: 0,
+          duration: 1, // Slightly longer duration for a smoother feel
+          ease: "power2.out", // Smoother ease for the stroke drawing
+        });
+
+        // Animate the text and path downward with a smooth ease
+        gsap.from(pathRef.current, {
+          y: 10, // Downward motion
+          duration: 1, // Duration for smoother transition
+          ease: "power2.out", // Smooth easing function
+        });
+
+        gsap.from(textPathRef.current, {
+          y: 10, // Downward motion
+          duration: 1, // Duration for smoother transition
+          ease: "power2.out", // Smooth easing function
+        });
+      } else {
+        // Reset path stroke and position
+        gsap.from(pathRef.current, {
+          strokeDashoffset: pathRef.current.getTotalLength(),
+          y: 0, // Reset vertical position
+          duration: 1, // Duration for smooth transition back to initial state
+          ease: "power2.inOut", // Smooth reset easing
+        });
+
+        gsap.from(textPathRef.current, {
+          y: 0, // Reset vertical position
+          duration: 1, // Duration for smooth transition back
+          ease: "power2.inOut", // Smooth easing function for reset
+        });
+      }
+    }
+  }, [isHovered]);
+  // GSAP animation runs on selectedImage change, including first render
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
 
   // Trigger animation whenever selectedImage changes
   useLayoutEffect(() => {
@@ -76,47 +134,50 @@ const SwiperCarousel = () => {
 
   // Calculate wheel effect on each slide
   const calculateWheel = () => {
-    const slides = document.querySelectorAll(".single")
+    const slides = document.querySelectorAll(".single");
     slides.forEach((slide) => {
-      const rect = slide.getBoundingClientRect()
-      const r = window.innerWidth * 0.5 - (rect.x + rect.width * 0.5)
-      let ty = Math.abs(r) * multiplier.translate - rect.width * multiplier.translate
+      const rect = slide.getBoundingClientRect();
+      const r = window.innerWidth * 0.5 - (rect.x + rect.width * 0.5);
+      let ty =
+        Math.abs(r) * multiplier.translate - rect.width * multiplier.translate;
 
       if (ty < 0) {
-        ty = 0
+        ty = 0;
       }
 
-      const transformOrigin = r < 0 ? "left top" : "right top"
-      slide.style.transform = `translate(0, ${ty}px) rotate(${-r * multiplier.rotate}deg)`
-      slide.style.transformOrigin = transformOrigin
-    })
-  }
+      const transformOrigin = r < 0 ? "left top" : "right top";
+      slide.style.transform = `translate(0, ${ty}px) rotate(${
+        -r * multiplier.rotate
+      }deg)`;
+      slide.style.transformOrigin = transformOrigin;
+    });
+  };
 
   const raf = () => {
     if (!isTransitioning) {
-      requestAnimationFrame(raf)
-      calculateWheel()
+      requestAnimationFrame(raf);
+      calculateWheel();
     }
-  }
+  };
 
   useEffect(() => {
-    raf()
-  }, [isTransitioning])
-  const svgRef = useRef(null)
+    raf();
+  }, [isTransitioning]);
+  const svgRef = useRef(null);
 
   useEffect(() => {
     const updateTextPath = () => {
       if (svgRef.current) {
-        const width = Math.min(window.innerWidth, 800)
-        const height = width * 0.5
-        svgRef.current.setAttribute("viewBox", `0 0 ${width} ${height}`)
+        const width = Math.min(window.innerWidth, 800);
+        const height = width * 0.5;
+        svgRef.current.setAttribute("viewBox", `0 0 ${width} ${height}`);
       }
-    }
+    };
 
-    updateTextPath()
-    window.addEventListener("resize", updateTextPath)
-    return () => window.removeEventListener("resize", updateTextPath)
-  }, [])
+    updateTextPath();
+    window.addEventListener("resize", updateTextPath);
+    return () => window.removeEventListener("resize", updateTextPath);
+  }, []);
   // Auto-slide functionality: Move to the next slide every 3 seconds
   // useEffect(() => {
   //   const intervalId = setInterval(() => {
@@ -132,22 +193,22 @@ const SwiperCarousel = () => {
   // Manual slide control (previous and next buttons)
   const goToPrevSlide = () => {
     if (swiperRef.current) {
-      swiperRef.current.swiper.slidePrev()
+      swiperRef.current.swiper.slidePrev();
     }
-  }
+  };
   const goToNextSlide = () => {
     if (swiperRef.current) {
-      swiperRef.current.swiper.slideNext()
+      swiperRef.current.swiper.slideNext();
     }
-  }
+  };
 
   const onSlideChange = () => {
-    setIsTransitioning(true)
-  }
+    setIsTransitioning(true);
+  };
 
   const onSlideTransitionEnd = () => {
-    setIsTransitioning(false)
-  }
+    setIsTransitioning(false);
+  };
 
   // Handle click on an image
   // const handleImageClick = (index) => {
@@ -216,48 +277,48 @@ const SwiperCarousel = () => {
     // }, 500);
     // }
     if (pageRef.current) {
-        const tl = gsap.timeline();
-        gsap.set(pageRef.current, {
-          opacity: 0,
-          scale: 0.8,
-          borderRadius: "50%",
-          overflow: "hidden",
-          transformOrigin: "center",
-        });
-    
-        tl.to(pageRef.current, {
-          opacity: 1,
-          scale: 1,
-          duration: 1,
-          ease: "power4.out",
-        }).to(
-          pageRef.current,
-          {
-            borderRadius: "0%",
-            duration: 0.8,
-            ease: "power2.out",
-          },
-          "-=0.9"
-        );
-      }
+      const tl = gsap.timeline();
+      gsap.set(pageRef.current, {
+        opacity: 0,
+        scale: 0.8,
+        borderRadius: "50%",
+        overflow: "hidden",
+        transformOrigin: "center",
+      });
+
+      tl.to(pageRef.current, {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: "power4.out",
+      }).to(
+        pageRef.current,
+        {
+          borderRadius: "0%",
+          duration: 0.8,
+          ease: "power2.out",
+        },
+        "-=0.9"
+      );
+    }
     // Center the image inside the inner Swiper (like the outer one)
-  if (swiperRef.current) {
-    // Get the Swiper instance
-    const swiperInstance = swiperRef.current.swiper;
-    // Ensure the slide is centered
-    swiperInstance.slideTo(index, 0, false); // Go to the clicked image
-    // Optionally scroll to the image (if required)
-    const selectedImage = event.target; // Get the clicked image
-    const elementRect = selectedImage.getBoundingClientRect();
-    // Calculate scroll position to center the selected image
-    const offset = (window.innerHeight - elementRect.height) / 2;
-    const scrollToY = window.scrollY + elementRect.top - offset;
-    // Ensure the scroll position stays within bounds
-    window.scrollTo({
-      top: scrollToY,
-      behavior: "smooth",
-    });
-  }
+    if (swiperRef.current) {
+      // Get the Swiper instance
+      const swiperInstance = swiperRef.current.swiper;
+      // Ensure the slide is centered
+      swiperInstance.slideTo(index, 0, false); // Go to the clicked image
+      // Optionally scroll to the image (if required)
+      const selectedImage = event.target; // Get the clicked image
+      const elementRect = selectedImage.getBoundingClientRect();
+      // Calculate scroll position to center the selected image
+      const offset = (window.innerHeight - elementRect.height) / 2;
+      const scrollToY = window.scrollY + elementRect.top - offset;
+      // Ensure the scroll position stays within bounds
+      window.scrollTo({
+        top: scrollToY,
+        behavior: "smooth",
+      });
+    }
   };
   const imageTexts = [
     "Beautiful Kitchen Design", // Text for Image 1
@@ -265,7 +326,7 @@ const SwiperCarousel = () => {
     "Spacious Living Room Ideas", // Text for Image 3
     "Modern Washroom Design", // Text for Image 4
     "Minimalist Bedroom Design", // Text for Image 5
-  ]
+  ];
   const renderPage = () => {
     switch (selectedImage) {
       case 0:
@@ -292,67 +353,82 @@ const SwiperCarousel = () => {
             <Page4 />
           </div>
         );
-        case 4:
-          return (
-            <div ref={pageRef}>
-              <Page5 />
-            </div>
-          );
+      case 4:
+        return (
+          <div ref={pageRef}>
+            <Page5 />
+          </div>
+        );
       default:
         return <p></p>;
     }
   };
 
-  const imageRef = useRef(null)
+  const imageRef = useRef(null);
   const handleExploreClick = () => {
-    setSelectedImage(null) // Reset selected image
-    setIsCarouselVisible(true) // Show the carousel
-    setIsCardVisible(false) // Hide the card
-    setIsContainerTextVisible(true) // Show the containerText
+    setSelectedImage(null); // Reset selected image
+    setIsCarouselVisible(true); // Show the carousel
+    setIsCardVisible(false); // Hide the card
+    setIsContainerTextVisible(true); // Show the containerText
 
     // Check if imageRef is available
     if (imageRef && imageRef.current) {
-      const element = imageRef.current
-      const elementRect = element.getBoundingClientRect()
+      const element = imageRef.current;
+      const elementRect = element.getBoundingClientRect();
 
       // Calculate the scroll position needed to center the element
-      const offset = (window.innerHeight - elementRect.height) / 2
-      const scrollToY = window.scrollY + elementRect.top - offset
+      const offset = (window.innerHeight - elementRect.height) / 2;
+      const scrollToY = window.scrollY + elementRect.top - offset;
 
       // Ensure the scroll position stays within document bounds
       window.scrollTo({
         top: scrollToY,
         behavior: "smooth",
-      })
+      });
     }
-  }
+  };
 
   return (
     <div className="containerText">
       {isCardVisible && (
-        <div className={`curved-text-container ${isContainerTextVisible ? "" : "hidden"}`}>
+        <div
+          className={`curved-text-container ${
+            isContainerTextVisible ? "" : "hidden"
+          }`}
+        >
           <svg ref={svgRef} width="100%" height="100%" viewBox="0 0 800 400">
             <defs>
-              <path id="curve" d="M 40 460 Q 400 -350 750 460" fill="transparent" />
+              <path
+                ref={pathRef}
+                id="curve"
+                d={
+                  isHovered
+                    ? // M 50 330 Q 200 180 400 330 Q 600 430 750 280
+                      "M 50 290 Q 200 140 400 290 Q 600 390 750 240" // Path on hover
+                    : "M 50 350 Q 400 -150 750 350" // Path when not hovered
+                }
+                fill="transparent"
+              />
             </defs>
-            <motion.text>
-              <motion.textPath
-                initial={{ x: -100, opacity: 0 }}
-                whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1 }}
-                viewport={{ once: true }}
+            <text>
+              <textPath
+                ref={textPathRef}
                 href="#curve"
-                startOffset="50%"
-                textAnchor="middle"
+                startOffset="50%" // Position text along the path
+                textAnchor="middle" // Center the text
               >
                 WHERE ELEGANCE MEETS DESIRE
-              </motion.textPath>
-            </motion.text>
+              </textPath>
+            </text>
           </svg>
         </div>
       )}
-      {isCardVisible && ( 
-        <div className={`card-containerOne ${isCardVisible ? "visible" : ""}`}>
+      {isCardVisible && (
+        <div
+          className={`card-containerOne ${isCardVisible ? "visible" : ""}`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           <div className="cardOOne" onClick={handleExploreClick}>
             <div className="imgBx">
               <img
@@ -412,7 +488,9 @@ const SwiperCarousel = () => {
                       className="image"
                     />
                     <div className="hover-text">
-                      <span className="hovertextInner">{imageTexts[index]}</span>{" "}
+                      <span className="hovertextInner">
+                        {imageTexts[index]}
+                      </span>{" "}
                     </div>
                     {/* <div className="hover-text1">
                       <span className="hovertextInner">Explore More</span>{" "}
@@ -424,19 +502,22 @@ const SwiperCarousel = () => {
           </Swiper>
         </div>
       ) : (
-              <div>{renderPage()}</div>
+        <div>{renderPage()}</div>
       )}
 
       {!isCardVisible && !isCarouselVisible && (
         <div className="explore-button-container">
-          <div onClick={handleExploreClick} scroll={false} className="explore-button">
+          <div
+            onClick={handleExploreClick}
+            scroll={false}
+            className="explore-button"
+          >
             <span className="button-content-explore">Close</span>
           </div>
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default SwiperCarousel
-
+export default SwiperCarousel;
