@@ -449,7 +449,7 @@ const SwiperCarousel = () => {
                 d={
                   isHovered
                     ? // M 50 330 Q 200 180 400 330 Q 600 430 750 280
-                      "M 50 290 Q 200 140 400 290 Q 600 390 750 240" // Path on hover
+                      "M 50 290 Q 200 140 400 290 Q 600 310 750 240" // Path on hover
                     : "M 50 350 Q 400 -240 750 350" // Path when not hovered
                 }
                 fill="transparent"
