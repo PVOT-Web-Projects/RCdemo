@@ -67,8 +67,8 @@ const PlyMarquee = () => {
                   <p className="text">tw</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">Ganges</div>
+                  <div className="ply_wood">wood</div>
                 </div>
               </div>
               <Image src={img12} alt="ply" />
@@ -80,8 +80,8 @@ const PlyMarquee = () => {
                   <p className="text">tw</p>
                 </div>
                 <div className="info_right">
-                  <p className="ply_name">Mauri</p>
-                  <p className="ply_wood">true wood</p>
+                  <p className="ply_name">Bloomberg</p>
+                  <p className="ply_wood">chestnut</p>
                 </div>
               </div>
               <Image src={img21} alt="ply" />
@@ -93,8 +93,8 @@ const PlyMarquee = () => {
                   <p className="text">tw</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">Bloomberg</div>
+                  <div className="ply_wood">chestnut</div>
                 </div>
               </div>
               <Image src={img20} alt="ply" />
@@ -106,8 +106,8 @@ const PlyMarquee = () => {
                   <p className="text">tw</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">sumatra</div>
+                  <div className="ply_wood">teak</div>
                 </div>
               </div>
               {/* baaki */}
@@ -120,8 +120,8 @@ const PlyMarquee = () => {
                   <p className="text">tw</p>
                 </div>
                 <div className="info_right">
-                  <p className="ply_name">Mauri</p>
-                  <p className="ply_wood">true wood</p>
+                  <p className="ply_name">sumatra</p>
+                  <p className="ply_wood">teak</p>
                 </div>
               </div>
               <Image src={img13} alt="ply" />
@@ -133,8 +133,8 @@ const PlyMarquee = () => {
                   <p className="text">sn</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">steel</div>
+                  <div className="ply_wood">oak</div>
                 </div>
               </div>
               <Image src={img24} alt="ply" />
@@ -146,8 +146,8 @@ const PlyMarquee = () => {
                   <p className="text">sn</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">steel</div>
+                  <div className="ply_wood">oak</div>
                 </div>
               </div>
               <Image src={img25} alt="ply" />
@@ -159,8 +159,8 @@ const PlyMarquee = () => {
                   <p className="text">sn</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">sun</div>
+                  <div className="ply_wood">shine</div>
                 </div>
               </div>
               <Image src={img8} alt="ply" />
@@ -173,8 +173,8 @@ const PlyMarquee = () => {
                   <p className="text">sn</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">badung</div>
+                  <div className="ply_wood">teak</div>
                 </div>
               </div>
               <Image src={img2} alt="ply" />
@@ -186,8 +186,8 @@ const PlyMarquee = () => {
                   <p className="text">to</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">naulo</div>
+                  {/* <div className="ply_wood"></div> */}
                 </div>
               </div>
               <Image src={img22} alt="ply" />
@@ -200,8 +200,8 @@ const PlyMarquee = () => {
                   <p className="text">to</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">naulo</div>
+                  {/* <div className="ply_wood">true wood</div> */}
                 </div>
               </div>
               <Image src={img23} alt="ply" />
@@ -213,8 +213,8 @@ const PlyMarquee = () => {
                   <p className="text">mo</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">fish</div>
+                  <div className="ply_wood">bone</div>
                 </div>
               </div>
               <Image src={img6} alt="ply" />
@@ -228,8 +228,8 @@ const PlyMarquee = () => {
                   <p className="text">mo</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">fish</div>
+                  <div className="ply_wood">bone</div>
                 </div>
               </div>
               <Image src={img7} alt="ply" />
@@ -241,8 +241,8 @@ const PlyMarquee = () => {
                   <p className="text">hng</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">sion</div>
+                  <div className="ply_wood">ash</div>
                 </div>
               </div>
               <Image src={img11} alt="ply" />
@@ -255,8 +255,8 @@ const PlyMarquee = () => {
                   <p className="text">hng</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">sion</div>
+                  <div className="ply_wood">ash</div>
                 </div>
               </div>
               <Image src={img10} alt="ply" />
@@ -265,11 +265,11 @@ const PlyMarquee = () => {
               <div className="ply_info">
                 <div className="info_left">
                   <p className="num">5009</p>
-                  <p className="text">gm</p>
+                  <p className="text">gem</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">harea</div>
+                  {/* <div className="ply_wood">true wood</div> */}
                 </div>
               </div>
               <Image src={img4} alt="ply" />
@@ -279,11 +279,11 @@ const PlyMarquee = () => {
               <div className="ply_info">
                 <div className="info_left">
                   <p className="num">5010</p>
-                  <p className="text">gm</p>
+                  <p className="text">gem</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">harea</div>
+                  {/* <div className="ply_wood">true wood</div> */}
                 </div>
               </div>
               <Image src={img5} alt="ply" />
@@ -295,8 +295,8 @@ const PlyMarquee = () => {
                   <p className="text">tf</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">tariq</div>
+                  {/* <div className="ply_wood">true wood</div> */}
                 </div>
               </div>
               <Image src={img17} alt="ply" />
@@ -309,8 +309,8 @@ const PlyMarquee = () => {
                   <p className="text">tf</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">tariq</div>
+                  {/* <div className="ply_wood">true wood</div> */}
                 </div>
               </div>
               <Image src={img18} alt="ply" />
@@ -322,8 +322,8 @@ const PlyMarquee = () => {
                   <p className="text">tf</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">black</div>
+                  <div className="ply_wood">smith</div>
                 </div>
               </div>
               <Image src={img19} alt="ply" />
@@ -335,8 +335,8 @@ const PlyMarquee = () => {
                   <p className="text">cl</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">serra</div>
+                  <div className="ply_wood">kombi</div>
                 </div>
               </div>
               <Image src={img3} alt="ply" />
@@ -348,8 +348,8 @@ const PlyMarquee = () => {
                   <p className="text">sf</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">fab</div>
+                  <div className="ply_wood">stone</div>
                 </div>
               </div>
               <Image src={img14} alt="ply" />
@@ -362,8 +362,8 @@ const PlyMarquee = () => {
                   <p className="text">sfs</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">white</div>
+                  <div className="ply_wood">terrazo</div>
                 </div>
               </div>
               <Image src={img15} alt="ply" />
@@ -375,8 +375,8 @@ const PlyMarquee = () => {
                   <p className="text">sfs</p>
                 </div>
                 <div className="info_right">
-                  <div className="ply_name">Mauri</div>
-                  <div className="ply_wood">true wood</div>
+                  <div className="ply_name">grey</div>
+                  <div className="ply_wood">terrazo</div>
                 </div>
               </div>
               <Image src={img16} alt="ply" />
