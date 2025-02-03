@@ -13,8 +13,11 @@
     align-items: center;
     padding-bottom: 100px;
     margin-top: -485px;
+    @media (min-width: 1550px) {
+      margin-top: -600px;
+    }
     @media (max-width: 1480px) {
-      margin-top: -485px;
+      margin-top: -420px;
     }
     @media (max-width: 1370px) {
           margin-top: -397px;

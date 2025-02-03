@@ -377,7 +377,7 @@ const SwiperCarousel = () => {
       const elementRect = element.getBoundingClientRect();
 
       // Calculate the scroll position needed to center the element
-      const offset = (window.innerHeight - elementRect.height) / 2;
+      const offset = (window.innerHeight - elementRect.height) / 1.2;
       const scrollToY = window.scrollY + elementRect.top - offset;
 
       // Ensure the scroll position stays within document bounds
@@ -405,7 +405,7 @@ const SwiperCarousel = () => {
                   isHovered
                     ? // M 50 330 Q 200 180 400 330 Q 600 430 750 280
                       "M 50 290 Q 200 140 400 290 Q 600 390 750 240" // Path on hover
-                    : "M 50 350 Q 400 -150 750 350" // Path when not hovered
+                    : "M 50 350 Q 400 -240 750 350" // Path when not hovered
                 }
                 fill="transparent"
               />
