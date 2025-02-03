@@ -1,6 +1,9 @@
 .containerText {
   text-align: center;
   height: 100vh;
+  @media (max-width: 1380px) {
+    height: auto;
+  }
   .page-container {
     &.hidden {
       display: none;
@@ -12,22 +15,22 @@
     justify-content: center;
     align-items: center;
     padding-bottom: 100px;
-    margin-top: -400px;
+    margin-top: -555px;
     // 555
     @media (min-width: 1550px) {
-      margin-top: -400px;
+      margin-top: -600px;
       // 600
     }
     @media (max-width: 1480px) {
       margin-top: -420px;
     }
     @media (max-width: 1370px) {
-          margin-top: -397px;
-          padding-bottom: 60px;
-      }
-  
+      margin-top: -397px;
+      padding-bottom: 60px;
+    }
+
     @media (max-width: 1199px) {
-      margin-top: -208px;
+      margin-top: -310px;
     }
     // margin-bottom: 300px;
     // opacity: 0;
@@ -297,9 +300,9 @@
     align-items: center;
     height: 100vh;
     margin: 0 auto;
-    @media(max-width: 1370px){
+    @media (max-width: 1370px) {
       max-width: 150px; /* Adjust based on your design */
-    height: 75vh;
+      height: 75vh;
     }
   }
   .image-container img {
@@ -387,19 +390,19 @@
   .single:hover .hover-text {
     opacity: 1; /* Make text visible */
     transform: translateY(-90%); /* Move text into view */
-  @media(min-width: 1550px){
-    transform: translateY(-130%); /* Move text into view */
-  }
-  @media(max-width: 1440px){
-    transform: translateY(-35%); /* Move text into view */
-  }
-  @media(max-width: 1370px){
-    transform: translateY(-265%); /* Move text into view */
-  }
-  @media(max-width: 1030px){
-    width: 100%;
-    transform: translateY(-110%); /* Move text into view */
-  }
+    @media (min-width: 1550px) {
+      transform: translateY(-130%); /* Move text into view */
+    }
+    @media (max-width: 1440px) {
+      transform: translateY(-35%); /* Move text into view */
+    }
+    @media (max-width: 1370px) {
+      transform: translateY(-265%); /* Move text into view */
+    }
+    @media (max-width: 1030px) {
+      width: 100%;
+      transform: translateY(-110%); /* Move text into view */
+    }
   }
   .swiper-button {
     position: relative;

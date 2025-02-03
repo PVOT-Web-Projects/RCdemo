@@ -164,8 +164,52 @@ const SwiperCarousel = () => {
     raf();
   }, [isTransitioning]);
   const svgRef = useRef(null);
-
   useEffect(() => {
+    // Create an intersection observer to detect when the element enters the viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // If the element is in view, animate it with GSAP
+            gsap.fromTo(
+              svgRef.current,
+              {
+                rotation: -20,
+                x: -100, // Start position (off-screen to the left)
+                opacity: 0, // Initially invisible
+              },
+              {
+                rotation: 0, // Final rotation (centered)
+                x: 0, // Final position (centered)
+                opacity: 1, // Fully visible
+                duration: 1, // Duration of the animation
+                ease: "power2.out", // Smooth easing
+              }
+            );
+            observer.unobserve(entry.target); // Stop observing after animation triggers
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the element is in view
+      }
+    );
+
+    // Start observing the element
+    if (svgRef.current) {
+      observer.observe(svgRef.current);
+    }
+
+    // Clean up observer when component unmounts
+    return () => {
+      if (svgRef.current) {
+        observer.unobserve(svgRef.current);
+      }
+    };
+  }, []);
+  
+  useEffect(() => {
+
     const updateTextPath = () => {
       if (svgRef.current) {
         const width = Math.min(window.innerWidth, 800);
@@ -396,7 +440,8 @@ const SwiperCarousel = () => {
             isContainerTextVisible ? "" : "hidden"
           }`}
         >
-          <svg ref={svgRef} width="100%" height="100%" viewBox="0 0 800 400">
+          <svg 
+          ref={svgRef} width="100%" height="100%" viewBox="0 0 800 400">
             <defs>
               <path
                 ref={pathRef}
@@ -411,14 +456,14 @@ const SwiperCarousel = () => {
               />
             </defs>
             <text>
-              <textPath
+              <motion.textPath
                 ref={textPathRef}
                 href="#curve"
                 startOffset="50%" // Position text along the path
                 textAnchor="middle" // Center the text
               >
                 WHERE ELEGANCE MEETS DESIRE
-              </textPath>
+              </motion.textPath>
             </text>
           </svg>
         </div>
