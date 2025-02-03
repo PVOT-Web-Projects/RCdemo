@@ -485,7 +485,7 @@
     height: 100%; /* Ensure it fills the slide's height */
   }
 
-  .swiper-slide-active {
+  .swiper-slide:hover {
     transform: scale(1.1); // Slightly scale the active slide for a better focus
   }
   .explore-button-container {
