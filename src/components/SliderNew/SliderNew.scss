@@ -113,6 +113,8 @@
         .descriptionSlider {
           margin-top: 10px;
           margin-bottom: 20px;
+          font-size: 20px;
+          letter-spacing: 0.03em;
           opacity: 0;
           animation: animate 1s ease-in-out 0.3s 1 forwards;
         }

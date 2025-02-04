@@ -8,7 +8,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Img1 from "@/images/bgrem.png";
 import { gsap } from "gsap";
-
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 const multiplier = {
   translate: 0.3,
   rotate: 0.02,
@@ -26,6 +26,7 @@ const SwiperCarousel = () => {
   const [isContainerTextVisible, setIsContainerTextVisible] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
   const [videoVisible, setVideoVisible] = useState(false); // Track if video should be visible
+  const [videoPreloaded, setVideoPreloaded] = useState(false); // Track if videos are preloaded
 
   const videoRefs = useRef([]);
   // const svgRef = useRef(null);
@@ -169,50 +170,90 @@ const SwiperCarousel = () => {
     raf();
   }, [isTransitioning]);
   const svgRef = useRef(null);
+  
+  
   useEffect(() => {
-    // Create an intersection observer to detect when the element enters the viewport
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            // If the element is in view, animate it with GSAP
-            gsap.fromTo(
-              svgRef.current,
-              {
-                rotation: -20,
-                x: -100, // Start position (off-screen to the left)
-                opacity: 0, // Initially invisible
-              },
-              {
-                rotation: 0, // Final rotation (centered)
-                x: 0, // Final position (centered)
-                opacity: 1, // Fully visible
-                duration: 1, // Duration of the animation
-                ease: "power2.out", // Smooth easing
-              }
-            );
-            observer.unobserve(entry.target); // Stop observing after animation triggers
-          }
-        });
-      },
-      {
-        threshold: 0.5, // Trigger when 50% of the element is in view
-      }
-    );
-
-    // Start observing the element
+    // Register ScrollTrigger plugin
+    gsap.registerPlugin(ScrollTrigger);
+  
+    // Apply ScrollTrigger to the SVG element
     if (svgRef.current) {
-      observer.observe(svgRef.current);
+      gsap.fromTo(
+        svgRef.current,
+        {
+          rotation: -40,
+          y: 10,
+          // duration: 3,
+          // x: -100, // Start position (off-screen to the left)
+          // opacity: 0, // Initially invisible
+        },
+        {
+          y: 0,
+          rotation: 0, // Final rotation (centered)
+          // x: 0, // Final position (centered)
+          // opacity: 1, // Fully visible
+          // duration: 3, // Duration of the animation
+          ease: "power3.out", // Smooth easing
+          scrollTrigger: {
+            trigger: textPathRef.current, // Trigger the animation when the element comes into view
+            start: "top 70%", // Start the animation when 80% of the element is in view
+            end: "top 10%", // End the animation when the element is at the top 30% of the viewport
+            scrub: true, // Smooth animation as the user scrolls
+            // once: true, // Run the animation only once
+            // markers: true,
+          },
+        }
+      );
     }
-
-    // Clean up observer when component unmounts
+  
+    // Cleanup ScrollTrigger when the component unmounts
     return () => {
-      if (svgRef.current) {
-        observer.unobserve(svgRef.current);
-      }
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
   }, []);
+  // useEffect(() => {
+  //   // Create an intersection observer to detect when the element enters the viewport
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           // If the element is in view, animate it with GSAP
+  //           gsap.fromTo(
+  //             svgRef.current,
+  //             {
+  //               rotation: -20,
+  //               x: -100, // Start position (off-screen to the left)
+  //               opacity: 0, // Initially invisible
+  //             },
+  //             {
+  //               rotation: 0, // Final rotation (centered)
+  //               x: 0, // Final position (centered)
+  //               opacity: 1, // Fully visible
+  //               duration: 1, // Duration of the animation
+  //               ease: "power2.out", // Smooth easing
+  //             }
+  //           );
+  //           observer.unobserve(entry.target); // Stop observing after animation triggers
+  //         }
+  //       });
+  //     },
+  //     {
+  //       threshold: 0.5, // Trigger when 50% of the element is in view
+  //     }
+  //   );
 
+  //   // Start observing the element
+  //   if (svgRef.current) {
+  //     observer.observe(svgRef.current);
+  //   }
+
+  //   // Clean up observer when component unmounts
+  //   return () => {
+  //     if (svgRef.current) {
+  //       observer.unobserve(svgRef.current);
+  //     }
+  //   };
+  // }, []);
   useEffect(() => {
     const updateTextPath = () => {
       if (svgRef.current) {
@@ -383,7 +424,7 @@ const SwiperCarousel = () => {
                   isHovered
                     ? // M 50 330 Q 200 180 400 330 Q 600 430 750 280
                       "M 50 290 Q 200 140 400 290 Q 600 310 750 240" // Path on hover
-                    : "M 80 390 Q 400 -300 750 390" // Path when not hovered
+                    : "M 100 400 A 300 350 0 0 1 700 400" // Path when not hovered
                 }
                 fill="transparent"
               />
@@ -396,6 +437,7 @@ const SwiperCarousel = () => {
                 textAnchor="middle" // Center the text
               >
                 WHERE ELEGANCE MEETS DESIRE
+                {/* drinking the acid water from the sky */}
               </motion.textPath>
             </text>
           </svg>
@@ -404,8 +446,8 @@ const SwiperCarousel = () => {
       {isCardVisible && (
         <div
           className={`card-containerOne ${isCardVisible ? "visible" : ""}`}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
+          // onMouseEnter={handleMouseEnter}
+          // onMouseLeave={handleMouseLeave}
         >
           <motion.div className="cardOOne" onClick={handleExploreClick}>
             <div className="imgBx">
