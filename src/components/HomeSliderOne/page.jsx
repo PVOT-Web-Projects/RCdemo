@@ -381,7 +381,7 @@ const SwiperCarousel = () => {
                 <video
                   //  ./video/Kitchen Interior _ Royal Crown.mp4
                   //  https://interiormaataassets.humbeestudio.xyz/videos/Kitchen%20Interior%20_%20Royal%20Crown.mp4
-                  src="https://interiormaataassets.humbeestudio.xyz/videos/Kitchen%20Interior%20_%20Royal%20Crown.mp4"
+                  src="./video/kitchen_new.mp4"
                   type="video/mp4"
                   autoPlay
                   playsInline
@@ -407,25 +407,125 @@ const SwiperCarousel = () => {
       case 1:
         return (
           <div ref={pageRef}>
-            <Page2 />
+           <div className="VideoOneContainer">
+              <div className="VideoInnerContainer">
+                <video
+                  //  ./video/Kitchen Interior _ Royal Crown.mp4
+                  //  https://interiormaataassets.humbeestudio.xyz/videos/Kitchen%20Interior%20_%20Royal%20Crown.mp4
+                  src="https://interiormaataassets.humbeestudio.xyz/videos/Kitchen%20Interior%20_%20Royal%20Crown.mp4"
+                  type="video/mp4"
+                  autoPlay
+                  playsInline
+                  loop
+                  muted
+                  className="videoOneVid"
+                />
+                <div className="VideoInnerContainerText">
+                  <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                  >
+                    {/* <h2>Center Right</h2> */}
+                    <p>WHERE ELEGANCE</p>
+                    <p>MEETS DESIRE</p>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
           </div>
         );
       case 2:
         return (
           <div ref={pageRef}>
-            <Page3 />
+           <div className="VideoOneContainer">
+              <div className="VideoInnerContainer">
+                <video
+                  //  ./video/Kitchen Interior _ Royal Crown.mp4
+                  //  https://interiormaataassets.humbeestudio.xyz/videos/Kitchen%20Interior%20_%20Royal%20Crown.mp4
+                  src="https://interiormaataassets.humbeestudio.xyz/videos/Kitchen%20Interior%20_%20Royal%20Crown.mp4"
+                  type="video/mp4"
+                  autoPlay
+                  playsInline
+                  loop
+                  muted
+                  className="videoOneVid"
+                />
+                <div className="VideoInnerContainerText">
+                  <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                  >
+                    {/* <h2>Center Right</h2> */}
+                    <p>WHERE ELEGANCE</p>
+                    <p>MEETS DESIRE</p>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
           </div>
         );
       case 3:
         return (
           <div ref={pageRef}>
-            <Page4 />
+            <div className="VideoOneContainer">
+              <div className="VideoInnerContainer">
+                <video
+                  //  ./video/Kitchen Interior _ Royal Crown.mp4
+                  //  https://interiormaataassets.humbeestudio.xyz/videos/Kitchen%20Interior%20_%20Royal%20Crown.mp4
+                  src="https://interiormaataassets.humbeestudio.xyz/videos/Kitchen%20Interior%20_%20Royal%20Crown.mp4"
+                  type="video/mp4"
+                  autoPlay
+                  playsInline
+                  loop
+                  muted
+                  className="videoOneVid"
+                />
+                <div className="VideoInnerContainerText">
+                  <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                  >
+                    {/* <h2>Center Right</h2> */}
+                    <p>WHERE ELEGANCE</p>
+                    <p>MEETS DESIRE</p>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
           </div>
         );
       case 4:
         return (
           <div ref={pageRef}>
-            <Page5 />
+            <div className="VideoOneContainer">
+              <div className="VideoInnerContainer">
+                <video
+                  //  ./video/Kitchen Interior _ Royal Crown.mp4
+                  //  https://interiormaataassets.humbeestudio.xyz/videos/Kitchen%20Interior%20_%20Royal%20Crown.mp4
+                  src="https://interiormaataassets.humbeestudio.xyz/videos/Kitchen%20Interior%20_%20Royal%20Crown.mp4"
+                  type="video/mp4"
+                  autoPlay
+                  playsInline
+                  loop
+                  muted
+                  className="videoOneVid"
+                />
+                <div className="VideoInnerContainerText">
+                  <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 1, delay: 0.5 }}
+                  >
+                    {/* <h2>Center Right</h2> */}
+                    <p>WHERE ELEGANCE</p>
+                    <p>MEETS DESIRE</p>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
           </div>
         );
       default:
