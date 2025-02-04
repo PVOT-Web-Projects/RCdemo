@@ -474,7 +474,7 @@ const SwiperCarousel = () => {
                 <video
                   //  ./video/Kitchen Interior _ Royal Crown.mp4
                   //  https://interiormaataassets.humbeestudio.xyz/videos/Kitchen%20Interior%20_%20Royal%20Crown.mp4
-                  src="./video/kitchen_new.mp4"
+                  src="./video/living_new.mp4"
                   type="video/mp4"
                   autoPlay
                   playsInline
@@ -505,7 +505,7 @@ const SwiperCarousel = () => {
                 <video
                   //  ./video/Kitchen Interior _ Royal Crown.mp4
                   //  https://interiormaataassets.humbeestudio.xyz/videos/Kitchen%20Interior%20_%20Royal%20Crown.mp4
-                  src="./video/kitchen_new.mp4"
+                  src="./video/interiorOut_new.mp4"
                   type="video/mp4"
                   autoPlay
                   playsInline
