@@ -7,18 +7,8 @@ import "./HomeSliderOne.scss";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Img1 from "@/images/bgrem.png";
-import Page1 from "@/components/videoOne/page2";
-import Page2 from "@/components/videoOne/page3";
-import Page3 from "@/components/videoOne/page4";
-import Page4 from "@/components/videoOne/page5";
-import Page5 from "@/components/videoOne/page4";
 import { gsap } from "gsap";
 
-// Constants for the multiplier in the custom wheel effect
-// const multiplier = {
-//   translate: 0.1,
-//   rotate: 0.01,
-// };
 const multiplier = {
   translate: 0.3,
   rotate: 0.02,
@@ -35,7 +25,9 @@ const SwiperCarousel = () => {
   const [isCardVisible, setIsCardVisible] = useState(true); // Initially show the card
   const [isContainerTextVisible, setIsContainerTextVisible] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
+  const [videoVisible, setVideoVisible] = useState(false); // Track if video should be visible
 
+  const videoRefs = useRef([]);
   // const svgRef = useRef(null);
   const pathRef = useRef(null); // Ref for the path element
   const textPathRef = useRef(null); // Ref for the textPath element
@@ -47,6 +39,13 @@ const SwiperCarousel = () => {
     "https://interiormaataassets.humbeestudio.xyz/interior-outdoor.png",
     "https://interiormaataassets.humbeestudio.xyz/livingroomthumb.png", // Image 3 URL
     "https://interiormaataassets.humbeestudio.xyz/interior-outdoor.png", // Image 4 URL
+  ];
+  const videoUrls = [
+    "https://vanras.humbeestudio.xyz/videos/kitchen_new.mp4",
+    "https://vanras.humbeestudio.xyz/videos/living_new.mp4",
+    "https://vanras.humbeestudio.xyz/videos/interiorOut_new.mp4",
+    "https://vanras.humbeestudio.xyz/videos/living_new.mp4",
+    "https://vanras.humbeestudio.xyz/videos/interiorOut_new.mp4",
   ];
   useEffect(() => {
     if (svgRef.current && pathRef.current && textPathRef.current) {
@@ -94,7 +93,6 @@ const SwiperCarousel = () => {
       }
     }
   }, [isHovered]);
-  // GSAP animation runs on selectedImage change, including first render
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -104,7 +102,6 @@ const SwiperCarousel = () => {
     setIsHovered(false);
   };
 
-  // Trigger animation whenever selectedImage changes
   useLayoutEffect(() => {
     if (selectedImage !== null && pageRef.current) {
       const tl = gsap.timeline();
@@ -222,19 +219,6 @@ const SwiperCarousel = () => {
     window.addEventListener("resize", updateTextPath);
     return () => window.removeEventListener("resize", updateTextPath);
   }, []);
-  // Auto-slide functionality: Move to the next slide every 3 seconds
-  // useEffect(() => {
-  //   const intervalId = setInterval(() => {
-  //     if (swiperRef.current) {
-  //       swiperRef.current.swiper.slideNext();
-  //     }
-  //   }, 3000); // Change slide every 3 seconds
-
-  //   // Clear the interval when the component unmounts
-  //   return () => clearInterval(intervalId);
-  // }, []);
-
-  // Manual slide control (previous and next buttons)
   const goToPrevSlide = () => {
     if (swiperRef.current) {
       swiperRef.current.swiper.slidePrev();
@@ -253,68 +237,7 @@ const SwiperCarousel = () => {
   const onSlideTransitionEnd = () => {
     setIsTransitioning(false);
   };
-
-  // Handle click on an image
-  // const handleImageClick = (index) => {
-  //   setSelectedImage(index); // Update the state with the selected image index
-  //   setIsCarouselVisible(false); // Hide the carousel when an image is clicked
-  // };
-  // const handleImageClick = (event, index) => {
-  //   // Get the clicked image directly from the event
-  //   // const clickedImage = event.currentTarget.querySelector(".image");
-  //   // Remove zoom-effect from all images
-  //   // document.querySelectorAll(".image").forEach((image) => {
-  //   //   image.classList.remove("zoom-effect");
-  //   // });
-  //   // Add zoom-effect to the clicked image
-  //   // if (clickedImage) {
-  //   // clickedImage.classList.add("zoom   -effect");
-  //   // After the animation, update the state
-  //   // setTimeout(() => {
-  //   setSelectedImage(index) // Update the state with the selected image index
-  //   setIsCarouselVisible(false) // Hide the carousel
-  //   setIsContainerTextVisible(false) // Hide the containerText
-  //     // Trigger GSAP animation immediately after clicking
-  // if (pageRef.current) {
-  //   const tl = gsap.timeline();
-  //   gsap.set(pageRef.current, {
-  //     opacity: 0,
-  //     scale: 0.8,
-  //     borderRadius: "50%",
-  //     overflow: "hidden",
-  //     transformOrigin: "center",
-  //   });
-
-  //   tl.to(pageRef.current, {
-  //     opacity: 1,
-  //     scale: 1,
-  //     duration: 1,
-  //     ease: "power4.out",
-  //   }).to(
-  //     pageRef.current,
-  //     {
-  //       borderRadius: "0%",
-  //       duration: 0.8,
-  //       ease: "power2.out",
-  //     },
-  //     "-=0.9"
-  //   );
-  // }
-  //   // }, 500);
-  //   // }
-  // }
   const handleImageClick = (event, index) => {
-    // Get the clicked image directly from the event
-    // const clickedImage = event.currentTarget.querySelector(".image");
-    // Remove zoom-effect from all images
-    // document.querySelectorAll(".image").forEach((image) => {
-    //   image.classList.remove("zoom-effect");
-    // });
-    // Add zoom-effect to the clicked image
-    // if (clickedImage) {
-    // clickedImage.classList.add("zoom-effect");
-    // After the animation, update the state
-    // setTimeout(() => {
     setSelectedImage(index); // Update the state with the selected image index
     setIsCarouselVisible(false); // Hide the carousel
     setIsContainerTextVisible(false); // Hide the containerText
@@ -363,7 +286,13 @@ const SwiperCarousel = () => {
         behavior: "smooth",
       });
     }
+     // Show video immediately
+     if (videoRefs.current[index]) {
+      setVideoVisible(true); // Set video to be visible
+      videoRefs.current[index].play(); // Start playing the video immediately
+    }
   };
+  
   const imageTexts = [
     "Beautiful Kitchen Design", // Text for Image 1
     "Cozy Bedroom Inspiration", // Text for Image 2
@@ -372,165 +301,38 @@ const SwiperCarousel = () => {
     "Minimalist Bedroom Design", // Text for Image 5
   ];
   const renderPage = () => {
-    switch (selectedImage) {
-      case 0:
-        return (
-          <div ref={pageRef}>
-            <div className="VideoOneContainer">
-              <div className="VideoInnerContainer">
-                <video
-                  //  ./video/Kitchen Interior _ Royal Crown.mp4
-                  //  https://interiormaataassets.humbeestudio.xyz/videos/Kitchen%20Interior%20_%20Royal%20Crown.mp4
-                  src="https://vanras.humbeestudio.xyz/videos/kitchen_new.mp4"
-                  type="video/mp4"
-                  autoPlay
-                  playsInline
-                  loop
-                  muted
-                  className="videoOneVid"
-                />
-                <div className="VideoInnerContainerText">
-                  <motion.div
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                  >
-                    {/* <h2>Center Right</h2> */}
-                    <p>WHERE ELEGANCE</p>
-                    <p>MEETS DESIRE</p>
-                  </motion.div>
-                </div>
-              </div>
+    if (selectedImage === null) return null;
+
+    return (
+      <div ref={pageRef}>
+        <div className="VideoOneContainer">
+          <div className="VideoInnerContainer">
+            {/* Pre-rendering video */}
+            <video
+              ref={(el) => (videoRefs.current[selectedImage] = el)}
+              src={videoUrls[selectedImage]}
+              type="video/mp4"
+              preload="auto" // Preload the video
+              muted // Mute the video to avoid sound playback on load
+              autoPlay
+              playsInline
+              loop
+              className="videoOneVid"
+            />
+            <div className="VideoInnerContainerText">
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, delay: 0.5 }}
+              >
+                <p>WHERE ELEGANCE</p>
+                <p>MEETS DESIRE</p>
+              </motion.div>
             </div>
           </div>
-        );
-      case 1:
-        return (
-          <div ref={pageRef}>
-           <div className="VideoOneContainer">
-              <div className="VideoInnerContainer">
-                <video
-                  //  ./video/Kitchen Interior _ Royal Crown.mp4
-                  //  https://interiormaataassets.humbeestudio.xyz/videos/Kitchen%20Interior%20_%20Royal%20Crown.mp4
-                  src="https://vanras.humbeestudio.xyz/videos/living_new.mp4"
-                  type="video/mp4"
-                  autoPlay
-                  playsInline
-                  loop
-                  muted
-                  className="videoOneVid"
-                />
-                <div className="VideoInnerContainerText">
-                  <motion.div
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                  >
-                    {/* <h2>Center Right</h2> */}
-                    <p>WHERE ELEGANCE</p>
-                    <p>MEETS DESIRE</p>
-                  </motion.div>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      case 2:
-        return (
-          <div ref={pageRef}>
-           <div className="VideoOneContainer">
-              <div className="VideoInnerContainer">
-                <video
-                  //  ./video/Kitchen Interior _ Royal Crown.mp4
-                  //  https://interiormaataassets.humbeestudio.xyz/videos/Kitchen%20Interior%20_%20Royal%20Crown.mp4
-                  src="https://vanras.humbeestudio.xyz/videos/interiorOut_new.mp4"
-                  type="video/mp4"
-                  autoPlay
-                  playsInline
-                  loop
-                  muted
-                  className="videoOneVid"
-                />
-                <div className="VideoInnerContainerText">
-                  <motion.div
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                  >
-                    {/* <h2>Center Right</h2> */}
-                    <p>WHERE ELEGANCE</p>
-                    <p>MEETS DESIRE</p>
-                  </motion.div>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      case 3:
-        return (
-          <div ref={pageRef}>
-            <div className="VideoOneContainer">
-              <div className="VideoInnerContainer">
-                <video
-                  //  ./video/Kitchen Interior _ Royal Crown.mp4
-                  //  https://interiormaataassets.humbeestudio.xyz/videos/Kitchen%20Interior%20_%20Royal%20Crown.mp4
-                  src="https://vanras.humbeestudio.xyz/videos/living_new.mp4"
-                  type="video/mp4"
-                  autoPlay
-                  playsInline
-                  loop
-                  muted
-                  className="videoOneVid"
-                />
-                <div className="VideoInnerContainerText">
-                  <motion.div
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                  >
-                    {/* <h2>Center Right</h2> */}
-                    <p>WHERE ELEGANCE</p>
-                    <p>MEETS DESIRE</p>
-                  </motion.div>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      case 4:
-        return (
-          <div ref={pageRef}>
-            <div className="VideoOneContainer">
-              <div className="VideoInnerContainer">
-                <video
-                  //  ./video/Kitchen Interior _ Royal Crown.mp4
-                  //  https://interiormaataassets.humbeestudio.xyz/videos/Kitchen%20Interior%20_%20Royal%20Crown.mp4
-                  src="https://vanras.humbeestudio.xyz/videos/interiorOut_new.mp4"
-                  type="video/mp4"
-                  autoPlay
-                  playsInline
-                  loop
-                  muted
-                  className="videoOneVid"
-                />
-                <div className="VideoInnerContainerText">
-                  <motion.div
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                  >
-                    {/* <h2>Center Right</h2> */}
-                    <p>WHERE ELEGANCE</p>
-                    <p>MEETS DESIRE</p>
-                  </motion.div>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      default:
-        return <p></p>;
-    }
+        </div>
+      </div>
+    );
   };
 
   const imageRef = useRef(null);
@@ -539,7 +341,7 @@ const SwiperCarousel = () => {
     setIsCarouselVisible(true); // Show the carousel
     setIsCardVisible(false); // Hide the card
     setIsContainerTextVisible(true); // Show the containerText
-
+    setVideoVisible(false); // Hide video when closing the exploration
     // Check if imageRef is available
     if (imageRef && imageRef.current) {
       const element = imageRef.current;
@@ -607,13 +409,10 @@ const SwiperCarousel = () => {
                 // onClick={() => handleExploreClick(imageRef)}
               />
             </div>
-            {/* <div className="details">
-              <p>OPEN NOW</p>
-            </div> */}
           </motion.div>
         </div>
       )}
-      {isCarouselVisible ? (
+      {isCarouselVisible && (
         <div className={`carouselOne ${isCarouselVisible ? "" : "hidden"}`}>
           <Swiper
             ref={swiperRef}
@@ -661,19 +460,16 @@ const SwiperCarousel = () => {
                         {imageTexts[index]}
                       </span>{" "}
                     </div>
-                    {/* <div className="hover-text1">
-                      <span className="hovertextInner">Explore More</span>{" "}
-                    </div> */}
                   </motion.div>
                 </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
-      ) : (
-        <div>{renderPage()}</div>
+      // ) : (
+      //   <div>{renderPage()}</div>
       )}
-
+  {selectedImage !== null && !isCarouselVisible && renderPage()}
       {!isCardVisible && !isCarouselVisible && (
         <div className="explore-button-container">
           <div
