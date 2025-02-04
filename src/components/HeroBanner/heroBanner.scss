@@ -1,9 +1,10 @@
 @import "../../app/variables.scss";
 
 .hero_banner {
+  background-color: #212121;
   font-family: "made_mirage_thin" !important;
   .banner_image {
-    height: 100vh;
+    height: 85vh;
     position: relative;
     img {
       max-width: 100%;

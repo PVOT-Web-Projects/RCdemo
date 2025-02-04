@@ -22,13 +22,13 @@ const AnimatedCharacters = ({ text, type }) => {
     hidden: {
       y: type === "heading1" ? "200%" : 0,
       x: type === "heading2" ? "200%" : 0,
-      color: "#5b3524",
+      color: "#ffffff",
       transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 },
     },
     visible: {
       y: 0,
       x: 0,
-      color: "#5b3524",
+      color: "#ffffff",
       transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 },
     },
   }

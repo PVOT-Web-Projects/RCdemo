@@ -38,7 +38,7 @@ const HeroBanner = () => {
   return (
     <div className="hero_banner">
       <div className="banner_image">
-        <Image src={banner} alt="banner" />
+        {/* <Image src={banner} alt="banner" /> */}
         <div className="banner_text">
           <div className="text_effect">
             <Textanim />
@@ -72,8 +72,7 @@ const HeroBanner = () => {
           </div> */}
           
         </div>
-        <div class="scroll-down-wrap no-border">
-        {/* {isVisible && ( */}
+        {/* <div class="scroll-down-wrap no-border">
           <div className="section-down-arrow" onClick={scrollDownByTenPercent}>
             <svg
               class="nectar-scroll-icon"
@@ -91,8 +90,7 @@ const HeroBanner = () => {
             </svg>
             <div className="scroll">Scroll to explore</div>
           </div>
-        {/* )} */}
-      </div>
+      </div> */}
       </div>
     </div>
   );

@@ -35,6 +35,7 @@ const SwiperCarousel = () => {
   const [isCardVisible, setIsCardVisible] = useState(true); // Initially show the card
   const [isContainerTextVisible, setIsContainerTextVisible] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
+
   // const svgRef = useRef(null);
   const pathRef = useRef(null); // Ref for the path element
   const textPathRef = useRef(null); // Ref for the textPath element
@@ -443,14 +444,14 @@ const SwiperCarousel = () => {
           <svg 
           ref={svgRef} width="100%" height="100%" viewBox="0 0 800 400">
             <defs>
-              <path
+              <motion.path
                 ref={pathRef}
                 id="curve"
                 d={
                   isHovered
                     ? // M 50 330 Q 200 180 400 330 Q 600 430 750 280
                       "M 50 290 Q 200 140 400 290 Q 600 310 750 240" // Path on hover
-                    : "M 50 350 Q 400 -240 750 350" // Path when not hovered
+                    : "M 80 390 Q 400 -300 750 390" // Path when not hovered
                 }
                 fill="transparent"
               />
@@ -474,7 +475,8 @@ const SwiperCarousel = () => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="cardOOne" onClick={handleExploreClick}>
+          <motion.div
+           className="cardOOne" onClick={handleExploreClick}>
             <div className="imgBx">
               <img
                 src="https://interiormaataassets.humbeestudio.xyz/KitchenImgThumb.png"
@@ -483,10 +485,10 @@ const SwiperCarousel = () => {
                 // onClick={() => handleExploreClick(imageRef)}
               />
             </div>
-            <div className="details">
+            {/* <div className="details">
               <p>OPEN NOW</p>
-            </div>
-          </div>
+            </div> */}
+          </motion.div>
         </div>
       )}
       {isCarouselVisible ? (
