@@ -446,8 +446,8 @@ const SwiperCarousel = () => {
       {isCardVisible && (
         <div
           className={`card-containerOne ${isCardVisible ? "visible" : ""}`}
-          // onMouseEnter={handleMouseEnter}
-          // onMouseLeave={handleMouseLeave}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           <motion.div className="cardOOne" onClick={handleExploreClick}>
             <div className="imgBx">
