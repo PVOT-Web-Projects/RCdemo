@@ -40,13 +40,20 @@ const SwiperCarousel = () => {
     "https://interiormaataassets.humbeestudio.xyz/livingroomthumb.png", // Image 3 URL
     "https://interiormaataassets.humbeestudio.xyz/interior-outdoor.png", // Image 4 URL
   ];
+  // const videoUrls = [
+  //   "https://vanras.humbeestudio.xyz/videos/kitchen_new.mp4",
+  //   "https://vanras.humbeestudio.xyz/videos/living_new.mp4",
+  //   "https://vanras.humbeestudio.xyz/videos/interiorOut_new.mp4",
+  //   "https://vanras.humbeestudio.xyz/videos/living_new.mp4",
+  //   "https://vanras.humbeestudio.xyz/videos/interiorOut_new.mp4",
+  // ];
   const videoUrls = [
-    "https://vanras.humbeestudio.xyz/videos/kitchen_new.mp4",
-    "https://vanras.humbeestudio.xyz/videos/living_new.mp4",
-    "https://vanras.humbeestudio.xyz/videos/interiorOut_new.mp4",
-    "https://vanras.humbeestudio.xyz/videos/living_new.mp4",
-    "https://vanras.humbeestudio.xyz/videos/interiorOut_new.mp4",
-  ];
+    "./video/kitchen_new.mp4",
+    "./video/living_new.mp4",
+    "./video/interiorOut_new.mp4",
+    "./video/living_new.mp4",
+    "./video/interiorOut_new.mp4",
+  ]
   useEffect(() => {
     if (svgRef.current && pathRef.current && textPathRef.current) {
       // Initial GSAP setup for the path animation
