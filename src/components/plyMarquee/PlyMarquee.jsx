@@ -71,7 +71,11 @@ const PlyMarquee = () => {
                   <div className="ply_wood">wood</div>
                 </div>
               </div>
-              <Image src={img12} alt="ply" />
+              <Image
+                loading="lazy" // This will lazy load images that aren't critical
+                src={img12}
+                alt="ply"
+              />
             </div>
             <div className="ply_item bottom1">
               <div className="ply_info">
@@ -84,7 +88,11 @@ const PlyMarquee = () => {
                   <p className="ply_wood">chestnut</p>
                 </div>
               </div>
-              <Image src={img21} alt="ply" />
+              <Image
+                loading="lazy" // This will lazy load images that aren't critical
+                src={img21}
+                alt="ply"
+              />
             </div>
             <div className="ply_item top1">
               <div className="ply_info">
@@ -97,7 +105,11 @@ const PlyMarquee = () => {
                   <div className="ply_wood">chestnut</div>
                 </div>
               </div>
-              <Image src={img20} alt="ply" />
+              <Image
+                src={img20}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             <div className="ply_item bottom1">
               <div className="ply_info">
@@ -111,7 +123,11 @@ const PlyMarquee = () => {
                 </div>
               </div>
               {/* baaki */}
-              <Image src={img9} alt="ply" />
+              <Image
+                src={img9}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             <div className="ply_item top1">
               <div className="ply_info">
@@ -124,7 +140,11 @@ const PlyMarquee = () => {
                   <p className="ply_wood">teak</p>
                 </div>
               </div>
-              <Image src={img13} alt="ply" />
+              <Image
+                src={img13}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             <div className="ply_item bottom1">
               <div className="ply_info">
@@ -137,7 +157,11 @@ const PlyMarquee = () => {
                   <div className="ply_wood">oak</div>
                 </div>
               </div>
-              <Image src={img24} alt="ply" />
+              <Image
+                src={img24}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             <div className="ply_item top1">
               <div className="ply_info">
@@ -150,7 +174,11 @@ const PlyMarquee = () => {
                   <div className="ply_wood">oak</div>
                 </div>
               </div>
-              <Image src={img25} alt="ply" />
+              <Image
+                src={img25}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             <div className="ply_item bottom1">
               <div className="ply_info">
@@ -163,7 +191,11 @@ const PlyMarquee = () => {
                   <div className="ply_wood">shine</div>
                 </div>
               </div>
-              <Image src={img8} alt="ply" />
+              <Image
+                src={img8}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             {/*  */}
             <div className="ply_item top1">
@@ -177,7 +209,11 @@ const PlyMarquee = () => {
                   <div className="ply_wood">teak</div>
                 </div>
               </div>
-              <Image src={img2} alt="ply" />
+              <Image
+                src={img2}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             <div className="ply_item bottom1">
               <div className="ply_info">
@@ -190,7 +226,11 @@ const PlyMarquee = () => {
                   {/* <div className="ply_wood"></div> */}
                 </div>
               </div>
-              <Image src={img22} alt="ply" />
+              <Image
+                src={img22}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             {/*  */}
             <div className="ply_item top1">
@@ -204,7 +244,11 @@ const PlyMarquee = () => {
                   {/* <div className="ply_wood">true wood</div> */}
                 </div>
               </div>
-              <Image src={img23} alt="ply" />
+              <Image
+                src={img23}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             <div className="ply_item bottom1">
               <div className="ply_info">
@@ -217,7 +261,11 @@ const PlyMarquee = () => {
                   <div className="ply_wood">bone</div>
                 </div>
               </div>
-              <Image src={img6} alt="ply" />
+              <Image
+                src={img6}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
 
             {/*  */}
@@ -232,7 +280,11 @@ const PlyMarquee = () => {
                   <div className="ply_wood">bone</div>
                 </div>
               </div>
-              <Image src={img7} alt="ply" />
+              <Image
+                src={img7}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             <div className="ply_item bottom1">
               <div className="ply_info">
@@ -245,7 +297,11 @@ const PlyMarquee = () => {
                   <div className="ply_wood">ash</div>
                 </div>
               </div>
-              <Image src={img11} alt="ply" />
+              <Image
+                src={img11}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             {/*  */}
             <div className="ply_item top1">
@@ -259,7 +315,11 @@ const PlyMarquee = () => {
                   <div className="ply_wood">ash</div>
                 </div>
               </div>
-              <Image src={img10} alt="ply" />
+              <Image
+                src={img10}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             <div className="ply_item bottom1">
               <div className="ply_info">
@@ -272,7 +332,12 @@ const PlyMarquee = () => {
                   {/* <div className="ply_wood">true wood</div> */}
                 </div>
               </div>
-              <Image src={img4} alt="ply" />
+              <Image
+                src={img4}
+                layout="intrinsic"
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             {/*  */}
             <div className="ply_item top1">
@@ -286,7 +351,11 @@ const PlyMarquee = () => {
                   {/* <div className="ply_wood">true wood</div> */}
                 </div>
               </div>
-              <Image src={img5} alt="ply" />
+              <Image
+                src={img5}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             <div className="ply_item bottom1">
               <div className="ply_info">
@@ -299,7 +368,11 @@ const PlyMarquee = () => {
                   {/* <div className="ply_wood">true wood</div> */}
                 </div>
               </div>
-              <Image src={img17} alt="ply" />
+              <Image
+                src={img17}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             {/*  */}
             <div className="ply_item top1">
@@ -313,7 +386,11 @@ const PlyMarquee = () => {
                   {/* <div className="ply_wood">true wood</div> */}
                 </div>
               </div>
-              <Image src={img18} alt="ply" />
+              <Image
+                src={img18}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             <div className="ply_item bottom1">
               <div className="ply_info">
@@ -326,7 +403,11 @@ const PlyMarquee = () => {
                   <div className="ply_wood">smith</div>
                 </div>
               </div>
-              <Image src={img19} alt="ply" />
+              <Image
+                src={img19}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             <div className="ply_item top1">
               <div className="ply_info">
@@ -339,7 +420,11 @@ const PlyMarquee = () => {
                   <div className="ply_wood">kombi</div>
                 </div>
               </div>
-              <Image src={img3} alt="ply" />
+              <Image
+                src={img3}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             <div className="ply_item bottom1">
               <div className="ply_info">
@@ -352,7 +437,11 @@ const PlyMarquee = () => {
                   <div className="ply_wood">stone</div>
                 </div>
               </div>
-              <Image src={img14} alt="ply" />
+              <Image
+                src={img14}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             {/*  */}
             <div className="ply_item top1">
@@ -366,7 +455,11 @@ const PlyMarquee = () => {
                   <div className="ply_wood">terrazo</div>
                 </div>
               </div>
-              <Image src={img15} alt="ply" />
+              <Image
+                src={img15}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
             <div className="ply_item bottom1">
               <div className="ply_info">
@@ -379,7 +472,11 @@ const PlyMarquee = () => {
                   <div className="ply_wood">terrazo</div>
                 </div>
               </div>
-              <Image src={img16} alt="ply" />
+              <Image
+                src={img16}
+                loading="lazy" // This will lazy load images that aren't critical
+                alt="ply"
+              />
             </div>
           </div>
         </Marquee>
