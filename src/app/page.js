@@ -27,6 +27,7 @@ import Text from "@/components/TextCircular/textcircular"
 import CenteredCard from "@/components/centeredCards/page";
 const HomeBanner = dynamic(() => import("@/components/Home_page_Banner/page"));
 const HomeBanner1 = dynamic(() => import("@/components/Home_page_Banner/page2"));
+
 export default function Home() {
   const [width, setWidth] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -49,7 +50,8 @@ export default function Home() {
  // Timer to hide the preloader after 5 seconds
  useEffect(() => {
   const timer = setTimeout(() => {
-    setIsLoading(false); // Set to false after 5 seconds
+    setIsLoading(false); // Set to false after 5 second
+    // s
   }, 5000); // 5000ms = 5 seconds
 
   return () => clearTimeout(timer); // Clear the timer on cleanup
@@ -65,7 +67,7 @@ export default function Home() {
   return (
     <>
 
-      {/* <AnimatePresence
+      <AnimatePresence
        mode="wait"
        >
         {isLoading &&
@@ -73,8 +75,8 @@ export default function Home() {
             counter={isCounter}
           />
         }
-      </AnimatePresence> */}
-      {/* {width && (
+      </AnimatePresence>
+      {width && (
         <>
           {width > 575 ? (
             <HomeBanner loadImage={handleLoad} counter={handleCounter} />
@@ -82,10 +84,10 @@ export default function Home() {
             <HomeBanner1 loadImage={handleLoad} counter={handleCounter} />
           )}
         </>
-      )} */}
+      )}
       {/* FRAMES ENDED */}
       <main className="main">
-        <HeroBanner />
+        {/* <HeroBanner /> */}
         {/* <Text /> */}
         {/* <CenteredCard /> */}
         {/* <HomeSlider /> */}

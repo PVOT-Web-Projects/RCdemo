@@ -411,40 +411,6 @@ const SwiperCarousel = () => {
     <div className="containerText">
       {isCardVisible && (
         <div
-          className={`curved-text-container ${
-            isContainerTextVisible ? "" : "hidden"
-          }`}
-        >
-          <svg ref={svgRef} width="100%" height="100%" viewBox="0 0 800 400">
-            <defs>
-              <motion.path
-                ref={pathRef}
-                id="curve"
-                d={
-                  isHovered
-                    ? // M 50 330 Q 200 180 400 330 Q 600 430 750 280
-                      "M 50 290 Q 200 140 400 290 Q 600 310 750 240" // Path on hover
-                    : "M 100 400 A 300 350 0 0 1 700 400" // Path when not hovered
-                }
-                fill="transparent"
-              />
-            </defs>
-            <text>
-              <motion.textPath
-                ref={textPathRef}
-                href="#curve"
-                startOffset="50%" // Position text along the path
-                textAnchor="middle" // Center the text
-              >
-                WHERE ELEGANCE MEETS DESIRE
-                {/* drinking the acid water from the sky */}
-              </motion.textPath>
-            </text>
-          </svg>
-        </div>
-      )}
-      {isCardVisible && (
-        <div
           className={`card-containerOne ${isCardVisible ? "visible" : ""}`}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -455,7 +421,6 @@ const SwiperCarousel = () => {
                 src="https://interiormaataassets.humbeestudio.xyz/KitchenImgThumb.png"
                 alt="Person"
                 ref={imageRef}
-                // onClick={() => handleExploreClick(imageRef)}
               />
             </div>
           </motion.div>
